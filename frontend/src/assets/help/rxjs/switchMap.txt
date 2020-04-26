@@ -1,0 +1,5 @@
+const clicks$ = fromEvent(document, 'click');
+const innerObservable$ = interval(1000);
+
+this.subscription = clicks$.pipe(switchMap(event => innerObservable$))
+						   .subscribe(val => this.htmlConsole(val));

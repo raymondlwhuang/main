@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+    background-color: #EEEEEE;
+    padding-top: 30px;
+}
+.detail{
+    display: inline-block;
+    max-width: 900px;
+    text-align: left;
+}
+h3 {
+    padding-left: 30px;
+    font-weight: 700;
+}
+p{
+    padding-left: 30px;
+}

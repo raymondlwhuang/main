@@ -1,0 +1,25 @@
+<p class="desc">
+    <svg height="5" width="100">
+    <line x1="0" y1="0" x2="100" y2="0" style="stroke:#000;stroke-width:5" />
+    Sorry, your browser does not support inline SVG.
+  </svg><strong>&nbsp;&nbsp;&nbsp;My project world&nbsp;&nbsp;&nbsp;</strong>
+  <svg height="5" width="100">
+    <line x1="0" y1="0" x2="100" y2="0" style="stroke:#000;stroke-width:5" />
+    Sorry, your browser does not support inline SVG.
+  </svg>
+</p>
+<div appMediaQueryFlexbox [justifyContent]="'center'" [flexDirection]="'column'" class="img-container">
+    <a class="my-github" href="https://github.com/raymondlwhuang" target="_blank">
+        <svg class="bi bi-forward-fill" width="5em" height="5em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.77 14.11l4.012-2.953a.647.647 0 000-1.114L11.771 7.09a.644.644 0 00-.971.557V8.65H4v3.9h6.8v1.003c0 .505.545.808.97.557z"></path>
+        </svg>        
+        Get into my coding path
+    </a>
+    <div class="images" *ngFor="let image of portfolios" (deferLoad)="image.show = true">
+        <ng-container *ngIf="image.show">
+        <a href="{{image.website}}" target="_blank">
+          <img src={{image.url}}>
+        </a>
+        </ng-container>
+    </div>
+</div>

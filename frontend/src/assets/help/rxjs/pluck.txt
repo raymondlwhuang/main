@@ -1,0 +1,3 @@
+const clicks = fromEvent(document, 'click');
+const tagNames = clicks.pipe(pluck('target', 'tagName'),shareReplay());
+this.subscription = tagNames.subscribe(x => this.htmlConsole(x));

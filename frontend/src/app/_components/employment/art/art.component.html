@@ -1,0 +1,19 @@
+<div class="section-container">
+<p class="what-i-did">
+    <svg height="5" width="100">
+    <line x1="0" y1="0" x2="100" y2="0" style="stroke:#000;stroke-width:5" />
+    Sorry, your browser does not support inline SVG.
+  </svg><strong>&nbsp;&nbsp;&nbsp;Art is my favorite&nbsp;&nbsp;&nbsp;</strong>
+  <svg height="5" width="100">
+    <line x1="0" y1="0" x2="100" y2="0" style="stroke:#000;stroke-width:5" />
+    Sorry, your browser does not support inline SVG.
+  </svg>
+</p>
+<div appMediaQueryFlexbox [justifyContent]="'center'" [changeOnSzie]="662">
+    <div appFlexItem [flexBasis]="300" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
+        <ng-container *ngIf="image.show">
+          <img src={{image.url}}>
+        </ng-container>
+    </div>
+</div>
+</div>

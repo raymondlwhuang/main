@@ -1,0 +1,23 @@
+as HTMLCollectionOf<HTMLElement>
+(ele:HTMLElement)=>ele.style.color="red"
+pipe(take(1)).subscribe;
+pipe(shareReplay()).subscribe //stop Subject Subscription is triggered twice
+{{today | date: 'hh:mm:ss'}}
+document.querySelectorAll('.'+className);
+this.renderer.setStyle(this.elmRef.nativeElement, 'border-radius', this.appRoundBlock);
+html Select, Set focus to element not working the same way as mat-select
+https://angular.io/api/forms/SelectControlValueAccessor
+this.http.get("app/files/1.txt", { responseType: 'text' as 'json'})
+<div *ngFor="let pony of ponies; index as idx">
+<form (ngSubmit)="updateCourse(updateForm)" #updateForm="ngForm">
+//add this to the main.js if you want to remove service workers
+navigator.serviceWorker.getRegistrations().then(
+
+  function(registrations) {
+
+      for(let registration of registrations) {  
+          registration.unregister();
+
+      }
+
+});

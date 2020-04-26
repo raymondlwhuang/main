@@ -1,0 +1,9 @@
+<div *ngIf="user" class="show-container">
+    <textarea name="" id="" rows="1" readonly>
+        @Input()  user: User;
+    </textarea>
+    <p>First Name: {{user.firstName}}  </p>
+    <p>Last Name: {{user.lastName}} </p>
+    <p>Email address:{{user.email}}  </p>
+    <p>Year activated: {{user.yearsActive}} </p>
+</div>

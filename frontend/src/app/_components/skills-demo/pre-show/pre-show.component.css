@@ -1,0 +1,39 @@
+/* for state management*/
+input {
+    min-width: 200px;
+}
+#show-hide{
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    width: 50px;
+    height: 30px;
+    overflow: hidden;
+    z-index: 1;
+}
+#show-hide.expend {
+    width: calc(100% - 20px);
+    height: initial;
+    overflow: initial;
+}
+#show-hide-sign{
+    position: static;
+    transform: rotate(180deg);
+}
+#show-hide-sign.expend{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transform: none;
+}
+.mat-tab-body-wrapper{
+    height: 100%;
+}
+.hide {
+    display: none;
+}
+.delete {
+    float: right;
+    cursor: pointer;
+}
+/* for state management*/

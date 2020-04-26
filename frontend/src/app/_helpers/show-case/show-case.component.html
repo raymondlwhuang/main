@@ -1,0 +1,27 @@
+<div class="section-container">
+    <h3>
+    <span *ngIf="!inputHolder.imagesList || inputHolder.imagesList==''">{{message}}</span>
+    <span *ngIf="inputHolder.imagesList && inputHolder.imagesList!=''">Change Detection Stratergy</span>
+    </h3>
+    <!-- <div>{{today | date : "h:m:s"}}</div> -->
+    <div appMediaQueryFlexbox>
+        <button appFlexItem [flexBasis]="100" *ngIf="outputText!=''"  id="show-code" mat-raised-button color="primary" (click)="showCode()">Show Code</button>
+        <button appFlexItem [flexBasis]="100" *ngIf="outputText!='' && !show && inputHolder.group=='Rxjs'"  id="fire-case" mat-raised-button color="primary" (click)="rxjsCase(inputHolder.name)">Subscribe</button>
+        <div appFlexItem [flex]="'1'" id="fire-case-output"></div>    
+    </div>
+    <div *ngIf="flag=='promise' &&inputHolder.group=='function'" id="show-log" class="hide-log">
+        <button mat-raised-button color="primary" (click)="MyDecision()">Do my job!</button>
+        <button  mat-raised-button color="primary" (click)="MyDecision(true)">I am tired!</button>
+        
+        <div id="log"></div>
+      </div>  
+  
+    <div *ngIf="inputHolder.output"><span [innerHTML]="inputHolder.output | keepHtml"></span></div>
+    <div id="output">
+        <textarea name="" rows="10" readonly>{{outputText}}</textarea>               
+    </div>        
+    <div class="slider" *ngIf="inputHolder.imagesList && inputHolder.imagesList!=''">
+        <img src={{inputHolder.imagesList}}>
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+        const intervalOne$ = interval(1000);
+        const intervalTwo$ = interval(2000);
+        
+        this.subscription = combineLatest(
+                                intervalOne$,
+                                intervalTwo$ 
+                            ).subscribe(all => this.htmlConsole(all));

@@ -1,0 +1,7 @@
+const click$ = fromEvent(document, 'click');
+
+  this.subscription = click$
+	  .pipe(
+		mergeMap((e: MouseEvent) =>of({location : 'Cursor location x: ' + e.clientX + 'y: ' + e.clientY }))
+	  )
+	  .subscribe(r => this.htmlConsole(r.location));

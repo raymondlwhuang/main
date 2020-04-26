@@ -1,0 +1,12 @@
+<div class="demo-container mat-typography">
+    <p>Angular detects changes fired every time by default, to improved page performance we could use change detection strategy: OnPush.</p>
+    <p>But with this strategy, we needed to remember that the template of the component will only be checked in 2 cases</p>
+    <ul>
+        <li>one of the inputs of the component changed (to be more accurate, when the <em>reference</em> of one of the inputs changes);</li>
+        <li>an event handler of the component was triggered.</li>
+    </ul>    
+</div>
+<div *ngFor="let image of imagesList; index as idx">
+    <app-show-case *ngIf="idx==0" [inputHolder]="inputHolder"></app-show-case>
+</div>
+

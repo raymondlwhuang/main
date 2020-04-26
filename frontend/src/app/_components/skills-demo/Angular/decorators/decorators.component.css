@@ -1,0 +1,12 @@
+::ng-deep textarea {
+    width: 100%;
+    /*overflow: hidden;*/
+    resize: none;    
+}
+h3 {
+    text-align: center;
+}
+button {
+    align-self: flex-start;
+    margin-right: 5px;
+}

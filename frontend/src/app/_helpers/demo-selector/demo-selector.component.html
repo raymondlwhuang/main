@@ -1,0 +1,40 @@
+<div class="demo-container">
+    <div appMediaQueryFlexbox>
+        <div appFlexItem appHoverItem [flexBasis]="200">
+            <mat-form-field>
+                <mat-label>Your selection</mat-label>
+                <mat-select  (selectionChange)="renderNewResult($event)">
+                    <mat-option *ngFor="let demo of demos" [value]="demo.name">
+                    {{demo.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>    
+        </div>
+        <div  appFlexItem id="code-snip">
+        </div>
+    </div>
+    <div [ngSwitch]="true">
+        <div *ngSwitchCase="flag == 'Input' || flag =='Output' || flag =='ViewChild'">
+            <div appMediaQueryFlexbox>
+                <button mat-raised-button color="primary" appFlexItem [flexBasis]="100" (click)="startClock(!indicator,userListComponent)">{{buttonMsg}}</button>
+                <app-user-list appFlexItem [parentClick]="parentClick" (onSelect)="onSelect($event)"></app-user-list>
+            </div>
+            <app-user  [user]="user"></app-user>
+            <app-user-applications  [user]="user"></app-user-applications>
+        </div>
+        <div *ngSwitchCase="flag == 'ViewChildren'">
+            <button mat-raised-button color="primary" (click)="changeMessage(0)">{{viewChildrenButton[0]}}</button>
+            <button mat-raised-button color="primary" (click)="changeMessage(1)">{{viewChildrenButton[1]}}</button>
+            <button mat-raised-button color="primary" (click)="changeMessage(2)">{{viewChildrenButton[2]}}</button>
+            <app-show-case [inputHolder]="inputHolder"></app-show-case>
+            <app-show-case [inputHolder]="inputHolder"></app-show-case>
+            <app-show-case [inputHolder]="inputHolder"></app-show-case>
+        </div>
+        <div *ngSwitchDefault>
+            <!-- <button mat-raised-button color="primary" (click)="startClock(!indicator,showCaseComponent)">{{buttonMsg}}</button> -->
+
+            <app-show-case [inputHolder]="inputHolder"></app-show-case>
+        </div>
+    </div>
+
+</div>

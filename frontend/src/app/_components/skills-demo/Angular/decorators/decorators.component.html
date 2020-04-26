@@ -1,0 +1,43 @@
+<mat-tab-group>
+    <mat-tab> 
+        <ng-template mat-tab-label>
+            <span [ngClass]="'sub-menu-tab'">Build in Decorators</span>
+        </ng-template>
+
+        <app-demo-selector [group]="'decorator'"></app-demo-selector>
+    </mat-tab>
+    <mat-tab> 
+        <ng-template mat-tab-label>
+            <span [ngClass]="'sub-menu-tab'">Create a Custome Decorators</span>
+        </ng-template>
+        <div class="demo-container">
+            <p>Purpose of decorator in Angular is to attach metadata to a class</p>
+            <p>A metadata is simply a merge result of defaults with the specified properties.</p>
+            <p>Type of decorators: Class, Member, properties,accessors,parmeters</p>
+            <h3>An example of custom 'Class' decorator</h3>
+            <textarea rows="20" readonly>
+                export function AutoUnsubscribe(obs$ = []) {
+                    return function(constructor: any) {
+                        const orig = constructor.prototype.ngOnDestroy
+                        constructor.prototype.ngOnDestroy = function() {
+                            for(const prop in this) {
+                                const property = this[prop]
+                                if(typeof property.unsubscribe === "function" && !obs$.includes(property))
+                                    obs$.push(property)
+                            }
+                            for(const ob$ of obs$) {
+                                ob$.unsubscribe()
+                                console.log('unsubscrib fired in: ' + constructor.name);
+                            }
+                            orig.apply()
+                        }
+                    }
+                }
+                @AutoUnsubscribe()
+                export class ChangeDetectionComponent implements OnInit, OnDestroy {
+                    .........
+                }
+            </textarea>
+        </div>
+    </mat-tab>
+</mat-tab-group> 

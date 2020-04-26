@@ -1,0 +1,28 @@
+.desc {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.img-container{
+    padding-bottom: 50px;
+}
+ .images{
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #ccc;
+
+ }
+ .my-github {
+     font-size: 18px;
+     font-weight: 700;
+     text-decoration: none;
+ }
+ .my-github svg {
+     display: inline;
+     vertical-align: middle;
+ }
+ @media all and (max-width: 599px) {
+    .desc svg {
+        display: none;
+    }
+ }

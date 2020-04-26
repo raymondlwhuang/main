@@ -3,8 +3,10 @@ const app = express();
 
 const moogoose = require('./database/mongoose');
 
-const List = require('./database/models/list')
-const Task = require('./database/models/task')
+const List = require('./database/models/list');
+const Task = require('./database/models/task');
+const Course = require('./database/models/course');
+const Demo = require('./database/models/demo');
 
 /*
 
@@ -94,4 +96,77 @@ app.delete('/lists/:listId/tasks/:taskId',(req,res)=>{
         .then(task => res.send(task))
         .catch((error)=>console.log(error));
 });
+// Course
+app.get('/api/courses',(req,res)=>{
+    Course.find({})
+        .then(courses => res.send(courses))
+        .catch((error)=>console.log(error));
+}); 
+
+app.get('/api/courses/:courseId',(req,res)=>{
+    Course.find({id: req.params.courseId})
+        .then(course => res.send(course))
+        .catch((error)=>console.log(error));
+}); 
+
+app.post('/api/courses',(req,res)=>{
+    Course.create({'id': req.body.id,'name': req.body.name,'description': req.body.description})
+    .then((course)=>res.send(course))
+    .catch((error)=>console.log(error));
+});
+
+app.patch('/api/courses/:courseId',(req,res)=>{
+    Course.findOneAndUpdate({id: req.params.courseId},{$set:req.body})
+        .then(course => res.send(course))
+        .catch((error)=>console.log(error));
+});
+
+app.delete('/api/courses/:courseId',(req,res)=>{
+    Course.findOneAndDelete({_id: req.params.courseId})
+        .then(course => res.send(course))
+        .catch((error)=>console.log(error));
+});
+app.delete('/api/courses',(req,res)=>{
+    Course.deleteMany({})
+    .then(course => res.send(course))
+    .catch((error)=>console.log(error));
+
+})
+/* demos */
+app.get('/api/demos',(req,res)=>{
+    Demo.find({})
+        .then(demos => res.send(demos))
+        .catch((error)=>console.log(error));
+}); 
+app.get('/api/demos/:demosId',(req,res)=>{
+    Demo.find({_id: req.params.demosId})
+        .then(demo => res.send(demo))
+        .catch((error)=>console.log(error));
+}); 
+
+app.post('/api/demos',(req,res)=>{
+    Demo.create({
+        'group': req.body.group,
+        'name': req.body.name,
+        'snip': req.body.snip,
+        'helpPath':req.body.helpPath,
+        'output' : req.body.output,
+        'indicator': req.body.indicator
+    })
+    .then((demo)=>res.send(demo))
+    .catch((error)=>console.log(error));
+});
+
+app.patch('/api/demos/:demosId',(req,res)=>{
+    Demo.findOneAndUpdate({_id: req.params.demosId},{$set:req.body})
+        .then(demo => res.send(demo))
+        .catch((error)=>console.log(error));
+});
+
+app.delete('/api/demos/:demosId',(req,res)=>{
+    Demo.findOneAndDelete({_id: req.params.demosId})
+        .then(demo => res.send(demo))
+        .catch((error)=>console.log(error));
+});
+
 app.listen(3000, ()=> console.log('Server is Connected on port 3000'));

@@ -1,0 +1,15 @@
+<textarea name="" id="" rows="1" readonly>
+    @Output() onSelect: EventEmitter<User>  = new EventEmitter;
+</textarea>
+
+<div>
+    <p>{{today | date: 'hh:mm:ss'}}</p>
+    <p>{{message}}</p>
+    <p> 
+        Select a User for input/output show:
+        <select #selectRef [(ngModel)]="selectedOption" (change)="renderNewResult()">
+            <option *ngFor="let user of users" [ngValue]="user">{{user.firstName}}</option>
+        </select>
+    </p>
+    
+</div>

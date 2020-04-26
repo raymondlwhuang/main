@@ -1,0 +1,29 @@
+<div class="main">
+  <app-main-nav [parentClick]= "parentClick">
+    <mat-toolbar appMediaQueryFlexbox [mobileDisplay]="'none'" class="nav-bar" color="primary">
+
+      <div>
+        <button mat-button routerLink="/home" routerLinkActive="active"><mat-icon>home</mat-icon></button>
+        <button mat-button routerLink="/portfolio" routerLinkActive="active">PORTFOLIO</button>
+        <button mat-button routerLink="/others" routerLinkActive="active">OTHERS</button>
+        <button mat-button routerLinkActive="active" [matMenuTriggerFor]="afterMenu">LIBRARY</button>
+        <mat-menu class="submenu" #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item routerLink="/library/Angular" >Angular</button>
+          <button mat-menu-item routerLink="/library/Rxjs" >Rxjs in Angular</button>
+          <button mat-menu-item routerLink="/library/javaScript">Javascript</button>
+          <button mat-menu-item routerLink="/library/jQuery" >JQuery</button>
+        </mat-menu>
+
+        <button mat-button routerLink="/login" routerLinkActive="active">PRIVATE</button>
+        <button mat-button *ngIf="(isLoggedIn | async)" id="logout" (click)="logout()">LOGOUT</button>
+    
+      </div>
+      <a  mat-button href="https://github.com/raymondlwhuang/home" target="_blank">Source</a>
+      
+    </mat-toolbar>  
+</app-main-nav>
+</div>
+<div class="router-container" (click)="closeSideNav()">
+  <router-outlet></router-outlet>
+</div>
+<footer>Make with Angular</footer>

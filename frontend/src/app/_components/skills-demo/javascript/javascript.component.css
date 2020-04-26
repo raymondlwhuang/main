@@ -1,0 +1,25 @@
+.main div {
+    padding: 10px;
+}
+.main div a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+h2 {
+    text-align: center;
+}
+li {
+    list-style-type: initial;
+    list-style-position: inside;
+}
+textarea {
+    min-width: 280px;
+    width: auto;
+    flex-grow: 1;
+    margin: 5px;
+}
+@media all and (max-width: 599px) {
+    textarea {
+        width:100%;
+    }
+}

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+img {
+    max-width: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.add-border {
+    border: solid 1px;
+    padding:2px;
+}
+.demo-container {
+    margin: 10px;
+    border: solid;
+    padding: 5px;
+}
+.section-container {
+    margin: 10px;
+    padding: 5px;
+}
+.item-mouse-over {
+    background-color: lightgoldenrodyellow;
+}
+.sub-menu-tab {
+    background-color: #3F51B5;
+    color: #fff;
+    padding: 5px;
+    border: outset 5px;
+    box-sizing: border-box;
+}
+#output textarea{
+    width: 100%;
+}
+.router-container{
+    height: 100%;
+}
+@media all and (max-width : 599px){
+    textarea {
+        width: 100%;;
+    }
+}

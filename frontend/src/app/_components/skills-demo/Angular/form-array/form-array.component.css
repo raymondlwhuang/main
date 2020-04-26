@@ -1,0 +1,43 @@
+.error{
+    color: red;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .pad{
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .form-container>div {
+    flex: 0 50%;
+    margin-top: 5px;
+    box-sizing:border-box
+  }
+  figure {
+      border: solid 1px;
+      padding: 5px;
+  }
+  figcaption {
+      text-align: center;
+      background-color: lightgray;
+  }
+  .works .form-control {
+      width: auto;
+  }
+  .add-box {
+    width: 80%;
+    margin-right: 35px;
+   }
+  textarea {
+      width: 100%;
+  }
+  @media all and (max-width: 599px) {
+    h3 {
+      font-size: initial;
+    }
+  }

@@ -1,0 +1,92 @@
+<mat-tab-group>
+    <mat-tab label="CSS"> 
+        <app-css></app-css>
+    </mat-tab>
+    <mat-tab label="Old state management"> 
+        <div class="demo-container form-group">
+            <div id="show-hide">
+              <div id="show-hide-sign">
+                <mat-icon color="accent" (click)="showHide(0)">unarchive</mat-icon>
+                <mat-icon color="accent" (click)="showHide(1)">unarchive</mat-icon>
+              </div>
+            <textarea id="new" rows="15" class="hide">
+            Model: export interface User {...}
+            State: export interface UserState {...}
+                   export const initialUserState = (): UserState =>{
+                     return {Users: Array<User>(),UserError: null};
+                   }
+            Action: export const getToDoAction = createAction('[User] - Get User');
+                    export const createToDoAction = createAction('[User] - Create User',props<User>());
+            Reducer:export const iniUserState = initialUserState();
+            
+                    export const userReducer = createReducer(
+                        iniUserState,
+                        on(UserActions.getUserAction,state=>state),
+                        on(UserActions.createUserAction,(state: UserState ,user : User)=>{
+                            return {...state,Users:[...state.Users,user],UserError:null};
+                        }),
+                        on(UserActions.successGetUserAction,(state: UserState ,{payload})=>{
+                            return {...state,Users : payload};
+                        }),
+                        on(UserActions.successCreateUserAction,(state: UserState ,{payload})=>{
+                            return {...state,Users:[...state.Users,payload],UserError:null};
+                        }),
+                        on(UserActions.errorUserAction,(state: UserState,error:Error)=>{
+                            return {...state,UserError:error};
+                        })
+                    );
+            
+                    export function UserReducer (state: UserState | undefined,action:Action){
+                        return userReducer(state,action);
+                    }
+            Component:  constructor(private store : Store <{users : UserState}>) {
+                                        this.user$ = this.store.pipe(select('users'));
+                                      }
+            
+                          ngOnInit() {
+                            this.userSubscription = this.user$.pipe(
+                              map(data=>{
+                                this.userList = data.Users;
+                                this.userError = data.UserError;
+                              })
+                            ).subscribe();
+                            this.store.dispatch(UserActions.beginGetUserAction());
+                          } 
+            Register(store and effect):     StoreModule.forRoot({users : UserReducer}),
+                                              EffectsModule.forRoot([UserEffects])
+            </textarea>
+            <textarea id="old" rows="15" class="hide">
+            this is the old way
+            </textarea>
+            </div>
+                <form (ngSubmit)="createUser()">
+                  <div appMediaQueryFlexbox>
+                    <div appMediaQueryFlexbox >
+                        <div>
+                          <input [(ngModel)]="email" placeholder="Enter your Email" class="form-control" name="email" />
+                        </div>
+                        <div>
+                          <input [(ngModel)]="firstName" placeholder="Enter your First Name" class="form-control" name="firstName" />
+                        </div>
+                        <div>
+                          <input [(ngModel)]="lastName" placeholder="Enter your Last Name" class="form-control" name="lastName" />
+                        </div>
+                        <div>
+                          <input [(ngModel)]="yearsActive" placeholder="Years Activatived" class="form-control" name="yearsActive" type="number" min ="0" max="100" />
+                        </div>
+                    </div>  
+                    <div class="col-md-2">
+                      <button type="submit" class="btn btn-primary" style="Width:70px;"> Add </button>
+                    </div>
+                  </div>
+                </form>
+            </div>    
+            
+            <ng-container *ngFor="let user of userList">
+                <div class="demo-container">
+                    <p>Email: {{ user.email }}, First Name:  {{ user.firstName }}, Last Name:  {{ user.lastName }}, Year Activated:  {{ user.yearsActive }}<mat-icon class="delete" color="accent" (click)="deleteUser(user)">delete</mat-icon></p>
+                </div>
+            </ng-container>
+                    
+    </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,4 @@
+this.subscription = fromEvent(document, 'scroll')
+	.pipe(map(e => window.pageYOffset),pairwise())
+	.subscribe(pair => this.htmlConsole("Coordinate: (previouse,current) = " + pair.toString()));
+   

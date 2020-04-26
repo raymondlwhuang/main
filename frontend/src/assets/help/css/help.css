@@ -1,0 +1,6 @@
+button {
+    align-self: flex-start; /*Prevent a flex items height from expanding to match other flex items*/
+}
+How to make flexbox items the same size?
+Set them so that their flex-basis is 0 (so all elements have the same starting point), and allow them to grow:
+flex: 1 1 0px

@@ -1,0 +1,87 @@
+<div class="main mat-typography">
+  <h3>My frequently used JavaScript method for object and array</h3>
+  <p>Data structure</p>
+  <div class="select-wrapper">
+    <textarea  readonly placeholder="This is the basic structure of the data" rows="8">
+      This is the basic structure of the data:
+
+      [
+        {
+          "index": 0,"isActive": false,"age": 36,"eyeColor": "green",
+          "name": {"first": "Bolton","last": "Estes"},
+          "company": "STUCCO","email": "bolton.estes@stucco.name",
+        }    
+      ]
+
+    </textarea>
+    <mat-form-field>
+      <mat-label>Your selection</mat-label>
+      <mat-select (selectionChange)="renderNewResult($event)">
+        <mat-option *ngFor="let funct of functions" [value]="funct.value">
+          {{funct.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    
+</div>
+
+<div id="code-snip">
+</div>
+
+</div>   
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name.first">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name.first}} </td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="name.last">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name.last}} </td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="isActive">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> isActive </th>
+    <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="company">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> company </th>
+    <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="eyeColor">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> eyeColor </th>
+    <td mat-cell *matCellDef="let element"> {{element.eyeColor}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

@@ -1,0 +1,8 @@
+	const timer1 = timer(3000).pipe(mapTo('this is timer 1'));
+	const timer2 = timer(1000).pipe(mapTo('this is timer 2'));
+     
+	this.subscription = forkJoin(timer1$,timer2$).subscribe(
+		value => this.htmlConsole(value),
+		err=>{},
+		()=>this.htmlConsole('...and it is done!')
+	)

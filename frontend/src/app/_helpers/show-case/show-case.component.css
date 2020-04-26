@@ -1,0 +1,16 @@
+#output {
+    display: none;
+}
+textarea {
+    margin-top: 10px;
+}
+.slider {
+    text-align: center;
+}
+.slider img {
+    max-width: 100%;
+    width: 500px;
+}
+button {
+    margin: 5px;
+}

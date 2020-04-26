@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import { StateManagementComponent } from '../state-management/state-management.component';
+import { StateManagementComponent } from './state-management.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CourseReducer } from 'src/app/_store/reducers/course.reducer';

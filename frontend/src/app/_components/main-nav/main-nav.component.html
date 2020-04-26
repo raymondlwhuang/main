@@ -11,11 +11,12 @@
         <a mat-list-item routerLink="/others" (click) = "opened = false" routerLinkActive="active">OTHERS</a>
         <a mat-list-item routerLinkActive="active"[matMenuTriggerFor]="afterMenu">LIBRARY</a>
         <mat-menu class="submenu" #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item routerLink="/library/Angular" (click) = "opened = false" >Angular</button>
+          <button mat-menu-item routerLink="/library/Rxjs" (click) = "opened = false" >Rxjs</button>
           <button mat-menu-item routerLink="/library/javaScript" (click) = "opened = false">Javascript</button>
           <button mat-menu-item routerLink="/library/jQuery" (click) = "opened = false" >JQuery</button>
-          <button mat-menu-item routerLink="/library/Angular" (click) = "opened = false" >Angular</button>
-          <button mat-menu-item routerLink="/library/Rxjs" (click) = "opened = false" >Angular</button>
         </mat-menu>
+        <a mat-list-item routerLink="/assets" (click) = "opened = false" routerLinkActive="active">LIBRARY ASSETS</a>
 
         <a mat-list-item *ngIf="!(isLoggedIn | async)" routerLink="/login" (click) = "opened = false"  routerLinkActive="active">PRIVATE</a>
         <a mat-list-item *ngIf="(isLoggedIn | async)" id="logout" (click)="logout()">LOGOUT</a>

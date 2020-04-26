@@ -23,6 +23,10 @@ const DemoSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    accepted : {
+        type: Boolean,
+        default: false
+    }
 });
 
 const Demo = mongoose.model('Demo',DemoSchema);

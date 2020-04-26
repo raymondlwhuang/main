@@ -24,29 +24,29 @@ import { environment } from '../environments/environment';
 import { APP_BASE_HREF } from '@angular/common';
 import { ArtComponent } from './_components/employment/art/art.component';
 import { EducationComponent } from './_components/employment/education/education.component';
-import { JavascriptComponent } from './_components/skills-demo/javascript/javascript.component';
-import { JqueryComponent } from './_components/skills-demo/jquery/jquery.component';
+import { JavascriptComponent } from './_components/library/javascript/javascript.component';
+import { JqueryComponent } from './_components/library/jquery/jquery.component';
 import { PortfolioComponent } from './_components/employment/portfolio/portfolio.component';
-import { LoginComponent } from './_components/skills-demo/login/login.component';
-import { CssComponent } from './_components/skills-demo/css/css.component';
-import { RxjsComponent } from './_components/skills-demo/rxjs/rxjs.component';
-import { PreShowComponent } from './_components/skills-demo/pre-show/pre-show.component';
-import { FrequentUsedjsComponent } from './_components/skills-demo/javascript/frequent-usedjs/frequent-usedjs.component';
-import { FunctionComponent } from './_components/skills-demo/javascript/function/function.component';
-import { DecoratorsComponent } from './_components/skills-demo/Angular/decorators/decorators.component';
-import { ChangeDetectionComponent } from './_components/skills-demo/Angular/change-detection/change-detection.component';
-import { DecoratorsModule } from './_components/skills-demo/Angular/decorators/decorators.module';
+import { LoginComponent } from './_components/library/login/login.component';
+import { CssComponent } from './_components/library/css/css.component';
+import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
+import { PreShowComponent } from './_components/library/pre-show/pre-show.component';
+import { FrequentUsedjsComponent } from './_components/library/javascript/frequent-usedjs/frequent-usedjs.component';
+import { FunctionComponent } from './_components/library/javascript/function/function.component';
+import { DecoratorsComponent } from './_components/library/Angular/decorators/decorators.component';
+import { ChangeDetectionComponent } from './_components/library/Angular/change-detection/change-detection.component';
+import { DecoratorsModule } from './_components/library/Angular/decorators/decorators.module';
 import { MediaQueryFlexboxDirective } from './_directives/media-query-flexbox.directive';
 import { FlexItemDirective } from './_directives/flex-item.directive';
-import { FormArrayComponent } from './_components/skills-demo/Angular/form-array/form-array.component';
+import { FormArrayComponent } from './_components/library/Angular/form-array/form-array.component';
 import { SnackBarComponent } from './_components/snack-bar/snack-bar.component';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { HoverItemDirective } from './_directives/hover-item.directive';
-import { AngularComponent } from './_components/skills-demo/Angular/angular.component';
-import { AngOthersComponent } from './_components/skills-demo/Angular/ang-others/ang-others.component';
+import { AngularComponent } from './_components/library/Angular/angular.component';
+import { AngOthersComponent } from './_components/library/Angular/ang-others/ang-others.component';
 import { DemoSelectorComponent } from './_helpers/demo-selector/demo-selector.component';
 import { ShowCaseComponent } from './_helpers/show-case/show-case.component';
-import { DomComponent } from './_components/skills-demo/javascript/dom/dom.component';
+import { DomComponent } from './_components/library/javascript/dom/dom.component';
 import { EscapeHtmlPipe } from './_pipes/keep-html.pipe';
 import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './_store/reducers/user.reducer';
@@ -55,7 +55,9 @@ import { UserEffects } from './_store/effects/user.effect';
 import { CourseReducer } from './_store/reducers/course.reducer';
 import { CourseEffects } from './_store/effects/course.effect';
 import { CourseResolver } from './_store/resolvers/course.resolver';
-import { StateManagementModule } from './_components/skills-demo/Angular/state-management/state-management.module';
+import { StateManagementModule } from './_components/library/Angular/state-management/state-management.module';
+import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
+import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { StateManagementModule } from './_components/skills-demo/Angular/state-m
     AngOthersComponent,
     DemoSelectorComponent,
     DomComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    LibraryAssetsComponent,
+    AssetsEntryComponent
   ],
   imports: [
     BrowserModule,

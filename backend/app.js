@@ -162,6 +162,11 @@ app.patch('/api/demos/:demosId',(req,res)=>{
         .then(demo => res.send(demo))
         .catch((error)=>console.log(error));
 });
+app.patch('/api/demos',(req,res)=>{
+    Demo.updateMany({accepted : true})
+        .then(demo => res.send(demo))
+        .catch((error)=>console.log(error));
+});
 
 app.delete('/api/demos/:demosId',(req,res)=>{
     Demo.findOneAndDelete({_id: req.params.demosId})

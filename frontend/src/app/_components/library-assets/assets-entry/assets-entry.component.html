@@ -1,83 +1,62 @@
 <div class="demo-container">
     <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit()">
-        <h3>FormGroup,FormArray,FormArray of FormGroup</h3>
         <figure>
-            <figcaption>Basic Information</figcaption>
             <div appMediaQueryFlexbox >
                 <div>
-                <input type="text" formControlName="name"  placeholder="Name" class="form-control" required>
-                <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
-        
+                    <input type="text" formControlName="name"  placeholder="Name" class="form-control" required>
+                    <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
                 </div>
                 <div>
-                <input type="text" formControlName="phone" placeholder="Phone Number" class="form-control" required>
-                <label *ngIf="submitted && formInput.phone.errors" [ngClass] = "'error'"> Phone number is required </label>
+                    <input type="text" formControlName="group" placeholder="Group" class="form-control" required>
+                    <label *ngIf="submitted && formInput.group.errors" [ngClass] = "'error'"> Group is required </label>
+                </div>
+                <div>
+                    <input type="text" formControlName="helpPath" placeholder="Path to Help File" class="form-control">
+                </div>
+                <div>
+                    <input type="number" formControlName="indicator" placeholder="indicator" class="form-control">
                 </div>
             </div>
     
         </figure>
-        <figure>
-            <figcaption>Location</figcaption>
-        <div formGroupName = "location" appMediaQueryFlexbox>
-          <div>
-            <input type="text" formControlName="address" placeholder="Address" class="form-control" required>
-            <label *ngIf="submitted && formInput.location.value.address ==''" [ngClass] = "'error'"> Address is required </label>
-          </div>
-          <div>
-            <input type="text" formControlName="postalCode" placeholder="Postal Code" class="form-control" required>
-            <label *ngIf="submitted && formInput.location.value.postalCode==''" [ngClass] = "'error'"> Postal Code is required </label>
-          </div>
-          <div>
-            <input type="text" formControlName="city" placeholder="City" class="form-control" required>
-            <label *ngIf="submitted && formInput.location.value.city==''" [ngClass] = "'error'"> City is required </label>
-          </div>
-          <div>
-            <input type="text" formControlName="countryCode" placeholder="Country Code" class="form-control" required>
-            <label *ngIf="submitted && formInput.location.value.countryCode==''" [ngClass] = "'error'"> Country Code is required </label>
-          </div>
-          <div>
-            <input type="text" formControlName="region" placeholder="Region" class="form-control" required>
-            <label *ngIf="submitted && formInput.location.value.region==''" [ngClass] = "'error'"> Region is required </label>
-          </div>
-        </div> 
-        </figure>
-        <button type="button" (click)="addHighlightField()" class="btn btn-success" class="btn btn-success">Add More highlights</button>
-        <figure>
-            <figcaption>Highlights</figcaption>
-            <div formArrayName="highlights" appMediaQueryFlexbox>
-            <div *ngFor="let highlight of highlights.controls; index as idx" class="form-group" appMediaQueryFlexbox>
-                <div>
-                    <input tpe="text" [formControlName]="idx" placeholder="Highlight" class="form-control">
-                </div>
-                <div>
-                    <button (click)="deleteHighlightField(idx,$event)" class="btn btn-danger">Delete</button>
-                </div>
+        <div appMediaQueryFlexbox >
+            <div appFlexItem>
+                <figure>
+                    <figcaption>Snips</figcaption>
+                    <div formArrayName="snips" appMediaQueryFlexbox>
+                        <div *ngFor="let snip of snips.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                            <div>
+                                <input tpe="text" [formControlName]="idx" placeholder="Snip" class="form-control">
+                            </div>
+                            <div>
+                                <mat-icon (click)="addSnipField()">add_circle</mat-icon>
+                                <mat-icon (click)="deleteSnipField(idx,$event)">delete_forever</mat-icon>
+                            </div>
+                        </div>
+                    </div> 
+                </figure>
             </div>
-            </div> 
-        </figure>
-        <button type="button" (click)="addWork()" class="btn btn-success" class="btn btn-success">Add More works</button>
-        <figure>
-            <figcaption>Works</figcaption>
+            <div appFlexItem>
+                <figure>
+                    <figcaption>Outputs</figcaption>
+                    <div formArrayName="outputs" class="outputs" appMediaQueryFlexbox>
+                        <div *ngFor="let item of outputs.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                            <div [formGroupName]="idx" appMediaQueryFlexbox>
+                                <input type="text" formControlName="output" placeholder="Output" class="form-control">
+                            </div>
+                            <div>
+                                <mat-icon (click)="addOutput()">add_circle</mat-icon>
+                                <mat-icon (click)="deleteOutput(idx,$event)">delete_forever</mat-icon>    
+                            </div>
+                        </div>
+                    </div> 
+                </figure>
+            </div>
 
-            <div formArrayName="works" class="works" appMediaQueryFlexbox>
-            <div *ngFor="let work of works.controls; index as idx" class="form-group">
-                <div [formGroupName]="idx" appMediaQueryFlexbox>
-                <input type="text" formControlName="company" placeholder="Company" class="form-control" required>
-                <label *ngIf="submitted && work.value.company==''" [ngClass] = "'error'"> company is required </label>
-                <input type="text" formControlName="position" placeholder="Position" class="form-control" required>
-                <label *ngIf="submitted && work.value.position==''" [ngClass] = "'error'"> position is required </label>
-                <button (click)="deleteWork(idx,$event)" class="btn btn-danger">Delete</button>
-                </div>
-            </div>
-            </div> 
-        </figure>
+        </div>
+
         <div>
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
-    <div *ngIf="angForm.valid && submitted==true">
-        <h3>This is what it submitted</h3>
-        <textarea name="" id="output" cols="30" rows="10"></textarea>    
-    
-    </div>
 </div>

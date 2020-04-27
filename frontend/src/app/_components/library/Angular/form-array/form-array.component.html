@@ -75,9 +75,6 @@
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
-    <div *ngIf="angForm.valid && submitted==true">
-        <h3>This is what it submitted</h3>
-        <textarea name="" id="output" cols="30" rows="10"></textarea>    
-    
-    </div>
-</div>
+    <h3 *ngIf="angForm.valid && submitted==true">This is what it submitted</h3>
+    <textarea name="" id="output" cols="30" rows="10"></textarea>    
+  </div>

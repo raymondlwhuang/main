@@ -35,7 +35,7 @@ export class DemoSelectorComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.demoService.getDemos().subscribe(items => {
+    this.demoService.getAllDemos().subscribe(items => {
       this.demos = items.filter(item=>(item.group==this.group ||item.group==''));
       if(this.demos.length ==1) this.demos[0].name = "Comming Soon!"
     }); 

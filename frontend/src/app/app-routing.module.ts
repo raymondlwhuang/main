@@ -12,6 +12,7 @@ import { AngularComponent } from './_components/library/Angular/angular.componen
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { CourseResolver } from './_store/resolvers/course.resolver';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
+import { DemoResolver } from './_store/resolvers/demo.resolver';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'library/jQuery', component: JqueryComponent },
   { path: 'library/Angular', component: AngularComponent,resolve: {courses:CourseResolver}},
   { path: 'library/Rxjs', component: RxjsComponent },
-  { path: 'assets', component: LibraryAssetsComponent },
+  { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
   { path: 'login', component: LoginComponent },
     // otherwise redirect to home
   { path: '**', redirectTo: '' }

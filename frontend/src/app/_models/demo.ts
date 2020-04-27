@@ -1,4 +1,5 @@
 export interface Demo {
+    id?:string;
     group: string;
     name: string;
     snip: [];

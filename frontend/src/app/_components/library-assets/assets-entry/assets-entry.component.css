@@ -36,6 +36,9 @@
   textarea {
       width: 100%;
   }
+  mat-icon {
+    cursor:pointer;
+  }
   @media all and (max-width: 599px) {
     h3 {
       font-size: initial;

@@ -9,9 +9,6 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class CourseService {
   constructor(private http : HttpClient) {}
-  getTest(){
-    return this.http.get<Course[]>('/api/courses');
-  }
   getAllCourses() : Observable<Course[]> {
     return this.http.get<Course[]>('/api/courses');
   }

@@ -58,6 +58,8 @@ import { CourseResolver } from './_store/resolvers/course.resolver';
 import { StateManagementModule } from './_components/library/Angular/state-management/state-management.module';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
+import { DemoReducer } from './_store/reducers/demo.reducer';
+import { DemoEffects } from './_store/effects/demo.effect';
 
 @NgModule({
   declarations: [
@@ -111,8 +113,8 @@ import { AssetsEntryComponent } from './_components/library-assets/assets-entry/
     MatSnackBarModule,
     StateManagementModule,
     StateManagementModule,
-    StoreModule.forRoot({users : UserReducer,courses: CourseReducer}),
-    EffectsModule.forRoot([UserEffects,CourseEffects])
+    StoreModule.forRoot({users : UserReducer,courses: CourseReducer,demos: DemoReducer}),
+    EffectsModule.forRoot([UserEffects,CourseEffects,DemoEffects])
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -120,6 +122,7 @@ import { AssetsEntryComponent } from './_components/library-assets/assets-entry/
     { provide: APP_BASE_HREF, useValue: '' },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500 }},
     CourseResolver,
+    //DemoResolver,
     // provider used to create fake backend
     fakeBackendProvider    
   ],

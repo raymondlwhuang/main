@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const DemoSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        trim: true,
+        minlength: 3
+    },    
     group: {
         type: String,
         trim: true
@@ -9,14 +14,14 @@ const DemoSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    snip: {
+    snips: {
         type: []
     },
     helpPath: {
         type: String,
         trim: true
     },
-    output: {
+    outputs: {
         type: []
     },
     indicator: {

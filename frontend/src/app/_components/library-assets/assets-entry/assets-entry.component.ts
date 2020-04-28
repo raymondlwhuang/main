@@ -24,10 +24,20 @@ import { MatSort } from '@angular/material/sort';
 export class AssetsEntryComponent implements OnInit {
 //?????????
 demos$ : Observable<Demo[]>;
-demoToBeUpdated : Demo;
+demoToBeUpdated : Demo = 	{ 
+  "group":"",
+  "name": "", 
+  "snips": [],
+  "outputs": [],
+  "helpPath" : "",
+  "indicator": 0
+}
+demos : Demo[];
+groups : any[];
 isUpdateActivated = false;
 isAddActivated = false;
 dataSource : any;
+option : string;
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -40,7 +50,7 @@ dataSource : any;
     group : new FormControl('', Validators.required),
     helpPath : new FormControl(''),
     snips: new FormArray([new FormControl('')]),
-    outputs : new FormArray([this.addOutputFormGroup()]),
+    outputs : new FormArray([new FormControl('')]),
     indicator: new FormControl(0)
   }); 
   constructor(
@@ -49,14 +59,16 @@ dataSource : any;
     private store : Store<DemoState>
   ) {}
   //??????????????????????
-  displayedColumns: string[] = ['name', 'description','operations'];
+  displayedColumns: string[] = ['group','name', 'helpPath','operations'];
+
   ngOnInit() {
     this.demos$ = this.store.pipe(select(getAllDemos));
     this.demos$.subscribe(data=>{
+      this.demos = data;
+      this.groups = [...new Set(data.map(item=>item.group))];
       this.dataSource =  new NestedMatTableDataSource<Demo>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(data);
     })
 
   }
@@ -64,17 +76,28 @@ dataSource : any;
     this.store.dispatch(demoActionTypes.deleteDemo({payload}))
   }
   showUpdateForm(payload : Demo) {
-    document.getElementById('data-table').style.display = 'none';
     this.demoToBeUpdated = {...payload};
+    this.snips.clear();
+    this.outputs.clear();
+    if(this.demoToBeUpdated.snips.length == 0) {
+      (<FormArray>this.snips).push(new FormControl(''));
+    }
+    else {
+      this.demoToBeUpdated.snips.forEach(snip=>(<FormArray>this.snips).push(new FormControl(snip)));
+    }
+    if(this.demoToBeUpdated.outputs.length == 0) {
+      (<FormArray>this.outputs).push(new FormControl(''));
+    }
+    else  {
+      this.demoToBeUpdated.outputs.forEach(output=>(<FormArray>this.outputs).push(new FormControl(output)));
+    }
     this.isUpdateActivated = true;
   }
   showAddForm() {
-    document.getElementById('data-table').style.display = 'none';
     this.isAddActivated = true;
   }
-  AddDemo(submittedForm: NgForm) {
+  AddDemo(submittedForm) {
     this.isAddActivated = false;
-    document.getElementById('data-table').removeAttribute('style');
     if(submittedForm.invalid) {
       return;
     }
@@ -82,32 +105,32 @@ dataSource : any;
       id: uuid(), 
       name: submittedForm.value.name, 
       group:submittedForm.value.group,
-      snip:submittedForm.value.snip,
-      output:submittedForm.value.output,
+      snips:submittedForm.value.snips,
+      outputs:submittedForm.value.outputs,
       helpPath:submittedForm.value.helpPath,
       indicator:submittedForm.value.indicator,
     };
     this.store.dispatch(demoActionTypes.createDemo({payload}));  
   }  
-  updateDemo(updateForm: NgForm){
+  updateDemo(submittedForm){
     const payload: Update<Demo> = {
       id: this.demoToBeUpdated.id,
       changes: {
         ...this.demoToBeUpdated,
-        ...updateForm.value
+        ...submittedForm.value
       }
     };
-
+    console.log(payload);
     this.store.dispatch(demoActionTypes.updateDemo({payload}));
 
     this.isUpdateActivated = false;
-    this.demoToBeUpdated = null;
-    document.getElementById('data-table').removeAttribute('style');
+//    this.demoToBeUpdated = null;
+    this.formReset();    
   }
   cancel(){
     this.isUpdateActivated = false;
-    this.demoToBeUpdated = null;
-    document.getElementById('data-table').removeAttribute('style');
+//    this.demoToBeUpdated = null;
+    this.formReset();
   }
 
   //??????????
@@ -120,12 +143,35 @@ dataSource : any;
   get formInput() {
     let test = this.angForm.controls;
     return this.angForm.controls;
-  } 
-  onFormSubmit(): void {
-    // this.submitted = true;
-    // if(this.angForm.valid){
-    //   document.getElementById('output').innerHTML = JSON.stringify(this.angForm.value, undefined, 4);
-    // }
+  }
+  formReset(){
+    this.submitted = false;
+    this.demoToBeUpdated = 	{ 
+      "group":"",
+      "name": "", 
+      "snips": [],
+      "outputs": [],
+      "helpPath" : "",
+      "indicator": 0
+    };
+    this.snips.clear();
+    this.outputs.clear();   
+    (<FormArray>this.snips).push(new FormControl(''));   
+    (<FormArray>this.outputs).push(new FormControl(''));   
+    this.angForm.markAsUntouched();
+  }
+
+  onFormSubmit(submittedForm): void {
+    if(this.isUpdateActivated) this.updateDemo(submittedForm);
+    else {
+      this.submitted = true;
+      if(this.angForm.valid){
+        this.AddDemo(submittedForm);
+        this.formReset();
+      }
+    }
+    this.isUpdateActivated = false;
+    this.renderNewResult();
   } 
   addSnipField() { 
     let isOKtoAdd = true;
@@ -147,31 +193,38 @@ dataSource : any;
       this.snips.removeAt(index); 
     }
   }  
-  addOutputFormGroup() : FormGroup {
-    let outputFormGroup =new FormGroup({
-      output : new FormControl('')
-    });
-    return outputFormGroup;
-  }  
-  addOutput() {
+  addOutputField() { 
     let isOKtoAdd = true;
-    for(let i=0;i<this.outputs.length;i++) {
-      if(this.outputs.value[i].output=='') isOKtoAdd = false;
+    for(let i=0;i<this.outputs.value.length;i++) {
+      if(this.outputs.value[i]=='') isOKtoAdd = false;
     }
-    if(isOKtoAdd) (<FormArray>this.outputs).push(this.addOutputFormGroup());
-    else{
+    if(isOKtoAdd) (<FormArray>this.outputs).push(new FormControl('')); 
+    else {
       this._snackBar.openFromComponent(SnackBarComponent, {
         duration: 5000,
         data: 'At least one of the output field is empty, add disabled'
-      });
-    } 
-  }
-
-  deleteOutput(index: number,event) {
+      });          
+    }
+  }  
+ 
+  deleteOutputField(index: number,event) {
     event.preventDefault();
     if (this.outputs.length !== 1) { 
       this.outputs.removeAt(index); 
     }
   }  
+  renderNewResult(option?:any){
+    let filterDemos = [...this.demos];
+    if(option && option.value) {
+      filterDemos = this.demos.filter(item => item.group == option.value);
+      this.option = option.value;
+    }
+    else {
+      filterDemos = this.demos.filter(item => item.group == this.option);
+    }
+    this.dataSource = new NestedMatTableDataSource<Demo>(filterDemos);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 
+  }
 }

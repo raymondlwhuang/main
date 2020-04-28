@@ -2,8 +2,9 @@ export interface Demo {
     id?:string;
     group: string;
     name: string;
-    snip: [];
-    output?: [];
+    snips?: [];
+    outputs?: [];
     helpPath?: string;
     indicator?:number;
+    accepted?:boolean;
 }

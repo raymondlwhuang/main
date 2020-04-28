@@ -122,7 +122,7 @@ app.patch('/api/courses/:courseId',(req,res)=>{
 });
 
 app.delete('/api/courses/:courseId',(req,res)=>{
-    Course.findOneAndDelete({_id: req.params.courseId})
+    Course.findOneAndDelete({id: req.params.courseId})
         .then(course => res.send(course))
         .catch((error)=>console.log(error));
 });
@@ -131,7 +131,7 @@ app.delete('/api/courses',(req,res)=>{
     .then(course => res.send(course))
     .catch((error)=>console.log(error));
 
-})
+});
 /* demos */
 app.get('/api/demos',(req,res)=>{
     Demo.find({})
@@ -139,18 +139,19 @@ app.get('/api/demos',(req,res)=>{
         .catch((error)=>console.log(error));
 }); 
 app.get('/api/demos/:demosId',(req,res)=>{
-    Demo.find({_id: req.params.demosId})
+    Demo.find({id: req.params.demosId})
         .then(demo => res.send(demo))
         .catch((error)=>console.log(error));
 }); 
 
 app.post('/api/demos',(req,res)=>{
     Demo.create({
+        'id': req.body.id,
         'group': req.body.group,
         'name': req.body.name,
-        'snip': req.body.snip,
+        'snips': req.body.snips,
         'helpPath':req.body.helpPath,
-        'output' : req.body.output,
+        'outputs' : req.body.outputs,
         'indicator': req.body.indicator
     })
     .then((demo)=>res.send(demo))
@@ -158,20 +159,25 @@ app.post('/api/demos',(req,res)=>{
 });
 
 app.patch('/api/demos/:demosId',(req,res)=>{
-    Demo.findOneAndUpdate({_id: req.params.demosId},{$set:req.body})
+    Demo.findOneAndUpdate({id: req.params.demosId},{$set:req.body})
         .then(demo => res.send(demo))
         .catch((error)=>console.log(error));
 });
-app.patch('/api/demos',(req,res)=>{
+app.patch('/api/demos',(req,res)=>{ //set accept to true to make it functionable
     Demo.updateMany({accepted : true})
         .then(demo => res.send(demo))
         .catch((error)=>console.log(error));
 });
 
 app.delete('/api/demos/:demosId',(req,res)=>{
-    Demo.findOneAndDelete({_id: req.params.demosId})
+    Demo.findOneAndDelete({id: req.params.demosId})
         .then(demo => res.send(demo))
         .catch((error)=>console.log(error));
 });
+app.delete('/api/demos',(req,res)=>{ //delete all demos
+    Demo.deleteMany({})
+    .then(demo => res.send(demo))
+    .catch((error)=>console.log(error));
 
+})
 app.listen(3000, ()=> console.log('Server is Connected on port 3000'));

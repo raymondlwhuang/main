@@ -60,6 +60,7 @@ import { LibraryAssetsComponent } from './_components/library-assets/library-ass
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
 import { DemoReducer } from './_store/reducers/demo.reducer';
 import { DemoEffects } from './_store/effects/demo.effect';
+import { DemoResolver } from './_store/resolvers/demo.resolver';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,7 @@ import { DemoEffects } from './_store/effects/demo.effect';
     { provide: APP_BASE_HREF, useValue: '' },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500 }},
     CourseResolver,
-    //DemoResolver,
+    DemoResolver,
     // provider used to create fake backend
     fakeBackendProvider    
   ],

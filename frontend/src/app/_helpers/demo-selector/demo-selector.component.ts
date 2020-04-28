@@ -36,7 +36,7 @@ export class DemoSelectorComponent implements OnInit {
 
   ngOnInit() {
     this.demoService.getAllDemos().subscribe(items => {
-      this.demos = items.filter(item=>(item.group==this.group ||item.group==''));
+      this.demos = items.filter(item=>((item.group==this.group ||item.group=='') && item.accepted));
       if(this.demos.length ==1) this.demos[0].name = "Comming Soon!"
     }); 
   }
@@ -71,9 +71,9 @@ export class DemoSelectorComponent implements OnInit {
       codeSnip.className = "add-border";
       this.demos.forEach((result) => {
         if(option.value == result.name){
-          result.snip.forEach(element => snip += element + '</br>');
+          result.snips.forEach(element => snip += element + '</br>');
           this.output = '';
-          result.output.forEach(element => this.output += element + '</br>');
+          result.outputs.forEach(element => this.output += element + '</br>');
           this.inputHolder = {showCaseFlag:option.value,helpPath:result.helpPath,indicator:result.indicator,output:this.output,group:this.group,name:result.name};
         } 
       });

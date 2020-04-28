@@ -1,62 +1,111 @@
 <div class="demo-container">
-    <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit()">
-        <figure>
-            <div appMediaQueryFlexbox >
+    <div>
+        <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit(submittedForm)" #submittedForm="ngForm">
+            <figure>
+                <div appMediaQueryFlexbox >
+                    <div><label>Group: </label>
+                        <input type="text" formControlName="group" class="form-control" required [(ngModel)]="demoToBeUpdated.group">
+                        <label *ngIf="submitted && formInput.group.errors" [ngClass] = "'error'"> Group is required </label>
+                    </div>
+                    <div>
+                        <label>Name: </label>
+                        <input type="text" formControlName="name"  class="form-control" required [(ngModel)]="demoToBeUpdated.name">
+                        <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
+                </div>
+                    <div>
+                        <label>Path to help: </label>
+                        <input type="text" formControlName="helpPath"  class="form-control" [(ngModel)]="demoToBeUpdated.helpPath">
+                    </div>
+                    <div>
+                        <label>Indicator: </label>
+                        <input type="number" formControlName="indicator" class="form-control" [(ngModel)]="demoToBeUpdated.indicator">
+                    </div>
+                </div>
+        
+            </figure>
+            <div>
                 <div>
-                    <input type="text" formControlName="name"  placeholder="Name" class="form-control" required>
-                    <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
+                    <figure>
+                        <figcaption>Snips</figcaption>
+                        <div formArrayName="snips">
+                            <div *ngFor="let snip of snips.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                                <div class="array-input">
+                                     <input tpe="text" [formControlName]="idx" class="form-control">
+                                </div>
+                                <div>
+                                    <mat-icon (click)="addSnipField()">add_circle</mat-icon>
+                                    <mat-icon (click)="deleteSnipField(idx,$event)">delete_forever</mat-icon>
+                                </div>
+                            </div>
+                        </div> 
+                    </figure>
                 </div>
                 <div>
-                    <input type="text" formControlName="group" placeholder="Group" class="form-control" required>
-                    <label *ngIf="submitted && formInput.group.errors" [ngClass] = "'error'"> Group is required </label>
-                </div>
-                <div>
-                    <input type="text" formControlName="helpPath" placeholder="Path to Help File" class="form-control">
-                </div>
-                <div>
-                    <input type="number" formControlName="indicator" placeholder="indicator" class="form-control">
+                    <figure>
+                        <figcaption>Outputs</figcaption>
+                        <div formArrayName="outputs">
+                            <div *ngFor="let output of outputs.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                                <div class="array-input">
+                                    <input tpe="text" [formControlName]="idx" class="form-control">
+                                </div>
+                                <div>
+                                    <mat-icon (click)="addOutputField()">add_circle</mat-icon>
+                                    <mat-icon (click)="deleteOutputField(idx,$event)">delete_forever</mat-icon>
+                                </div>
+                            </div>
+                        </div> 
+                    </figure>
                 </div>
             </div>
+            <div>
+                <button *ngIf="!isUpdateActivated" [disabled]="submittedForm.invalid" type="submit" class="btn btn-primary">Create</button>
+                <button *ngIf="isUpdateActivated" [disabled]="submittedForm.invalid" class="btn btn-success" type="submit">Update</button>
+                <button *ngIf="isUpdateActivated" (click)="cancel()" class="btn btn-danger" type="reset">Cancel</button>
+            </div>
+        </form>
+
+    </div>
+<!------>
+<div id="data-table">
+    <mat-form-field>
+        <mat-label>Your selection</mat-label>
+        <mat-select (selectionChange)="renderNewResult($event)">
+          <mat-option *ngFor="let group of groups" [value]="group">
+            {{group}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>    
+  
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Group </th>
+        <td mat-cell *matCellDef="let element"> {{element.group}} </td>
+      </ng-container>
     
-        </figure>
-        <div appMediaQueryFlexbox >
-            <div appFlexItem>
-                <figure>
-                    <figcaption>Snips</figcaption>
-                    <div formArrayName="snips" appMediaQueryFlexbox>
-                        <div *ngFor="let snip of snips.controls; index as idx" class="form-group" appMediaQueryFlexbox>
-                            <div>
-                                <input tpe="text" [formControlName]="idx" placeholder="Snip" class="form-control">
-                            </div>
-                            <div>
-                                <mat-icon (click)="addSnipField()">add_circle</mat-icon>
-                                <mat-icon (click)="deleteSnipField(idx,$event)">delete_forever</mat-icon>
-                            </div>
-                        </div>
-                    </div> 
-                </figure>
-            </div>
-            <div appFlexItem>
-                <figure>
-                    <figcaption>Outputs</figcaption>
-                    <div formArrayName="outputs" class="outputs" appMediaQueryFlexbox>
-                        <div *ngFor="let item of outputs.controls; index as idx" class="form-group" appMediaQueryFlexbox>
-                            <div [formGroupName]="idx" appMediaQueryFlexbox>
-                                <input type="text" formControlName="output" placeholder="Output" class="form-control">
-                            </div>
-                            <div>
-                                <mat-icon (click)="addOutput()">add_circle</mat-icon>
-                                <mat-icon (click)="deleteOutput(idx,$event)">delete_forever</mat-icon>    
-                            </div>
-                        </div>
-                    </div> 
-                </figure>
-            </div>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="helpPath">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Path to help </th>
+        <td mat-cell *matCellDef="let element"> {{element.helpPath}} </td>
+      </ng-container>
+      <ng-container matColumnDef="operations">
+        <th mat-header-cell *matHeaderCellDef>operations </th>
+        <td mat-cell  *matCellDef="let element">
+          <mat-icon (click)="showUpdateForm(element)">edit</mat-icon>
+          <mat-icon (click)="deleteDemo(element.id)">delete_forever</mat-icon>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+ </div>
+<!-----  -->
 
-        </div>
-
-        <div>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </div>
-    </form>
 </div>

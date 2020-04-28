@@ -36,7 +36,6 @@ export class StateManagementComponent implements OnInit {
       this.dataSource =  new NestedMatTableDataSource<Course>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(data);
     })
 
   }

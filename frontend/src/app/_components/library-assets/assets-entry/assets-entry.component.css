@@ -39,8 +39,17 @@
   mat-icon {
     cursor:pointer;
   }
+  table {
+    width: 100%;
+  }
+  .array-input {
+    width: calc(100% - 50px);
+  }
   @media all and (max-width: 599px) {
     h3 {
       font-size: initial;
     }
-  }
+    .array-input {
+      width: 100%;
+    }
+}

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CourseSchema = new mongoose.Schema({
+const CrudSchema = new mongoose.Schema({
     id: {
         type: String,
         trim: true,
@@ -18,6 +18,6 @@ const CourseSchema = new mongoose.Schema({
     }
 });
 
-const Course = mongoose.model('Course',CourseSchema);
+const Crud = mongoose.model('Crud',CrudSchema);
 
-module.exports = Course;
+module.exports = Crud;

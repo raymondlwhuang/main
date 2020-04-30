@@ -5,7 +5,7 @@ const moogoose = require('./database/mongoose');
 
 const List = require('./database/models/list');
 const Task = require('./database/models/task');
-const Course = require('./database/models/course');
+const Crud = require('./database/models/crud');
 const Demo = require('./database/models/demo');
 
 /*
@@ -96,39 +96,39 @@ app.delete('/lists/:listId/tasks/:taskId',(req,res)=>{
         .then(task => res.send(task))
         .catch((error)=>console.log(error));
 });
-// Course
-app.get('/api/courses',(req,res)=>{
-    Course.find({})
-        .then(courses => res.send(courses))
+// Crud
+app.get('/api/cruds',(req,res)=>{
+    Crud.find({})
+        .then(cruds => res.send(cruds))
         .catch((error)=>console.log(error));
 }); 
 
-app.get('/api/courses/:courseId',(req,res)=>{
-    Course.find({id: req.params.courseId})
-        .then(course => res.send(course))
+app.get('/api/cruds/:crudId',(req,res)=>{
+    Crud.find({id: req.params.crudId})
+        .then(crud => res.send(crud))
         .catch((error)=>console.log(error));
 }); 
 
-app.post('/api/courses',(req,res)=>{
-    Course.create({'id': req.body.id,'name': req.body.name,'description': req.body.description})
-    .then((course)=>res.send(course))
+app.post('/api/cruds',(req,res)=>{
+    Crud.create({'id': req.body.id,'name': req.body.name,'description': req.body.description})
+    .then((crud)=>res.send(crud))
     .catch((error)=>console.log(error));
 });
 
-app.patch('/api/courses/:courseId',(req,res)=>{
-    Course.findOneAndUpdate({id: req.params.courseId},{$set:req.body})
-        .then(course => res.send(course))
+app.patch('/api/cruds/:crudId',(req,res)=>{
+    Crud.findOneAndUpdate({id: req.params.crudId},{$set:req.body})
+        .then(crud => res.send(crud))
         .catch((error)=>console.log(error));
 });
 
-app.delete('/api/courses/:courseId',(req,res)=>{
-    Course.findOneAndDelete({id: req.params.courseId})
-        .then(course => res.send(course))
+app.delete('/api/cruds/:crudId',(req,res)=>{
+    Crud.findOneAndDelete({id: req.params.crudId})
+        .then(crud => res.send(crud))
         .catch((error)=>console.log(error));
 });
-app.delete('/api/courses',(req,res)=>{
-    Course.deleteMany({})
-    .then(course => res.send(course))
+app.delete('/api/cruds',(req,res)=>{
+    Crud.deleteMany({})
+    .then(crud => res.send(crud))
     .catch((error)=>console.log(error));
 
 });

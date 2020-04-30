@@ -50,15 +50,18 @@ import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './_store/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './_store/effects/user.effect';
-import { CourseReducer } from './_store/reducers/course.reducer';
-import { CourseEffects } from './_store/effects/course.effect';
-import { CourseResolver } from './_store/resolvers/course.resolver';
+// import { CrudReducer } from './_store/reducers/crud.reducer';
+// import { CrudEffects } from './_store/effects/crud.effect';
+// import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { StateManagementModule } from './_components/library/Angular/state-management/state-management.module';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
 import { DemoReducer } from './_store/reducers/demo.reducer';
 import { DemoEffects } from './_store/effects/demo.effect';
 import { DemoResolver } from './_store/resolvers/demo.resolver';
+import { CrudReducer } from './_store/reducers/crud.reducer';
+import { CrudResolver } from './_store/resolvers/crud.resolver';
+import { CrudEffects } from './_store/effects/crud.effect';
 
 @NgModule({
   declarations: [
@@ -111,15 +114,15 @@ import { DemoResolver } from './_store/resolvers/demo.resolver';
     MatSnackBarModule,
     StateManagementModule,
     StateManagementModule,
-    StoreModule.forRoot({users : UserReducer,courses: CourseReducer,demos: DemoReducer}),
-    EffectsModule.forRoot([UserEffects,CourseEffects,DemoEffects])
+    StoreModule.forRoot({users : UserReducer,cruds: CrudReducer,demos: DemoReducer}),
+    EffectsModule.forRoot([UserEffects,CrudEffects,DemoEffects])
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: APP_BASE_HREF, useValue: '' },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500 }},
-    CourseResolver,
+    CrudResolver,
     DemoResolver,
     // provider used to create fake backend
     fakeBackendProvider    

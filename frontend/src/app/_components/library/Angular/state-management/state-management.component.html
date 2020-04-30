@@ -1,14 +1,14 @@
 <div>
   <div *ngIf="isUpdateActivated" style="margin-top: 50px; margin-left: 50px;">
     <h4>Update User</h4>
-    <form (ngSubmit)="updateCourse(updateForm)" #updateForm="ngForm">
+    <form (ngSubmit)="updateCrud(updateForm)" #updateForm="ngForm">
       <div class="form-group">
         <label for="name">User Name</label>
-        <input type="text"id="name" name="name" class="form-control" required [(ngModel)]="courseToBeUpdated.name" style="width: 400px"/>
+        <input type="text"id="name" name="name" class="form-control" required [(ngModel)]="crudToBeUpdated.name" style="width: 400px"/>
       </div>
       <div class="form-group">
         <label for="side">Description</label>
-        <input type="text" id="description" name="description" class="form-control" required [(ngModel)]="courseToBeUpdated.description" style="width: 400px"/>
+        <input type="text" id="description" name="description" class="form-control" required [(ngModel)]="crudToBeUpdated.description" style="width: 400px"/>
       </div>
       <button [disabled]="updateForm.invalid" class="btn btn-success" type="submit">Update</button>
       <button (click)="cancel()" class="btn btn-danger" type="reset">Cancel</button>
@@ -16,7 +16,7 @@
   </div>
   <div *ngIf="isAddActivated" style="margin-top: 50px; margin-left: 50px;">
     <h4>Add User</h4>
-    <form (ngSubmit)="AddCourse(createForm)" #createForm="ngForm">
+    <form (ngSubmit)="AddCrud(createForm)" #createForm="ngForm">
         <div class="form-group">
           <label for="name">User Name</label>
           <input type="text" id="name" name="name" class="form-control" ngModel required style="width: 400px"/>
@@ -52,7 +52,7 @@
     <th mat-header-cell *matHeaderCellDef>operations </th>
     <td mat-cell  *matCellDef="let element">
       <mat-icon (click)="showUpdateForm(element)">edit</mat-icon>
-      <mat-icon (click)="deleteCourse(element.id)">delete_forever</mat-icon>
+      <mat-icon (click)="deleteCrud(element.id)">delete_forever</mat-icon>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

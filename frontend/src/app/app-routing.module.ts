@@ -10,7 +10,7 @@ import { PreShowComponent } from './_components/library/pre-show/pre-show.compon
 import { LoginComponent } from './_components/library/login/login.component';
 import { AngularComponent } from './_components/library/Angular/angular.component';
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
-import { CourseResolver } from './_store/resolvers/course.resolver';
+import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { DemoResolver } from './_store/resolvers/demo.resolver';
 
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'Private', component: PreShowComponent, canActivate: [AuthGuard] },
   { path: 'library/javaScript',component:  JavascriptComponent },
   { path: 'library/jQuery', component: JqueryComponent },
-  { path: 'library/Angular', component: AngularComponent,resolve: {courses:CourseResolver}},
+  { path: 'library/Angular', component: AngularComponent,resolve: {cruds:CrudResolver}},
   { path: 'library/Rxjs', component: RxjsComponent },
   { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
   { path: 'login', component: LoginComponent },

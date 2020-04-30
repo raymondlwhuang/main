@@ -1,457 +1,679 @@
 [
-	{ 
-		"group":"",
-		"name": "", 
-		"snip": [""],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "forEach", 
-		"snip": ["employees.forEach(employee=> employee.eyeColor=='green');"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "filter", 
-		"snip": ["employees.filter(employee => employee.eyeColor=='blue');"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "sort", 
-		"snip": ["employees.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "find", 
-		"snip": ["employees.find(employee => employee.age < 22);"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "pop", 
-		"snip": ["employees.pop();"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "shift", 
-		"snip": ["employees.shift();"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"array",
-		"name": "slice", 
-		"snip": ["employees = employees.slice(1, 3);"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "callback", 
-		"snip": [
-			"let doWhatever = function (a,b){",
-			"&nbsp;&nbsp;&nbsp;return `This is the two numbers you just entered ${a}, ${b}`;",
-			"};",
-			"let myFunction = function (a,b, callback){",
-			"&nbsp;&nbsp;&nbsp;return callback(a,b);",
-			"};",
-			"let output = myFunction(2,3,doWhatever);",
-			"document.getElementById('output').innerHTML = output;"
-		],
-		"output": ["This is the two numbers you just entered 2, 3"],
-		"helpPath" : "",
-		"fireCaseName": ""		
-	},
-	{ 
-		"group":"function",
-		"name": "call", 
-		"snip": [
-			"let name = {",
-			"&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
-			"&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
-			"}",
-			"let printFullName =  function (city){",
-			"&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in '+ city;",
-			"&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
-			"}",
-			"printFullName.call(name,'markham');"			
-		],
-		"output": ["Roger Huang is living in markham"],
-		"helpPath" : "",
-		"fireCaseName": ""		
-	},
-	{ 
-		"group":"function",
-		"name": "apply", 
-		"snip": [
-			"let printFullName =  function (city,province){",
-			"&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in ' +city + ', '+ province;",
-			"&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
-			"}",
-			"let name =  {",
-			"&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
-			"&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
-			"}",
-			"printFullName.apply(name,['Markham','Ontario']);"
-		],
-		"output": ["Roger Huang is living in Markham, Ontario"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	}	
-,
-	{ 
-		"group":"function",
-		"name": "bind", 
-		"snip": [
-			"let printFullName =  function (city,province){",
-			"&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in ' +city + ', '+ province;",
-			"&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
-			"}",
-			"let name =  {",
-			"&nbsp;&nbsp;&nbsp;firstname: 'Cindy',",
-			"&nbsp;&nbsp;&nbsp;lastname: 'Woo',",
-			"}",
-			"let printMyName = printFullName.bind(name);",
-			"printMyName('Toronto','Ontario');"
-		],
-		"output": ["Cindy Woo is living in Toronto, Ontario"],
-		"helpPath" : "",
-		"fireCaseName": ""		
-	},
-	{ 
-		"group":"function",
-		"name": "polyfill for bind", 
-		"snip": [
-			"let printName =  function (city,province,country){",
-			"&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname +'&nbsp;is lived in ' + city + ', '+ province + ', '+ country;",
-			"&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML += output;",
-			"}",
-			"let name =  {",
-			"&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
-			"&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
-			"}",
-			"Function.prototype.mybind = function(...args){",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let obj = this;",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let params = args.slice(1);",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return function (...args2) {",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.apply(args[0],[...params,...args2]);",
-			"&nbsp;&nbsp;&nbsp;}",
-			"}",
-			"let printMyName2 = printName.mybind(name,'Markham','Ontario');",
-			"printMyName2('Canada');"
-		],
-		"output": ["Roger Huang is lived in Markham, Ontario, Canada"],
-		"helpPath" : "",
-		"fireCaseName": ""		
-	},
-	{ 
-		"group":"function",
-		"name": "promise", 
-		"snip": [
-			"let promiseCount = 0;",
-			"function MyDecision(wontDo) {",
-			"&nbsp;&nbsp;&nbsp;promiseCount++;",
-			"&nbsp;&nbsp;&nbsp;let log = document.getElementById('output');",
-			"&nbsp;&nbsp;&nbsp;if(wontDo) log.innerHTML += promiseCount +') Do not want do my job(<small>Start looking at the task</small>)';",
-			"&nbsp;&nbsp;&nbsp;else log.innerHTML += promiseCount +') Started doing my job(<small>Beging my task</small>)';",
-			"&nbsp;&nbsp;&nbsp;let promise1 = new Promise((resolve, reject) => {",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(wontDo) return reject([promiseCount,'I am tired']);",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.innerHTML += promiseCount +') Working as promised (<small>promise started</small>)';",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =>resolve(promiseCount), Math.random() * 2000 + 1000);",
-			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}",
-			"&nbsp;&nbsp;&nbsp;}",
-			"&nbsp;&nbsp;&nbsp;).then((val) =>log.innerHTML += val +') My job is done (<small>promise fullfiled and ended</small>)')",
-			"&nbsp;&nbsp;&nbsp;.catch((reason) =>log.innerHTML += reason[0] +') Promise rejected resason: ' + reason[1]+'');",
-			"&nbsp;&nbsp;&nbsp;log.innerHTML += promiseCount +') Promise ' + (wontDo ? 'rejected' : '&nbsp;made') + '(<small>Sync code terminated</small>)",
-			"}"		
-		],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""	
-	},
-	{ 
-		"group":"function",
-		"name": "findIndex", 
-		"snip": ["let ages = [3, 10, 18, 20];",
-				"function checkAdult(age) {",
-				"&nbsp;&nbsp;&nbsp;return age >= 18;",
-				"}",
-				"function myFunction() {",
-				"&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = ages.findIndex(checkAdult);",
-				"}"
-		],
-		"output": ["2"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "includes", 
-		"snip": [ "function myFunction() {",
-				  "&nbsp;&nbsp;&nbsp;let str = 'Hello world, welcome to the universe.';",
-				  "&nbsp;&nbsp;&nbsp;let n = str.includes('world');",
-				  "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = n;",
-				  "}"
-				],
-		"output": ["true"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "padStart", 
-		"snip": [
-					"const str1 = '5';",
-					"document.getElementById('output').innerHTML = str1.padStart(2, '0'));",
-					"const fullNumber = '2034399002125581';",
-					"const last4Digits = fullNumber.slice(-4);",
-					"const maskedNumber = last4Digits.padStart(fullNumber.length, '*');",
-					"document.getElementById('output').innerHTML = maskedNumber);"
-		],
-		"output": ["05","************5581"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "padEnd", 
-		"snip": [
-					"const str1 = 'Breaded Mushrooms';",
-					"document.getElementById('output').innerHTML = str1.padEnd(25, '.');",
-					"const str2 = '200';",
-					"document.getElementById('output').innerHTML = str2.padEnd(5);"
-		],
-		"output": ["Breaded Mushrooms........","200  "],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "await", 
-		"snip": [
-					"function resolveAfter2Seconds(x) {",
-					"&nbsp;return new Promise(resolve => {",
-					"&nbsp;&nbsp;setTimeout(() => {",
-					"&nbsp;&nbsp;&nbsp;resolve(x);",
-					"&nbsp;&nbsp;}, 2000);",
-					"&nbsp;});",
-					"}",
-					"async function f1() {",
-					"&nbsp;var x = await resolveAfter2Seconds(10);",
-					"&nbsp;document.getElementById('output').innerHTML = x;",
-					"}",
-					"f1();"		
-		],
-		"output": ["10"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "entries", 
-		"snip": [
-					"const object1 = {",
-					"&nbsp;a: 'somestring',",
-					"&nbsp;b: 42",
-					"};",
-					"for (let [key, value] of Object.entries(object1)) {",
-					"&nbsp;document.getElementById('output').innerHTML = `${key}: ${value}`;",
-					"}"
-		],
-		"output": ["a: somestring","b: 42"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"function",
-		"name": "values", 
-		"snip": [
-					"const object1 = {",
-					"&nbsp;a: 'somestring',",
-					"&nbsp;b: 42,",
-					"&nbsp;c: false",
-					"};",
-					"document.getElementById('output').innerHTML = Object.values(object1);"
-		],
-		"output": ["Array ['somestring', 42, false]"],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"rxjs",
-		"name": "of", 
-		"snip": ["const personObs : Observable<Person> = of(person);",
-				 "personObs.subscribe(data=>console.log(data.name));"
-				],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "Input", 
-		"snip": [
-			"@Input()  user: User;",
-			"@Input()  parentClick: Subject &lt;void&gt;;",
-			"parentClick:Subject<void> = new Subject<void>(); //in parent"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "Output", 
-		"snip": ["@Output() onSelect: EventEmitter<User>  = new EventEmitter;"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "ViewChild", 
-		"snip": [
-		"@ViewChild('selectRef', {static: false}) selectEleRef : ElementRef;",
-		"@ViewChild(UserListComponent,{static:false}) userListComponent : UserListComponent;"
-		],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "ViewChildren", 
-		"snip": ["@ViewChildren(ShowCaseComponent) showCaseComponent:ShowCaseComponent;"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "Directive", 
-		"snip": ["@Directive({selector: '[appMediaQueryFlexbox]'})"],
-		"output": ["<div appMediaQueryFlexbox></div>"],
-		"helpPath" : "angular/media-query-flexbox.directive.txt",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "HostListener", 
-		"snip": ["@HostListener('mouseover') onMouseOver() {this.ishovering = true;}"],
-		"output": [""],
-		"helpPath" : "angular/hover-item.directive.txt",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"decorator",
-		"name": "HostBinding", 
-		"snip": ["@HostBinding('class.item-mouse-over') ishovering: boolean;"],
-		"output": [""],
-		"helpPath" : "angular/hover-item.directive.txt",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "concat", 
-		"snip": ["Subscribe to Observables in order but only when the previous completes"
-				],
-		"output": [""],
-		"helpPath" : "rxjs/concat.txt",
-		"fireCaseName": "concat"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "forkJoin", 
-		"snip": ["Don’t let me know until all the Observables are complete, then give me all the values at once. ( Array )"
-				],
-		"output": [""],
-		"helpPath" : "rxjs/forkJoin.txt",
-		"fireCaseName": "forkJoin"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "mergeMap", 
-		"snip": ["Only when the inner Observable emits, let me know by merging the value to the outer Observable."
-				],
-		"output": [""],
-		"helpPath" : "rxjs/mergeMap.txt",
-		"fireCaseName": "mergeMap"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "pairwise", 
-		"snip": ["Let me know when the Observable emits, but also give me the previous value. ( Array )"
-				],
-		"output": [""],
-		"helpPath" : "rxjs/pairwise.txt",
-		"fireCaseName": "pairwise"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "switchMap", 
-		"snip": ["Like mergeMap but when the source Observable emits cancel any previous subscriptions of the inner Observable"
-				],
-		"output": [""],
-		"helpPath" : "rxjs/switchMap.txt",
-		"fireCaseName": "switchMap"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "combineLatest", 
-		"snip": ["Let me know when any Observable emits but also give me the latest value from the others. ( Array )"
-				],
-		"output": [""],
-		"helpPath" : "rxjs/combineLatest.txt",
-		"fireCaseName": "combineLatest"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "tap", 
-		"snip": ["Perform a side effect for every emission on the source Observable, but return an Observable that is identical to the source"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "pluck", 
-		"snip": ["Maps each source value (an object) to its specified nested property."],
-		"output": [""],
-		"helpPath" : "rxjs/pluck.txt",
-		"fireCaseName": "pluck"
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "debounce", 
-		"snip": ["Emits a value from the source Observable only after a particular time span determined by another Observable has passed without another source emission"],
-		"output": [""],
-		"helpPath" : "",
-		"fireCaseName": ""
-	},
-	{ 
-		"group":"Rxjs",
-		"name": "throttle", 
-		"snip": ["Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process"],
-		"output": [""],
-		"helpPath" : "rxjs/throttle.txt",
-		"fireCaseName": "throttle"
-	}	
+  {
+    "snips": [
+      "@Input()  user: User;",
+      "@Input()  parentClick: Subject &lt;void&gt;",
+      "parentClick:Subject<void> = new Subject<void>();"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea72507c6f8f22e203b94f9",
+    "output": [],
+    "id": "a967a36d-e9ad-4ca1-abc3-e2718f0935f7",
+    "group": "decorator",
+    "name": "Input",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@Output() onSelect: EventEmitter<User>  = new EventEmitter;"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea72584c6f8f22e203b94fa",
+    "output": [],
+    "id": "39001f36-596e-4ed8-aa80-8a253a012808",
+    "group": "decorator",
+    "name": "Output",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@ViewChild('selectRef', {static: false}) selectEleRef : ElementRef;",
+      "@ViewChild(UserListComponent,{static:false}) userListComponent : UserListComponent;"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea73363c6f8f22e203b94fb",
+    "output": [],
+    "id": "8457b24a-0687-4c8b-ba18-6e6b873fba9d",
+    "group": "decorator",
+    "name": "ViewChild",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@ViewChildren(ShowCaseComponent) showCaseComponent:ShowCaseComponent;"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea73aa9c6f8f22e203b94fd",
+    "output": [],
+    "id": "6d1f3969-aea2-4034-a287-03ba39ff56ac",
+    "group": "decorator",
+    "name": "ViewChildren",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@Directive({selector: '[appMediaQueryFlexbox]'})"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea73b5bc6f8f22e203b94fe",
+    "output": [],
+    "id": "0175c5c6-b087-4fd8-b84a-f2488a040ceb",
+    "group": "decorator",
+    "name": "Directive",
+    "helpPath": "angular/media-query-flexbox.directive.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@HostListener('mouseover') onMouseOver() {this.ishovering = true;}"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea74f6ac6f8f22e203b94ff",
+    "output": [],
+    "id": "5d0eaeee-a4f6-4c10-8ebe-49bc2635e8e2",
+    "group": "decorator",
+    "name": "HostListener",
+    "helpPath": "angular/hover-item.directive.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "@HostBinding('class.item-mouse-over') ishovering: boolean;"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea74f92c6f8f22e203b9500",
+    "output": [],
+    "id": "ae9e4b84-b519-4c81-a345-72838f0ef636",
+    "group": "decorator",
+    "name": "HostBinding",
+    "helpPath": "angular/hover-item.directive.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Subscribe to Observables in order but only when the previous completes"
+    ],
+    "outputs": [],
+    "indicator": 1,
+    "accepted": true,
+    "_id": "5ea74fc4c6f8f22e203b9501",
+    "output": [],
+    "id": "d749657c-1335-484a-8df9-cf440cb33e81",
+    "group": "Rxjs",
+    "name": "concat",
+    "helpPath": "rxjs/concat.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Don’t let me know until all the Observables are complete, then give me all the values at once. ( Array )"
+    ],
+    "outputs": [],
+    "indicator": 1,
+    "accepted": true,
+    "_id": "5ea75015c6f8f22e203b9502",
+    "output": [],
+    "id": "dac7b59a-4dc5-474d-a62e-df249f3c7b8d",
+    "group": "Rxjs",
+    "name": "forkJoin",
+    "helpPath": "rxjs/forkJoin.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Only when the inner Observable emits, let me know by merging the value to the outer Observable."
+    ],
+    "outputs": [],
+    "indicator": 1,
+    "accepted": true,
+    "_id": "5ea75356c6f8f22e203b9503",
+    "output": [],
+    "id": "7fc8938c-1bcb-447a-8181-26b447a44c3d",
+    "group": "Rxjs",
+    "name": "mergeMap",
+    "helpPath": "rxjs/mergeMap.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Let me know when the Observable emits, but also give me the previous value. ( Array )"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea754eac6f8f22e203b9504",
+    "output": [],
+    "id": "5999af83-871a-4266-80e6-ae8e06fbbf3c",
+    "group": "Rxjs",
+    "name": "pairwise",
+    "helpPath": "rxjs/pairwise.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Like mergeMap but when the source Observable emits cancel any previous subscriptions of the inner Observable"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7558ac6f8f22e203b9505",
+    "output": [],
+    "id": "f19da1a1-49ca-4987-9d73-60fdeb66a00c",
+    "group": "Rxjs",
+    "name": "switchMap",
+    "helpPath": "rxjs/switchMap.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Let me know when any Observable emits but also give me the latest value from the others. ( Array )"
+    ],
+    "outputs": [],
+    "indicator": 1,
+    "accepted": true,
+    "_id": "5ea79e17c6f8f22e203b9507",
+    "output": [],
+    "id": "a719688e-50b8-4e0b-9dfd-a1d395510462",
+    "group": "Rxjs",
+    "name": "combineLatest",
+    "helpPath": "rxjs/combineLatest.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Perform a side effect for every emission on the source Observable, but return an Observable that is identical to the source"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea79e52c6f8f22e203b9508",
+    "output": [],
+    "id": "f02aaf8e-7715-493c-9385-df9f6d5bf16d",
+    "group": "Rxjs",
+    "name": "tap",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Maps each source value (an object) to its specified nested property."
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea79e8cc6f8f22e203b9509",
+    "output": [],
+    "id": "64be079f-67f3-4bff-9a9a-64a05a3d0140",
+    "group": "Rxjs",
+    "name": "pluck",
+    "helpPath": "rxjs/pluck.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Emits a value from the source Observable only after a particular time span determined by another Observable has passed without another source emission"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea79eb5c6f8f22e203b950a",
+    "output": [],
+    "id": "bcbefa98-bf6c-4c3e-b009-dd71c4ae44c1",
+    "group": "Rxjs",
+    "name": "debounce",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea79ee5c6f8f22e203b950b",
+    "output": [],
+    "id": "fdb6d734-b76a-4562-baf9-94a065ec5ad9",
+    "group": "Rxjs",
+    "name": "throttle",
+    "helpPath": "rxjs/throttle.txt",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.forEach(employee=> employee.eyeColor=='green');"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a2eac6f8f22e203b950c",
+    "output": [],
+    "id": "9c932194-0bea-49f0-950c-a46e436dde7a",
+    "group": "array",
+    "name": "forEach",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.filter(employee => employee.eyeColor=='blue');"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a304c6f8f22e203b950d",
+    "output": [],
+    "id": "dee185b4-212a-4dab-9b36-d19e41e4bf95",
+    "group": "array",
+    "name": "filter",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a31dc6f8f22e203b950e",
+    "output": [],
+    "id": "bdb06669-c5c4-4c99-910f-9a26e2ad7c2c",
+    "group": "array",
+    "name": "sort",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.find(employee => employee.age < 22);"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a33ec6f8f22e203b950f",
+    "output": [],
+    "id": "b130c5c4-9c4b-48cb-a7e3-269b8b45e4d5",
+    "group": "array",
+    "name": "find",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.pop();"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a35bc6f8f22e203b9510",
+    "output": [],
+    "id": "7747e911-fd0c-4abf-9418-dfd6a0239a24",
+    "group": "array",
+    "name": "pop",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees.shift();"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a373c6f8f22e203b9511",
+    "output": [],
+    "id": "61268bb3-9579-43ea-a2dd-704670ff7011",
+    "group": "array",
+    "name": "shift",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "employees = employees.slice(1, 3);"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a38ec6f8f22e203b9512",
+    "output": [],
+    "id": "0f036065-3458-4035-b712-f6d85c6cf6c1",
+    "group": "array",
+    "name": "slice",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let doWhatever = function (a,b){",
+      "&nbsp;&nbsp;&nbsp;return `This is the two numbers you just entered ${a}, ${b}`;",
+      "};",
+      "let myFunction = function (a,b, callback){",
+      "&nbsp;&nbsp;&nbsp;return callback(a,b);",
+      "};",
+      "let output = myFunction(2,3,doWhatever);",
+      "document.getElementById('output').innerHTML = output;"
+    ],
+    "outputs": [
+      "This is the two numbers you just entered 2, 3"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a421c6f8f22e203b9513",
+    "output": [],
+    "id": "3d97b86b-09f5-481b-b28d-001fa3701203",
+    "group": "function",
+    "name": "callback",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let name = {",
+      "&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
+      "&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
+      "}",
+      "let printFullName =  function (city){",
+      "&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in '+ city;",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
+      "}",
+      "printFullName.call(name,'markham');"
+    ],
+    "outputs": [
+      "Roger Huang is living in markham"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a4a9c6f8f22e203b9514",
+    "output": [],
+    "id": "cd6f5d0b-845d-4ee2-8ad1-3eace313bdfe",
+    "group": "function",
+    "name": "call",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let printFullName =  function (city,province){",
+      "&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in ' +city + ', '+ province;",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
+      "}",
+      "let name =  {",
+      "&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
+      "&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
+      "}",
+      "printFullName.apply(name,['Markham','Ontario']);"
+    ],
+    "outputs": [
+      "Roger Huang is living in Markham, Ontario"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a531c6f8f22e203b9515",
+    "output": [],
+    "id": "e4612099-b29e-44bb-8a58-6c5ba6d9490a",
+    "group": "function",
+    "name": "apply",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let printFullName =  function (city,province){",
+      "&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname + '&nbsp;is living in ' +city + ', '+ province;",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = output;",
+      "}",
+      "let name =  {",
+      "&nbsp;&nbsp;&nbsp;firstname: 'Cindy',",
+      "&nbsp;&nbsp;&nbsp;lastname: 'Woo',",
+      "}",
+      "let printMyName = printFullName.bind(name);",
+      "printMyName('Toronto','Ontario');"
+    ],
+    "outputs": [
+      "Cindy Woo is living in Toronto, Ontario"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a5bec6f8f22e203b9516",
+    "output": [],
+    "id": "bda2edf7-4282-4795-a814-f140f9be1739",
+    "group": "function",
+    "name": "bind",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let printName =  function (city,province,country){",
+      "&nbsp;&nbsp;&nbsp;let output = this.firstname + ' '+ this.lastname +'&nbsp;is lived in ' + city + ', '+ province + ', '+ country;",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML += output;",
+      "}",
+      "let name =  {",
+      "&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
+      "&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
+      "}",
+      "Function.prototype.mybind = function(...args){",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let obj = this;",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let params = args.slice(1);",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return function (...args2) {",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.apply(args[0],[...params,...args2]);",
+      "&nbsp;&nbsp;&nbsp;}",
+      "}",
+      "let printMyName2 = printName.mybind(name,'Markham','Ontario');",
+      "printMyName2('Canada');"
+    ],
+    "outputs": [
+      "Roger Huang is lived in Markham, Ontario, Canada"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a69dc6f8f22e203b9517",
+    "output": [],
+    "id": "c4cf0178-add9-47c7-ae81-d05b1eeee69b",
+    "group": "function",
+    "name": "polyfill for bind",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let promiseCount = 0;",
+      "function MyDecision(wontDo) {",
+      "&nbsp;&nbsp;&nbsp;promiseCount++;",
+      "&nbsp;&nbsp;&nbsp;let log = document.getElementById('output');",
+      "&nbsp;&nbsp;&nbsp;if(wontDo) log.innerHTML += promiseCount +') Do not want do my job(<small>Start looking at the task</small>)';",
+      "&nbsp;&nbsp;&nbsp;else log.innerHTML += promiseCount +') Started doing my job(<small>Beging my task</small>)';",
+      "&nbsp;&nbsp;&nbsp;let promise1 = new Promise((resolve, reject) => {",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(wontDo) return reject([promiseCount,'I am tired']);",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.innerHTML += promiseCount +') Working as promised (<small>promise started</small>)';",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =>resolve(promiseCount), Math.random() * 2000 + 1000);",
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}",
+      "&nbsp;&nbsp;&nbsp;}",
+      "&nbsp;&nbsp;&nbsp;).then((val) =>log.innerHTML += val +') My job is done (<small>promise fullfiled and ended</small>)')",
+      "&nbsp;&nbsp;&nbsp;.catch((reason) =>log.innerHTML += reason[0] +') Promise rejected resason: ' + reason[1]+'');",
+      "&nbsp;&nbsp;&nbsp;log.innerHTML += promiseCount +') Promise ' + (wontDo ? 'rejected' : '&nbsp;made') + '(<small>Sync code terminated</small>)",
+      "}"
+    ],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a79cc6f8f22e203b9518",
+    "output": [],
+    "id": "bc929229-34e9-4eeb-960b-feef33c61be8",
+    "group": "function",
+    "name": "promise",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let ages = [3, 10, 18, 20];",
+      "function checkAdult(age) {",
+      "&nbsp;&nbsp;&nbsp;return age >= 18;",
+      "}",
+      "function myFunction() {",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = ages.findIndex(checkAdult);",
+      "}"
+    ],
+    "outputs": [
+      "2"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a803c6f8f22e203b9519",
+    "output": [],
+    "id": "5e32ea38-45c0-4b53-b60a-ed943bd692b3",
+    "group": "function",
+    "name": "findIndex",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "function myFunction() {",
+      "&nbsp;&nbsp;&nbsp;let str = 'Hello world, welcome to the universe.';",
+      "&nbsp;&nbsp;&nbsp;let n = str.includes('world');",
+      "&nbsp;&nbsp;&nbsp;document.getElementById('output').innerHTML = n;",
+      "}"
+    ],
+    "outputs": [
+      "true"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a85ac6f8f22e203b951a",
+    "output": [],
+    "id": "140f8bc1-3f3c-4725-96b9-821e680f5515",
+    "group": "function",
+    "name": "includes",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const str1 = '5';",
+      "document.getElementById('output').innerHTML = str1.padStart(2, '0'));",
+      "const fullNumber = '2034399002125581';",
+      "const last4Digits = fullNumber.slice(-4);",
+      "const maskedNumber = last4Digits.padStart(fullNumber.length, '*');",
+      "document.getElementById('output').innerHTML = maskedNumber);"
+    ],
+    "outputs": [
+      "05",
+      "************5581"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a8c4c6f8f22e203b951b",
+    "output": [],
+    "id": "6f6d5ad2-cfd7-423f-870e-8b3fc42c1a6b",
+    "group": "function",
+    "name": "padStart",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const str1 = 'Breaded Mushrooms';",
+      "document.getElementById('output').innerHTML = str1.padEnd(25, '.');",
+      "const str2 = '200';",
+      "document.getElementById('output').innerHTML = str2.padEnd(5);"
+    ],
+    "outputs": [
+      "Breaded Mushrooms........",
+      "200  "
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a917c6f8f22e203b951c",
+    "output": [],
+    "id": "30c2e799-c990-45ec-8ec1-ed59c2863fdd",
+    "group": "function",
+    "name": "padEnd",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "function resolveAfter2Seconds(x) {",
+      "&nbsp;return new Promise(resolve => {",
+      "&nbsp;&nbsp;setTimeout(() => {",
+      "&nbsp;&nbsp;&nbsp;resolve(x);",
+      "&nbsp;&nbsp;}, 2000);",
+      "&nbsp;});",
+      "}",
+      "async function f1() {",
+      "&nbsp;var x = await resolveAfter2Seconds(10);",
+      "&nbsp;document.getElementById('output').innerHTML = x;",
+      "}",
+      "f1();"
+    ],
+    "outputs": [
+      "10"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7a9acc6f8f22e203b951d",
+    "output": [],
+    "id": "66d7d97f-578b-4290-962f-272dd47c9814",
+    "group": "function",
+    "name": "await",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const object1 = {",
+      "&nbsp;a: 'somestring',",
+      "&nbsp;b: 42",
+      "};",
+      "for (let [key, value] of Object.entries(object1)) {",
+      "&nbsp;document.getElementById('output').innerHTML = `${key}: ${value}`;",
+      "}"
+    ],
+    "outputs": [
+      "a: somestring",
+      "b: 42"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7aa15c6f8f22e203b951e",
+    "output": [],
+    "id": "1b87e2e8-45dc-481d-b659-cd063645f0d7",
+    "group": "function",
+    "name": "entries",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const object1 = {",
+      "&nbsp;a: 'somestring',",
+      "&nbsp;b: 42,",
+      "&nbsp;c: false",
+      "};",
+      "document.getElementById('output').innerHTML = Object.values(object1);"
+    ],
+    "outputs": [
+      "Array ['somestring', 42, false]"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea7aa77c6f8f22e203b951f",
+    "output": [],
+    "id": "6e08f0e0-cd52-4fc6-830e-20f13c406255",
+    "group": "function",
+    "name": "values",
+    "__v": 0
+  },
+  {
+    "snips": [],
+    "outputs": [],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ea881a3dfe2f453c8706a99",
+    "group": "",
+    "name": "",
+    "helpPath": "",
+    "__v": 0
+  }
 ]

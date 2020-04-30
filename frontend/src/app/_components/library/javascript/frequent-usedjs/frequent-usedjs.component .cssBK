@@ -1,0 +1,53 @@
+.main{
+  padding: 0 10px;
+}
+.select-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+textarea {
+  width: 100%;
+  margin-left: 20px;
+}
+p{
+  margin: 5px 0 0;
+  padding: 5px;
+  background-color: lightgray;
+}
+#code-snip {
+  max-height: 40vh;
+  overflow: scroll;  
+  padding: 5px;
+  margin: 5px 0;  
+}
+.add-border {
+  border: solid 1px red;
+}
+table {
+    width: 100%;
+}
+table * {
+  vertical-align: middle;
+  padding: 0 5px;  
+}
+table th {
+  background-color: lightgray;
+}
+.hide-log {
+  display: none;
+}
+.btn{
+  background: lightgray;
+  padding: 5px;
+  margin: 5px;
+}
+
+@media all and (max-width : 599px){
+  .select-wrapper {
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    margin-left: 0;
+  }
+}

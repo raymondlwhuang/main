@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabClick($event)">
     <mat-tab label="CRUD (Ngrx)"> 
         <app-state-management></app-state-management>
     </mat-tab>

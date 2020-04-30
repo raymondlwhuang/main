@@ -158,5 +158,7 @@ export class ShowCaseComponent implements OnChanges {
 
       log.innerHTML += thisPromiseCount +') Promise ' + (wontDo ? 'rejected' : ' made') + '(<small>Sync code terminated</small>)<br/>';
   }    
-
+  destroySubscript(){
+    if(this.subscription) this.subscription.unsubscribe();
+  }
 }

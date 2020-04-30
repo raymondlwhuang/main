@@ -36,4 +36,7 @@ export class ChangeDetectionComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
   }
+  destroySubscript(){
+    this.subscribe.unsubscribe();
+  }
 }

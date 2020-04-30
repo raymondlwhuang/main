@@ -20,6 +20,7 @@ export class DemoSelectorComponent implements OnInit {
   @ViewChildren(ShowCaseComponent) showCaseComponents : ShowCaseComponent[];
   inputHolder : InputHolder = {group: ''};
   demos : Demo[];
+  names : Array<String>;
   parentClick: Subject<boolean> = new Subject<false>();
   flag: string;
   output: string;
@@ -37,7 +38,8 @@ export class DemoSelectorComponent implements OnInit {
   ngOnInit() {
     this.demoService.getAllDemos().subscribe(items => {
       this.demos = items.filter(item=>((item.group==this.group ||item.group=='') && item.accepted));
-      if(this.demos.length ==1) this.demos[0].name = "Comming Soon!"
+      this.names=this.demos.map(demo=>demo.name).sort();
+      if(this.demos.length ==1) this.names[0] = "Comming Soon!"
     }); 
   }
   startClock(indicator,element){
@@ -95,5 +97,7 @@ export class DemoSelectorComponent implements OnInit {
       };
     });
   }
-
+  destroySubscript(){
+    this.showCaseComponent.destroySubscript();
+  }
 }

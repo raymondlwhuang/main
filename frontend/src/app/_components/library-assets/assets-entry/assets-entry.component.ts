@@ -22,7 +22,6 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./assets-entry.component.css']
 })
 export class AssetsEntryComponent implements OnInit {
-//?????????
 demos$ : Observable<Demo[]>;
 demoToBeUpdated : Demo = 	{ 
   "group":"",
@@ -37,11 +36,10 @@ groups : any[];
 isUpdateActivated = false;
 isAddActivated = false;
 dataSource : any;
-option : string;
+group : string;
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-//??????????
   name = new FormControl();
   title = 'angforms';
   submitted : boolean = false;
@@ -58,14 +56,13 @@ option : string;
     private demoService : DemoService, 
     private store : Store<DemoState>
   ) {}
-  //??????????????????????
   displayedColumns: string[] = ['group','name', 'helpPath','operations'];
 
   ngOnInit() {
     this.demos$ = this.store.pipe(select(getAllDemos));
     this.demos$.subscribe(data=>{
       this.demos = data;
-      this.groups = [...new Set(data.map(item=>item.group))];
+      this.groups = [...new Set(data.map(item=>item.group))].sort();
       this.dataSource =  new NestedMatTableDataSource<Demo>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -124,16 +121,13 @@ option : string;
     this.store.dispatch(demoActionTypes.updateDemo({payload}));
 
     this.isUpdateActivated = false;
-//    this.demoToBeUpdated = null;
     this.formReset();    
   }
   cancel(){
     this.isUpdateActivated = false;
-//    this.demoToBeUpdated = null;
     this.formReset();
   }
 
-  //??????????
   get snips(): FormArray {
     return this.angForm.get('snips') as FormArray;
   } 
@@ -141,7 +135,6 @@ option : string;
     return this.angForm.get('outputs') as FormArray;
   } 
   get formInput() {
-    let test = this.angForm.controls;
     return this.angForm.controls;
   }
   formReset(){
@@ -217,10 +210,10 @@ option : string;
     let filterDemos = [...this.demos];
     if(option && option.value) {
       filterDemos = this.demos.filter(item => item.group == option.value);
-      this.option = option.value;
+      this.group = option.value;
     }
     else {
-      filterDemos = this.demos.filter(item => item.group == this.option);
+      filterDemos = this.demos.filter(item => item.group == this.group);
     }
     this.dataSource = new NestedMatTableDataSource<Demo>(filterDemos);
     this.dataSource.paginator = this.paginator;

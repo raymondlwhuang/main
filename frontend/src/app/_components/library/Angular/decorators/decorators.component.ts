@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { DemoSelectorComponent } from 'src/app/_helpers/demo-selector/demo-selector.component';
 
 @Component({
   selector: 'app-decorators',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DecoratorsComponent {
   group : string = 'decorator';
+  @ViewChild(DemoSelectorComponent,{static:false}) demoSelectorComponent : DemoSelectorComponent;
+  tabClick(event){
+    this.demoSelectorComponent.destroySubscript();
+  }
+
 }

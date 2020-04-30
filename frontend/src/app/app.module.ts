@@ -20,7 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { environment } from '../environments/environment';
 import { APP_BASE_HREF } from '@angular/common';
 import { ArtComponent } from './_components/employment/art/art.component';
 import { EducationComponent } from './_components/employment/education/education.component';
@@ -32,7 +31,6 @@ import { CssComponent } from './_components/library/css/css.component';
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { PreShowComponent } from './_components/library/pre-show/pre-show.component';
 import { FrequentUsedjsComponent } from './_components/library/javascript/frequent-usedjs/frequent-usedjs.component';
-import { FunctionComponent } from './_components/library/javascript/function/function.component';
 import { DecoratorsComponent } from './_components/library/Angular/decorators/decorators.component';
 import { ChangeDetectionComponent } from './_components/library/Angular/change-detection/change-detection.component';
 import { DecoratorsModule } from './_components/library/Angular/decorators/decorators.module';
@@ -72,7 +70,6 @@ import { DemoResolver } from './_store/resolvers/demo.resolver';
     PortfolioComponent,
     JavascriptComponent,
     FrequentUsedjsComponent,
-    FunctionComponent,
     LoginComponent,
     CssComponent,
     JqueryComponent,

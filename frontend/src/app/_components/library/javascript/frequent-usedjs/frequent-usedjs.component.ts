@@ -2,9 +2,10 @@ import {Component, ChangeDetectionStrategy, ViewChild} from "@angular/core";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Employee } from 'src/app/_models/employee';
-import { Favorite } from 'src/app/_models/favorite';
 import { EmployeeService } from 'src/app/_services/employee.service';
 import { NestedMatTableDataSource } from 'src/app/_helpers/nested-mat-table-data-source';
+import { DemoService } from 'src/app/_services/demo.service';
+import { Demo } from 'src/app/_models/demo';
 
 @Component({
   selector: 'app-frequent-usedjs',
@@ -13,26 +14,24 @@ import { NestedMatTableDataSource } from 'src/app/_helpers/nested-mat-table-data
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class FrequentUsedjsComponent {
+  demos : Demo[];
+  names : Array<String>;
+
   employees : Employee[];
-  favorites : Favorite[];
-  functions: any[] = [
-    {name: 'Make your selection', value:''},
-    {name: 'forEach', value:'forEach'},
-    {name: 'filter', value:'filter'},
-    {name: 'sort', value:'sort'},
-    {name: 'find', value:'find'},
-    {name: 'pop', value:'pop'},
-    {name: 'shift', value:'shift'},
-    {name: 'slice', value:'slice'}
-  ];
+
   displayedColumns: string[] = ['index', 'name.first', 'name.last', 'fullName', 'isActive', 'age','company','email','eyeColor'];
   demoOutput : any;
   dataSource : any;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private _employeeService : EmployeeService) { }
+  constructor(private demoService : DemoService,private _employeeService : EmployeeService) { }
 
   ngOnInit() {
+    this.demoService.getAllDemos().subscribe(items => {
+      this.demos = items.filter(item=>((item.group=='array' ||item.group=='') && item.accepted));
+      this.names=this.demos.map(demo=>demo.name).sort();
+      if(this.demos.length ==1) this.names[0] = "Comming Soon!"
+    });    
     this._employeeService.getEmployees().subscribe((data) => {
       this.employees = data.map(result=>{
         result.fullName = result.name.first + ' ' + result.name.last;
@@ -89,9 +88,9 @@ export class FrequentUsedjsComponent {
     let codSnip = document.getElementById("code-snip");
     if(option.value != '') {
       codSnip.className = "add-border";
-      this.favorites.forEach((result) => {
+      this.demos.forEach((result) => {
         if(option.value == result.name){
-          result.snip.forEach(element => {
+          result.snips.forEach(element => {
             snip += element + '</br>';
           });
         } 

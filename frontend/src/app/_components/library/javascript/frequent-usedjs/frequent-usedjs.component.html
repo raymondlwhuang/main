@@ -17,8 +17,8 @@
     <mat-form-field>
       <mat-label>Your selection</mat-label>
       <mat-select (selectionChange)="renderNewResult($event)">
-        <mat-option *ngFor="let funct of functions" [value]="funct.value">
-          {{funct.name}}
+        <mat-option *ngFor="let name of names" [value]="name">
+          {{name}}
         </mat-option>
       </mat-select>
     </mat-form-field>    

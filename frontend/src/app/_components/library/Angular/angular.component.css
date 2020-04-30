@@ -10,3 +10,13 @@ button {
     align-self: flex-start;
     margin-right: 5px;
 }
+table {
+    width: 95%;
+    margin: 5px;
+    box-sizing: border-box;
+}
+@media all and (max-width: 599px) {
+    table {
+        width: auto;
+    }    
+}

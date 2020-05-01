@@ -13,7 +13,7 @@ import { AutoUnsubscribe } from 'src/app/_decorators/custom.decorator';
 })
 @AutoUnsubscribe()
 export class ChangeDetectionComponent implements OnInit, OnDestroy {
-  inputHolder : InputHolder = {showCaseFlag:'',demout:'',imagesList:''};;
+  inputHolder : InputHolder = {showCaseFlag:'',demout:'',imagesList:''};
   pointer = 0;
   imagesList : Array<ImagesList>= images.imagesList;
   intervalId: any;
@@ -21,6 +21,7 @@ export class ChangeDetectionComponent implements OnInit, OnDestroy {
   constructor(private changeDetectRf : ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.inputHolder = {...this.inputHolder,imagesList : this.imagesList[0].url,showCaseFlag:''};
     this.subscribe = interval(3000).subscribe(() => {
       let thisHolder : InputHolder = this.inputHolder;
       let count = this.countUp();

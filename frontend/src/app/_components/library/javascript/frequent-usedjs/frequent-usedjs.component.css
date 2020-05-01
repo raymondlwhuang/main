@@ -3,11 +3,10 @@
 }
 .select-wrapper {
   display: flex;
-  flex-direction: row-reverse;
 }
 textarea {
   width: 100%;
-  margin-left: 20px;
+  margin: 5px;
 }
 p{
   margin: 5px 0 0;
@@ -41,7 +40,30 @@ table th {
   padding: 5px;
   margin: 5px;
 }
-
+#show-hide{
+  position: absolute;
+  right: 15px;
+  top: 11px;
+  width: 50px;
+  height: 30px;
+  overflow: hidden;
+  z-index: 1;
+}
+#show-hide.expend {
+  width: calc(100% - 20px);
+  height: initial;
+  overflow: initial;
+}
+#show-hide-sign{
+  position: static;
+  transform: rotate(180deg);
+}
+#show-hide-sign.expend{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: none;
+}
 @media all and (max-width : 599px){
   .select-wrapper {
     display: block;

@@ -51,6 +51,7 @@ img{
         font-size: 45px;
         font-weight: 700;
         white-space: nowrap;
+        line-height: normal;
     }
 }
 @media all and (max-width: 599px) {

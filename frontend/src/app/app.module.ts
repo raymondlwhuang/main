@@ -15,10 +15,6 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainNavComponent } from './_components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { APP_BASE_HREF } from '@angular/common';
 import { ArtComponent } from './_components/employment/art/art.component';
@@ -50,9 +46,6 @@ import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './_store/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './_store/effects/user.effect';
-// import { CrudReducer } from './_store/reducers/crud.reducer';
-// import { CrudEffects } from './_store/effects/crud.effect';
-// import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { StateManagementModule } from './_components/library/Angular/state-management/state-management.module';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
@@ -105,10 +98,6 @@ import { CrudEffects } from './_store/effects/crud.effect';
     FormsModule,
     MaterialModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
     MatListModule,
     DecoratorsModule,
     MatSnackBarModule,

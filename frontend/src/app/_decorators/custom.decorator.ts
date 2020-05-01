@@ -10,7 +10,7 @@ export function AutoUnsubscribe(obs$ = []) {
             for(const ob$ of obs$) {
                 if(ob$) {
                     ob$.unsubscribe()
-                    console.log('unsubscrib fired in: ' + constructor.name);  
+                    console.log('unsubscrib had been fired');  
                 }
             }
             orig.apply()

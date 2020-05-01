@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/_services/employee.service';
 import { NestedMatTableDataSource } from 'src/app/_helpers/nested-mat-table-data-source';
 import { DemoService } from 'src/app/_services/demo.service';
 import { Demo } from 'src/app/_models/demo';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-frequent-usedjs',
@@ -22,6 +23,7 @@ export class FrequentUsedjsComponent {
   displayedColumns: string[] = ['index', 'name.first', 'name.last', 'fullName', 'isActive', 'age','company','email','eyeColor'];
   demoOutput : any;
   dataSource : any;
+  pageSize: number = 10;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private demoService : DemoService,private _employeeService : EmployeeService) { }
@@ -32,12 +34,13 @@ export class FrequentUsedjsComponent {
       this.names=this.demos.map(demo=>demo.name).sort();
       if(this.demos.length ==1) this.names[0] = "Comming Soon!"
     });    
-    this._employeeService.getEmployees().subscribe((data) => {
-      this.employees = data.map(result=>{
+    this._employeeService.getEmployees().pipe(take(10)).subscribe((data) => {
+      let res = data.slice(0,11);
+      this.employees = res.map(result=>{
         result.fullName = result.name.first + ' ' + result.name.last;
         return result;
       });
-      this.dataSource =  new NestedMatTableDataSource<Employee>(data);
+      this.dataSource =  new NestedMatTableDataSource<Employee>(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
@@ -101,6 +104,9 @@ export class FrequentUsedjsComponent {
     }
     codSnip.innerHTML = snip;
   } 
-
+  showHide(){
+    document.getElementById('show-hide').classList.toggle("expend");
+    document.getElementById('show-hide-sign').classList.toggle("expend");
+  }
 
 }

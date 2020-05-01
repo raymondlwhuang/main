@@ -1,19 +1,5 @@
 <div class="main mat-typography">
-  <h3>My frequently used JavaScript method for object and array</h3>
-  <p>Data structure</p>
   <div class="select-wrapper">
-    <textarea  readonly placeholder="This is the basic structure of the data" rows="8">
-      This is the basic structure of the data:
-
-      [
-        {
-          "index": 0,"isActive": false,"age": 36,"eyeColor": "green",
-          "name": {"first": "Bolton","last": "Estes"},
-          "company": "STUCCO","email": "bolton.estes@stucco.name",
-        }    
-      ]
-
-    </textarea>
     <mat-form-field>
       <mat-label>Your selection</mat-label>
       <mat-select (selectionChange)="renderNewResult($event)">
@@ -22,7 +8,51 @@
         </mat-option>
       </mat-select>
     </mat-form-field>    
-    
+    <div id="show-hide">
+      <div id="show-hide-sign">
+        <mat-icon color="accent" (click)="showHide()">unarchive</mat-icon>
+      </div>
+
+      <textarea  readonly placeholder="This is the basic structure of the data" rows="8">
+        This is the basic structure of the data:
+
+        [
+        {
+          "_id": "5e48184949744390d736bcf8",
+          "index": 0,
+          "guid": "c2110c14-7ec4-491e-aa82-6cacad07e4ef",
+          "isActive": false,
+          "balance": "$2,331.98",
+          "picture": "http://placehold.it/32x32",
+          "age": 36,
+          "eyeColor": "green",
+          "name": {
+            "first": "Bolton",
+            "last": "Estes"
+          },
+          "company": "STUCCO",
+          "email": "bolton.estes@stucco.name",
+          "phone": "+1 (997) 464-2224",
+          "address": "155 Leonora Court, Chase, New Mexico, 4148",
+          "about": "Eiusmod deserunt pariatur nostrud laboris duis laboris aliquip ea labore nisi elit. Et dolore velit do sint est sunt culpa commodo sint. Dolore consequat laboris qui non anim eu consectetur pariatur ullamco fugiat. Nulla adipisicing cillum eu ullamco consectetur sit incididunt exercitation. Nulla officia enim mollit veniam veniam incididunt nisi Lorem dolor. Mollit non dolore proident labore tempor dolore voluptate incididunt esse nisi cupidatat commodo qui.",
+          "registered": "Wednesday, December 17, 2014 9:21 PM",
+          "latitude": "77.578515",
+          "longitude": "-63.882052",
+          "tags": ["est","laboris","ex","ipsum","eiusmod"],
+          "range": [0,1,2,3,4,5,6,7,8,9],
+          "friends": [
+            {"id": 0,"name": "Elinor Whitfield"},
+            {"id": 1,"name": "Strong Morris"},
+            {"id": 2,"name": "Julia Morin"}
+          ],
+          "greeting": "Hello, Bolton! You have 7 unread messages.",
+          "favoriteFruit": "apple
+         }    
+        ]
+
+      </textarea>
+    </div>
+
 </div>
 
 <div id="code-snip">
@@ -84,4 +114,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

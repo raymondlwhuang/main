@@ -256,9 +256,11 @@
   },
   {
     "snips": [
-      "employees.forEach(employee=> employee.eyeColor=='green');"
+      "this.employees.forEach(employee=> {if(employee.eyeColor=='green') this.dataDispInTable.push(employee)});"
     ],
-    "outputs": [],
+    "outputs": [
+      "calls a function once for each element in an array, in order."
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a2eac6f8f22e203b950c",
@@ -270,9 +272,11 @@
   },
   {
     "snips": [
-      "employees.filter(employee => employee.eyeColor=='blue');"
+      "this.dataDispInTable = this.employees.filter(employee => employee.eyeColor=='blue');"
     ],
-    "outputs": [],
+    "outputs": [
+      "creates an array filled with all array elements that pass a test (provided as a function)"
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a304c6f8f22e203b950d",
@@ -284,9 +288,12 @@
   },
   {
     "snips": [
-      "employees.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);"
+      "this.dataDispInTable = this.employees.slice();",
+      "this.dataDispInTable.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);"
     ],
-    "outputs": [],
+    "outputs": [
+      "sorts the items of an array."
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a31dc6f8f22e203b950e",
@@ -298,9 +305,12 @@
   },
   {
     "snips": [
-      "employees.find(employee => employee.age < 22);"
+      "this.dataDispInTable = [];",
+      "this.dataDispInTable.push(this.employees.find(employee => employee.age < 22));"
     ],
-    "outputs": [],
+    "outputs": [
+      "returns the value of the first element in an array that pass a test (provided as a function)"
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a33ec6f8f22e203b950f",
@@ -312,9 +322,12 @@
   },
   {
     "snips": [
-      "employees.pop();"
+      "this.dataDispInTable = this.employees.slice();",
+      "this.dataDispInTable.pop();"
     ],
-    "outputs": [],
+    "outputs": [
+      "removes the last element of an array, and returns that element."
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a35bc6f8f22e203b9510",
@@ -326,9 +339,12 @@
   },
   {
     "snips": [
-      "employees.shift();"
+      "this.dataDispInTable = this.employees.slice();",
+      "this.dataDispInTable.shift();"
     ],
-    "outputs": [],
+    "outputs": [
+      "removes the first item of an array."
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a373c6f8f22e203b9511",
@@ -340,9 +356,12 @@
   },
   {
     "snips": [
-      "employees = employees.slice(1, 3);"
+      "this.dataDispInTable = this.employees.slice();",
+      "this.dataDispInTable = this.dataDispInTable.slice(1, 3);"
     ],
-    "outputs": [],
+    "outputs": [
+      "returns the selected elements in an array, as a new array object."
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a38ec6f8f22e203b9512",
@@ -673,6 +692,726 @@
     "_id": "5ea881a3dfe2f453c8706a99",
     "group": "",
     "name": "",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let ageList = this.employees.slice().map(employee=>employee.age); ",
+      "let msg = \"Grand Total of age is: \" + ageList.reduce((total : number,age : number)=>total + age); ",
+      "timer(2000).subscribe(() => this.htmlConsole(msg));   //htmlConsole is a customized decorator created by me for the purpose of display console.log to html element"
+    ],
+    "outputs": [
+      "reduces the array to a single value."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5eac7f5dd8ded93c207f4ffb",
+    "id": "d362866f-58f8-4398-b6c4-776a5ac61aa6",
+    "group": "array",
+    "name": "reduce",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The earlier versions of JS allow the usage of undeclared variables. But when the es5 ‘use strict’ feature is used, an error is reported."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadda8ad8ded93c207f4ffc",
+    "id": "db69d3b5-444e-481b-bdce-df37d321ce85",
+    "group": "JsByVersion",
+    "name": "use strict",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let arr = [1,2,3,4];",
+      "let a = 3;",
+      "console.log(Array.isArray(arr)); //returns true",
+      "console.log(Array.isArray(a)); //returns false"
+    ],
+    "outputs": [
+      "This method checks if the object is an array or not and returns the result in true or false."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaddbc7d8ded93c207f4ffd",
+    "id": "ac371524-c9a3-4378-8129-0378e165fc28",
+    "group": "JsByVersion",
+    "name": "isArray",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let arr=[3,4,5];",
+      "arr.forEach((ele)=>console.log(ele)); // prints all elements in the array"
+    ],
+    "outputs": [
+      "executes the function for every element found in the array."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaddc82d8ded93c207f4ffe",
+    "id": "a081958b-294c-4e27-a575-4656a1b0eb3d",
+    "group": "JsByVersion",
+    "name": "forEach",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let arr=[5,7,9];",
+      "let newArr= arr.map(ele=>ele *ele);",
+      "console.log(newArr);"
+    ],
+    "outputs": [
+      "creates a new array by mapping every element of the array (on which the map is used)."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaddd0bd8ded93c207f4fff",
+    "id": "0b2fb623-7ba8-4aa3-8b80-3dc1e5b7a891",
+    "group": "JsByVersion",
+    "name": "map",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let arr=[1,2,3,4,5,6,7,8,9,10];",
+      "const result= arr.filter(item=>item >5);",
+      "console.log(result); //output: [6,7,8,9,10];"
+    ],
+    "outputs": [
+      "creates a new array that contains elements which got filtered by making array elements pass some condition."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaddddad8ded93c207f5000",
+    "id": "65939e8c-b7ef-4748-a7cf-348714084888",
+    "group": "JsByVersion",
+    "name": "filter",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[1,2,3,4,5,6,7,8,9,10];",
+      "const result=arr.reduce((total,curVal)=>total-curVal);",
+      "console.log(result); //returns -53"
+    ],
+    "outputs": [
+      "applies a function to each element in an array and reduces the array to a single element."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaddf30d8ded93c207f5001",
+    "id": "084675a3-dc5f-4ffa-8d7b-c3ce008f033f",
+    "group": "JsByVersion",
+    "name": "reduce",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[1,2,3,4,5,6,7,8,9,10];",
+      "const result=arr.reduceRight((total,curVal)=>total-curVal);",
+      "console.log(result); //returns -35"
+    ],
+    "outputs": [
+      "It is quite same to reduce method, except for the traversal that happens from right to left."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadf780d8ded93c207f5002",
+    "id": "099441c2-4714-4371-a234-e1389b86e4f8",
+    "group": "JsByVersion",
+    "name": "reduceRight",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[5,10,15,30];",
+      "const result=arr.every((val)=>val > 4);",
+      "console.log(result); //returns: true",
+      "const result=arr.every((val)=>val > 5);",
+      "console.log(result); //returns: false"
+    ],
+    "outputs": [
+      "This method checks a condition with every element of an array and if every element satisfies then returns true ",
+      "if at least one element doesn’t satisfy the condition then returns false."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadf8c3d8ded93c207f5003",
+    "id": "20dd304b-5c0e-4c41-b1e9-85bd9c32dd9f",
+    "group": "JsByVersion",
+    "name": "every",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[5,10,15,30];",
+      " const result=arr.some((val)=>val > 7); ",
+      "console.log(result); //returns: true"
+    ],
+    "outputs": [
+      "checks for at least one element that gets satisfied with the condition and if found returns true and if none satisfies then false."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadf9a0d8ded93c207f5004",
+    "id": "4ce94e35-d87a-4047-903b-89ecfd45026e",
+    "group": "JsByVersion",
+    "name": "some",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[5,10,15,30,15,20,15,3,4];",
+      "console.log(arr.indexOf(15)); //returns: 2"
+    ],
+    "outputs": [
+      "Returns the index of the first match in an array. If not found then returns -1."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadfa33d8ded93c207f5005",
+    "id": "f074847f-ed53-4c3e-8ff7-c046b2d9d1b0",
+    "group": "JsByVersion",
+    "name": "indexOf",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr=[5,10,15,30,15,20,15,3,4];",
+      "console.log(arr.lastIndexOf(15)); //returns: 6"
+    ],
+    "outputs": [
+      "Same as indexOf but checks and returns from the other end of an array."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eadfad5d8ded93c207f5006",
+    "id": "464115cc-5a30-4761-b9f8-b13d6fee5362",
+    "group": "JsByVersion",
+    "name": "lastIndexOf",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let jsonStr = '{\"a\":1,\"b\":2};",
+      "let obj = JSON.parse(jsonStr);",
+      "console.log(obj.a); //returns : 1"
+    ],
+    "outputs": [
+      "parses a JSON string that is like an object."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eae260dd8ded93c207f5007",
+    "id": "bcbaf876-ef3d-44f5-8af9-6a7614fc92c5",
+    "group": "JsByVersion",
+    "name": "JSON.parse",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "console.log(JSON.stringify({a:1,b:2}));"
+    ],
+    "outputs": [
+      "converts an object to a JSON string."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaee32fd8ded93c207f5008",
+    "id": "8d6027d6-58c4-4555-b839-e58052190e97",
+    "group": "JsByVersion",
+    "name": "JSON.stringify",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "console.log(Date.now());"
+    ],
+    "outputs": [
+      "returns the number of milliseconds elapsed since 01-Jan-1970 UTC."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaeff08d8ded93c207f5009",
+    "id": "7e89cedd-de8f-4a5d-a468-c8b935ade952",
+    "group": "JsByVersion",
+    "name": "Date.now",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "var date = new Date();",
+      "console.log(date.valueOf());"
+    ],
+    "outputs": [
+      "returns the primitive value of a date object."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaeff99d8ded93c207f500a",
+    "id": "2ea9b78b-f6d8-429b-acaa-3d13e12b59ec",
+    "group": "JsByVersion",
+    "name": "Date.valueOf",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let obj = {   get propName() {     // getter, the code executed on getting obj.propName   },",
+      "set propName(value) {     // setter, the code executed on setting obj.propName = value   } };"
+    ],
+    "outputs": [
+      "Getters and setters allow you to define Object Accessors (Computed Properties)."
+    ],
+    "indicator": 2009,
+    "accepted": true,
+    "_id": "5eaf013dd8ded93c207f500b",
+    "id": "d124de1f-95e7-4e59-b4fc-a3788801eb17",
+    "group": "JsByVersion",
+    "name": "getters and setters",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "provide Block Scope variables. "
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf2cd8d8ded93c207f500c",
+    "id": "f3193651-154d-4368-b2b9-be1f9e4364d6",
+    "group": "JsByVersion",
+    "name": "LET & CONST",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr = ['one','tow','three'];",
+      "for(const a of arr) {console.log(a);}"
+    ],
+    "outputs": [
+      "an alternative for both for...in and forEach() and loops iterable data structures like Arrays, Maps, Sets, and strings."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf2d99d8ded93c207f500d",
+    "id": "1670f894-bcaf-4593-a366-5c89a86210e2",
+    "group": "JsByVersion",
+    "name": "for...of",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "function fun(a,b,c=0) {console.log('a: '+a+' b: '+b+' c: '+c);};",
+      "fun(2,3);"
+    ],
+    "outputs": [
+      "Provides default values to function parameters if no value or undefined is passed."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf2f0bd8ded93c207f500e",
+    "id": "62b8d392-96fe-4aec-85da-c2844d136ea8",
+    "group": "JsByVersion",
+    "name": "DEFAULT PARAMETERS",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "function fun(...a){ console.log('a: '+a);}",
+      "fun(1,2,3,4,5); //  \"a: 1,2,3,4,5\""
+    ],
+    "outputs": [
+      "used to handle function parameters."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf309dd8ded93c207f500f",
+    "id": "91437634-ce92-4105-b63e-1c3f68583524",
+    "group": "JsByVersion",
+    "name": "REST OPERATOR",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let arr1=[1,2,3];",
+      "let arr2=[4,5];",
+      "let newArr = [...arr1,...arr2];",
+      "console.log(newArr); //[1,2,3,4,5]"
+    ],
+    "outputs": [
+      "Spread Operator is used with arrays and its syntax is exactly the same as that of Rest Operator (ie …). It is used to split the contents of an array."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf31a2d8ded93c207f5010",
+    "id": "63c91310-6b3e-4763-a75c-6789fe7c3803",
+    "group": "JsByVersion",
+    "name": "SPREAD OPERATOR",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const arr = [1,2];",
+      "const [x,y] = arr;",
+      "console.log('x: '+ x +' y: ' +y); //x:1 y:2",
+      "({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}); //destructuring from object",
+      "console.log(a); // 10",
+      "console.log(b); // 20",
+      "console.log(rest); // {c: 30, d: 40}"
+    ],
+    "outputs": [
+      "unpacking values from an array or an object."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf340bd8ded93c207f5011",
+    "id": "3f73fb1f-ce0a-4aa7-b687-0468a6621ce5",
+    "group": "JsByVersion",
+    "name": "DESTRUCTURING",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let a=1; let b=2; let c=3;",
+      "console.log(`a: ${a} b: ${b} c: ${c}`); // \"a: 1 b: 2 c: 3\""
+    ],
+    "outputs": [
+      "embedded expressions, which makes print statements easy."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf449dd8ded93c207f5012",
+    "id": "30a6cf3f-f092-45f9-8ef2-e80ca11f8bdf",
+    "group": "JsByVersion",
+    "name": "TEMPLATE LITERALS/STRINGS",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const val = (x,y) => x * y;",
+      "console.log(val(2,3));  // 6"
+    ],
+    "outputs": [
+      ""
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf4548d8ded93c207f5013",
+    "id": "2b64b101-8b5e-40fb-8a12-f0c226075e2e",
+    "group": "JsByVersion",
+    "name": "ARROW FUNCTIONS",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let myPromise = new Promise((resolve,reject)=>{....})"
+    ],
+    "outputs": [
+      "handle Asynchronous Programming in a more elegant way. Before Promises, async calls were handled by Callbacks."
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eaf481cd8ded93c207f5014",
+    "id": "70955f29-7401-435f-aded-6e618fc7a02e",
+    "group": "JsByVersion",
+    "name": "PROMISES",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "class Demo{",
+      "constructor(message) { this.message = message;}",
+      "showMessage(){ console.log(this.message);}",
+      "}",
+      "let demo = new Demo(\"hello world\");",
+      "demo.showMessage();"
+    ],
+    "outputs": [
+      "ES6 the keyword class is introduced that makes the approach very easy. (still not working well in IE)"
+    ],
+    "indicator": 2015,
+    "accepted": true,
+    "_id": "5eb1d9b5d8ded93c207f5015",
+    "id": "d79cd57f-107a-481a-8b34-3831ab9dbc7d",
+    "group": "JsByVersion",
+    "name": "CLASSES",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "console.log(2**3);"
+    ],
+    "outputs": [
+      "exponentiation operator"
+    ],
+    "indicator": 2016,
+    "accepted": true,
+    "_id": "5eb1dc44d8ded93c207f5016",
+    "id": "35781d0b-8b50-4017-848c-0e26875d5ae6",
+    "group": "JsByVersion",
+    "name": "EXPONENTIATION OPERATOR (**)",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let animal = ['cat','rat','bat']; console.log(animal.includes('cat'));",
+      "console.log(animal.includes('cat')); //return: true"
+    ],
+    "outputs": [
+      "Returns true if an array includes a value, if not returns false."
+    ],
+    "indicator": 2016,
+    "accepted": true,
+    "_id": "5eb1dd1ed8ded93c207f5017",
+    "id": "efb83afa-1757-4ae9-9176-ff50f2f0bdb9",
+    "group": "JsByVersion",
+    "name": "includes",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let str = 'ABCDE';",
+      "console.log(str.padStart(6,'*')); //output : *ABCDE"
+    ],
+    "outputs": [
+      "pads a string with another string at the beginning."
+    ],
+    "indicator": 2016,
+    "accepted": true,
+    "_id": "5eb1e10dd8ded93c207f5018",
+    "id": "eeeed662-4f99-4c00-9033-e998db121c7e",
+    "group": "JsByVersion",
+    "name": "padStart",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let str = 'ABCDE'; ",
+      "console.log(str.padEnd(7,'*'));"
+    ],
+    "outputs": [
+      "pads a string with another string and makes the resulting string reach a given length."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb1e1b0d8ded93c207f5019",
+    "id": "a8f53eb9-80da-4d1c-8a07-0fc6598e01a7",
+    "group": "JsByVersion",
+    "name": "padEnd",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "async function f1(y) {",
+      "var x = await new Promise(resolve =>setTimeout(() =>resolve(y*2), 2000));",
+      "console.log(x);",
+      "}",
+      "f1(10);"
+    ],
+    "outputs": [
+      "applied only inside an async function, waits to be rejected or resolved by a promise."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb22705d8ded93c207f501a",
+    "id": "67ca71b7-0415-408e-b9da-dc5c26befc1f",
+    "group": "JsByVersion",
+    "name": "async/await",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const colors =['red','yellow','green'];",
+      "console.log(Object.entries(colors)); //returns: [[\"0\", \"red\"], [\"1\", \"yellow\"], [\"2\", \"green\"]]"
+    ],
+    "outputs": [
+      "returns an array that contains the key-value pairs of a given object as an array."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb22808d8ded93c207f501b",
+    "id": "b57ba400-392a-4da2-add4-c213a0772691",
+    "group": "JsByVersion",
+    "name": "Object.entries",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "[1,2,3, , , ,] or {\"a\": 1,\"b\":2,} or function func(p,){}"
+    ],
+    "outputs": [
+      " a comma that comes at the end of the last item in a list. It could be used in array, object and functions but not allowed in JSON"
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb22bf1d8ded93c207f501c",
+    "id": "d80eb078-9442-4084-bd18-d0a3fe81e95e",
+    "group": "JsByVersion",
+    "name": "Trailing commas",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "https://2ality.com/2017/01/shared-array-buffer.html"
+    ],
+    "outputs": [
+      "The same data can be read and written on multiple threads using the SharedArrayBuffer constructor. Interruption during the process of reading or writing can be avoided by using Atomic objects. This allows the previous operation to finish prior to the next one."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb2bc46d8ded93c207f501d",
+    "id": "f2f6116c-2f23-4ac6-9857-297f251da78f",
+    "group": "JsByVersion",
+    "name": "Shared memory and atomics",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const person = {name:'ray'}; ",
+      "let desc = Object.getOwnPropertyDescriptor(person,'name'); ",
+      "console.log(desc); // {   configurable: true,   enumerable: true,   value: \"ray\",   writable: true }"
+    ],
+    "outputs": [
+      "An object is returned to the own property descriptors with get, set, writeable, configurable and enumerable attributes."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb2c3b9d8ded93c207f501e",
+    "id": "f454a11f-3504-4e8d-aebb-7520b8e276cc",
+    "group": "JsByVersion",
+    "name": "Object.getOwnPropertyDescriptor",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const colors = {BL:'blue',OR:'Orange',YE:'yellow',PI:'Pink'};  ",
+      "console.log(Object.values(colors)); //[\"blue\", \"Orange\", \"yellow\", \"Pink\"]"
+    ],
+    "outputs": [
+      "It returns an array of a given object’s own enumerable property values."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5eb2c4d3d8ded93c207f501f",
+    "id": "6d68e45c-3f99-4673-a02e-26d04c5b9c03",
+    "group": "JsByVersion",
+    "name": "Object.values",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "for await(const line of readLines(filePath)) {   console.log(line); }"
+    ],
+    "outputs": [
+      "An async iterable object can be used as a loop iteration with the help of for-await-of."
+    ],
+    "indicator": 2018,
+    "accepted": true,
+    "_id": "5eb2c85fd8ded93c207f5020",
+    "id": "2798d5c4-7ac4-4219-8351-d61d676bba64",
+    "group": "JsByVersion",
+    "name": "for-await-of",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const reDate = /([0-9]{4})-([0-9]{2})-([0-9]{2})/; ",
+      "match = reDate.exec('2020-05-06'); ",
+      "console.log(match[1]); //2020"
+    ],
+    "outputs": [
+      "A matched object can be returned by using regular expressions of JavaScript. A matched object has array-like value with matched strings."
+    ],
+    "indicator": 2018,
+    "accepted": true,
+    "_id": "5eb2cb02d8ded93c207f5021",
+    "id": "0cd20637-0e89-405c-9497-8ea994bada23",
+    "group": "JsByVersion",
+    "name": "New Regex Capabilities",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "restParam(1,2,3,4,5,6);",
+      "function restParam(p1,p2,...p3) {   ",
+      "console.log(p1);  // returns: 1",
+      "console.log(p3); //returns: [3,4,5,6]",
+      "}"
+    ],
+    "outputs": [
+      "The last arguments sent to a function are changed to an array using Rest parameters and the (...) notation can be used only for array operations."
+    ],
+    "indicator": 2018,
+    "accepted": true,
+    "_id": "5eb2cca1d8ded93c207f5022",
+    "id": "0aba4f33-16ce-4e1d-a40c-c813531bccf2",
+    "group": "JsByVersion",
+    "name": "rest/spread properties",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ".then(function(json){...}).catch(function(error){...}).finally(function(){...}"
+    ],
+    "outputs": [
+      "The method then() is called after successfully resolving the promise and catch() method is declared if a problem occurs. ",
+      "Eventually, the code can be executed using finally() method irrespective of previous occurrences."
+    ],
+    "indicator": 2018,
+    "accepted": true,
+    "_id": "5eb2ce09d8ded93c207f5023",
+    "id": "47c571d4-68dd-4467-af78-ea50616d7da4",
+    "group": "JsByVersion",
+    "name": "promise finally",
     "helpPath": "",
     "__v": 0
   }

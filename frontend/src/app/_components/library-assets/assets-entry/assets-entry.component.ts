@@ -155,6 +155,13 @@ group : string;
   }
 
   onFormSubmit(submittedForm): void {
+    if(submittedForm.invalid) {
+      this._snackBar.openFromComponent(SnackBarComponent, {
+        duration: 5000,
+        data: "Please fill in all requsted information"
+      });          
+
+    }
     if(this.isUpdateActivated) this.updateDemo(submittedForm);
     else {
       this.submitted = true;

@@ -26,7 +26,6 @@ import { LoginComponent } from './_components/library/login/login.component';
 import { CssComponent } from './_components/library/css/css.component';
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { PreShowComponent } from './_components/library/pre-show/pre-show.component';
-import { FrequentUsedjsComponent } from './_components/library/javascript/frequent-usedjs/frequent-usedjs.component';
 import { DecoratorsComponent } from './_components/library/Angular/decorators/decorators.component';
 import { ChangeDetectionComponent } from './_components/library/Angular/change-detection/change-detection.component';
 import { DecoratorsModule } from './_components/library/Angular/decorators/decorators.module';
@@ -55,6 +54,7 @@ import { DemoResolver } from './_store/resolvers/demo.resolver';
 import { CrudReducer } from './_store/reducers/crud.reducer';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { CrudEffects } from './_store/effects/crud.effect';
+import { ArrayComponent } from './_components/library/javascript/array/array.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { CrudEffects } from './_store/effects/crud.effect';
     ArtComponent,
     PortfolioComponent,
     JavascriptComponent,
-    FrequentUsedjsComponent,
+    ArrayComponent,
     LoginComponent,
     CssComponent,
     JqueryComponent,

@@ -58,8 +58,8 @@
                 </div>
             </div>
             <div>
-                <button *ngIf="!isUpdateActivated" [disabled]="submittedForm.invalid" type="submit" class="btn btn-primary">Create</button>
-                <button *ngIf="isUpdateActivated" [disabled]="submittedForm.invalid" class="btn btn-success" type="submit">Update</button>
+                <button *ngIf="!isUpdateActivated" type="submit" class="btn btn-primary">Create</button>
+                <button *ngIf="isUpdateActivated" class="btn btn-success" type="submit">Update</button>
                 <button *ngIf="isUpdateActivated" (click)="cancel()" class="btn btn-danger" type="reset">Cancel</button>
             </div>
         </form>

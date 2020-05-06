@@ -6,24 +6,28 @@ import { EmployeeService } from 'src/app/_services/employee.service';
 import { NestedMatTableDataSource } from 'src/app/_helpers/nested-mat-table-data-source';
 import { DemoService } from 'src/app/_services/demo.service';
 import { Demo } from 'src/app/_models/demo';
-import { take } from 'rxjs/operators';
+import { take, mapTo } from 'rxjs/operators';
+import { HtmlConsole } from 'src/app/_decorators/custom.decorator';
+import { timer } from 'rxjs';
 
 @Component({
-  selector: 'app-frequent-usedjs',
-  templateUrl: './frequent-usedjs.component.html',
-  styleUrls: ['./frequent-usedjs.component.css'],
+  selector: 'app-array',
+  templateUrl: './array.component.html',
+  styleUrls: ['./array.component.css'],
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class FrequentUsedjsComponent {
+export class ArrayComponent {
   demos : Demo[];
   names : Array<String>;
 
   employees : Employee[];
 
   displayedColumns: string[] = ['index', 'name.first', 'name.last', 'fullName', 'isActive', 'age','company','email','eyeColor'];
-  demoOutput : any;
+  dataDispInTable : any;
   dataSource : any;
+  excuteStr: string;
   pageSize: number = 10;
+  selectedOption: string;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private demoService : DemoService,private _employeeService : EmployeeService) { }
@@ -46,67 +50,81 @@ export class FrequentUsedjsComponent {
     });
   }
   renderNewResult(option?:any){
-    this.demoOutput =[];
+    let msg = '';
     switch(option.value) {
       case 'forEach':
-        this.employees.forEach(employee=> employee.eyeColor=='green' ? this.demoOutput.push(employee) : null);
-   
+        this.dataDispInTable =[];
+        this.employees.forEach(employee=> {if(employee.eyeColor=='green') this.dataDispInTable.push(employee)});   
         break;
       case 'filter':
-        this.demoOutput = this.employees.filter(employee => employee.eyeColor=='blue');
+        this.dataDispInTable = this.employees.filter(employee => employee.eyeColor=='blue');
          break;
       case 'sort':
-        this.demoOutput = this.employees.slice();
-        this.demoOutput.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);
+        this.dataDispInTable = this.employees.slice();
+        this.dataDispInTable.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);
         break;
       case 'find':
-        let findItem = this.employees.find(employee => employee.age < 22);
-        this.demoOutput.push(findItem);
+        this.dataDispInTable =[];
+        this.dataDispInTable.push(this.employees.find(employee => employee.age < 22));
         break;
       case 'pop':
-        this.demoOutput = this.employees.slice();
-        this.demoOutput.pop();
+        this.dataDispInTable = this.employees.slice();
+        this.dataDispInTable.pop();
         break;
       case 'reduce':
-        // this.demoOutput = _.reduce([175, 50, 25], function(sum, n) {
-        //     return sum + n;
-        // });
+        this.dataDispInTable =[];
+        let ageList = this.employees.slice().map(employee=>employee.age);
+        msg = "<br><br>Grand Total of age is: " + ageList.reduce((total : number,age : number)=>total + age);
+        timer(2000).subscribe(() => this.htmlConsole(msg));
         break;
       case 'shift':
-        this.demoOutput = this.employees.slice();
-        this.demoOutput.shift();
+        this.dataDispInTable = this.employees.slice();
+        this.dataDispInTable.shift();
         break;
       case 'slice':
-        this.demoOutput = this.employees.slice();
-        this.demoOutput = this.demoOutput.slice(1, 3);
+        this.dataDispInTable = this.employees.slice();
+        this.dataDispInTable = this.dataDispInTable.slice(1, 3);
         break;
       default:
-        this.demoOutput = this.employees;
-    }    
-    this.dataSource = new NestedMatTableDataSource<Employee>(this.demoOutput);
-    this.dataSource.paginator = this.paginator;
+        this.dataDispInTable = this.employees;
+    } 
+    this.selectedOption = option.value;
+    this.showResult(this.selectedOption);
+  } 
+  showResult(selectedOption: string){
+     this.dataSource = new NestedMatTableDataSource<Employee>(this.dataDispInTable);
+     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
-    let snip = '';
+    console.log(this.dataDispInTable);
+    let snips = '';
+    let outputs = '';
     let codSnip = document.getElementById("code-snip");
-    if(option.value != '') {
+    let codeOutput = document.getElementById("output");
+    if(selectedOption != '') {
       codSnip.className = "add-border";
+      codeOutput.className = "add-border";
       this.demos.forEach((result) => {
-        if(option.value == result.name){
+        if(selectedOption == result.name){
           result.snips.forEach(element => {
-            snip += element + '</br>';
+            snips += element + '</br>';
           });
+          result.outputs.forEach(element=>outputs += element+'\n')
         } 
       });
     }
     else {
       codSnip.classList.remove('add-border');
+      codeOutput.classList.remove('add-border');
     }
-    codSnip.innerHTML = snip;
-  } 
+    codSnip.innerHTML = snips;
+    codeOutput.innerHTML = outputs;
+  }
   showHide(){
     document.getElementById('show-hide').classList.toggle("expend");
     document.getElementById('show-hide-sign').classList.toggle("expend");
   }
-
+  @HtmlConsole({id :'output'})
+  htmlConsole(message?) {
+  }   
+  
 }

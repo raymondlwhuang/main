@@ -19,9 +19,6 @@ p{
   padding: 5px;
   margin: 5px 0;  
 }
-.add-border {
-  border: solid 1px red;
-}
 table {
     width: 100%;
 }
@@ -63,6 +60,12 @@ table th {
   right: 0px;
   top: 0px;
   transform: none;
+}
+#excuteStr {
+  min-width: 280px;
+  width: 60%;
+  margin: 5px;
+  padding: 0 5px;
 }
 @media all and (max-width : 599px){
   .select-wrapper {

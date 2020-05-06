@@ -2,6 +2,7 @@
     <h3>
     <span *ngIf="!inputHolder.imagesList || inputHolder.imagesList==''">{{message}}</span>
     <span *ngIf="inputHolder.imagesList && inputHolder.imagesList!=''">Change Detection Stratergy</span>
+    <div *ngIf="inputHolder.group=='JsByVersion'">{{inputHolder.indicator}}</div>
     </h3>
     <!-- <div>{{today | date : "h:m:s"}}</div> -->
     <div appMediaQueryFlexbox>

@@ -1,8 +1,8 @@
 import { Component, Input,OnChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DemoService } from 'src/app/_services/demo.service';
 import { InputHolder } from 'src/app/_models/input-holder';
-import { interval, concat, timer, forkJoin, fromEvent, of, Subscription, combineLatest} from 'rxjs';
 import { take, map, mapTo, mergeMap,pairwise, delay, switchMap, pluck, shareReplay } from 'rxjs/operators';
+import { interval, concat, timer, forkJoin, fromEvent, of, Subscription, combineLatest} from 'rxjs';
 import { HtmlConsole } from 'src/app/_decorators/custom.decorator';
 
 @Component({
@@ -50,7 +50,7 @@ export class ShowCaseComponent implements OnChanges {
       this.previousFlag = this.flag;
     }
     if(this.flag)
-      this.message = 'Show Case : ' + this.flag.charAt(0).toUpperCase() + this.flag.slice(1);
+      this.message = this.flag.charAt(0).toUpperCase() + this.flag.slice(1);
     if(this.inputHolder.parentClick) this.message="Button Clicked";
   }
   

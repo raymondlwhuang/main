@@ -2,8 +2,8 @@
     <mat-tab label="Dom"> 
         <app-dom></app-dom>
     </mat-tab>
-    <mat-tab label="Object and Array"> 
-        <app-frequent-usedjs></app-frequent-usedjs>
+    <mat-tab label="Most Used"> 
+        <app-array></app-array>
     </mat-tab>
     <mat-tab label="Functions">
           <app-demo-selector [group]="'function'"></app-demo-selector>
@@ -48,5 +48,9 @@ mergedObj = {...d,...e}; //merging Object
 </textarea>
 </div>
     </mat-tab>
+    <mat-tab label="Others">
+        <app-demo-selector [group]="'JsByVersion'"></app-demo-selector>
+  </mat-tab>
+
 </mat-tab-group>
 

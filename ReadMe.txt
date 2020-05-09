@@ -16,6 +16,13 @@ angular.json
   "styles.scss"
 ]
 npm install --save @angular/material @angular/cdk @angular/animations hammerjs
+//update package.json if needed 
+//"@angular/cdk": "~8.2.3",
+//"@angular/core": "~8.2.14",
+//"@angular/material": "~8.2.3"
+//than npm install
+
+
 //ng add @angular/material - choose any - i choosed Indigo/Pink
 //for lazy load image
 npm i @trademe/ng-defer-load

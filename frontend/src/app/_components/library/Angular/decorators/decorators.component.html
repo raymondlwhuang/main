@@ -1,5 +1,5 @@
-<mat-tab-group (selectedTabChange)="tabClick($event)">
-    <mat-tab> 
+<mat-tab-group (selectedTabChange)="tabClick($event)"  [selectedIndex]="0">
+    <mat-tab class="mat-tab-label-active"> 
         <ng-template mat-tab-label>
             <span [ngClass]="'sub-menu-tab'">Build in Decorators</span>
         </ng-template>

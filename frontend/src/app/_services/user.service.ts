@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { User } from '../_models/user';
 import { Application } from '../_models/application';
 import { Server } from '../_infrastructure/server';
@@ -8,7 +8,7 @@ import { Server } from '../_infrastructure/server';
   providedIn: 'root',
 })
 export class UserService {
-
+  user : Subject<User> = new Subject<User>();
   constructor(private server: Server){}
 
   getUsers(): Observable<User[]> {
@@ -25,5 +25,8 @@ export class UserService {
 
   getApplication(id: string): Observable<Application> {
     return this.server.getApplication(id);
+  }
+  setSelectUser(user : User) {
+    this.user.next(user);
   }
 }

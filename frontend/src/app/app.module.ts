@@ -26,17 +26,17 @@ import { LoginComponent } from './_components/library/login/login.component';
 import { CssComponent } from './_components/library/css/css.component';
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { PreShowComponent } from './_components/library/pre-show/pre-show.component';
-import { DecoratorsComponent } from './_components/library/Angular/decorators/decorators.component';
-import { ChangeDetectionComponent } from './_components/library/Angular/change-detection/change-detection.component';
-import { DecoratorsModule } from './_components/library/Angular/decorators/decorators.module';
+import { DecoratorsComponent } from './_components/library/angular/decorators/decorators.component';
+import { ChangeDetectionComponent } from './_components/library/angular/change-detection/change-detection.component';
+import { DecoratorsModule } from './_components/library/angular/decorators/decorators.module';
 import { MediaQueryFlexboxDirective } from './_directives/media-query-flexbox.directive';
 import { FlexItemDirective } from './_directives/flex-item.directive';
-import { FormArrayComponent } from './_components/library/Angular/form-array/form-array.component';
+import { FormArrayComponent } from './_components/library/angular/form-array/form-array.component';
 import { SnackBarComponent } from './_components/snack-bar/snack-bar.component';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { HoverItemDirective } from './_directives/hover-item.directive';
-import { AngularComponent } from './_components/library/Angular/angular.component';
-import { AngOthersComponent } from './_components/library/Angular/ang-others/ang-others.component';
+import { AngularComponent } from './_components/library/angular/angular.component';
+import { AngOthersComponent } from './_components/library/angular/ang-others/ang-others.component';
 import { DemoSelectorComponent } from './_helpers/demo-selector/demo-selector.component';
 import { ShowCaseComponent } from './_helpers/show-case/show-case.component';
 import { DomComponent } from './_components/library/javascript/dom/dom.component';
@@ -45,7 +45,7 @@ import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './_store/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './_store/effects/user.effect';
-import { StateManagementModule } from './_components/library/Angular/state-management/state-management.module';
+import { StateManagementModule } from './_components/library/angular/state-management/state-management.module';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
 import { DemoReducer } from './_store/reducers/demo.reducer';
@@ -55,6 +55,13 @@ import { CrudReducer } from './_store/reducers/crud.reducer';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { CrudEffects } from './_store/effects/crud.effect';
 import { ArrayComponent } from './_components/library/javascript/array/array.component';
+import { BookService } from './_services/books-service';
+import { UserSelectComponent } from './_components/library/angular/interaction/input-output/user-select/user-select.component';
+import { UserDetailComponent } from './_components/library/angular/interaction/input-output/user-detail/user-detail.component';
+import { ApplicationsComponent } from './_components/library/angular/interaction/input-output/applications/applications.component';
+import { BooksSelectComponent } from './_components/library/angular/interaction/using-rxjs/books-select/books-select.component';
+import { BookDetailComponent } from './_components/library/angular/interaction/using-rxjs/book-detail/book-detail.component';
+import { InteractionComponent } from './_components/library/angular/interaction/interaction.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +93,13 @@ import { ArrayComponent } from './_components/library/javascript/array/array.com
     DomComponent,
     EscapeHtmlPipe,
     LibraryAssetsComponent,
-    AssetsEntryComponent
+    AssetsEntryComponent,
+    UserSelectComponent,
+    UserDetailComponent,
+    ApplicationsComponent,
+    BooksSelectComponent,
+    BookDetailComponent,
+    InteractionComponent
   ],
   imports: [
     BrowserModule,
@@ -113,6 +126,7 @@ import { ArrayComponent } from './_components/library/javascript/array/array.com
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500 }},
     CrudResolver,
     DemoResolver,
+    BookService,
     // provider used to create fake backend
     fakeBackendProvider    
   ],

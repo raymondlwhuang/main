@@ -9,7 +9,7 @@ import { DemoSelectorComponent } from 'src/app/_helpers/demo-selector/demo-selec
 export class DecoratorsComponent {
   group : string = 'decorator';
   @Input()selectedIndex: number = 0;
-  @ViewChild(DemoSelectorComponent,{static:false}) demoSelectorComponent : DemoSelectorComponent;
+  @ViewChild(DemoSelectorComponent) demoSelectorComponent : DemoSelectorComponent;
   tabClick(event){
     this.demoSelectorComponent.destroySubscript();
   }

@@ -1,0 +1,15 @@
+<div appMediaQueryFlexbox class="demo-container">
+    <select appFlexItem [flexBasis]="60" name="" id="" [(ngModel)]="selectOption" (change)="onSelectChange()">
+        <option [ngValue]="user" *ngFor="let user of users">{{user.firstName + ' ' + user.lastName}}</option>
+    </select>
+    <mat-icon class="unarchive" appFlexItem [flexBasis]="20" color="accent" (click)="showHide()">unarchive</mat-icon>
+    <div appFlexItem id="show-hide">
+        <textarea class="add-border hide"  rows="5">
+            Emit output to parent on select changes
+            @Output() user : EventEmitter<User> = new EventEmitter();
+            onSelectChange(){
+                this.user.emit(this.selectOption);
+            }            
+        </textarea>
+    </div>
+</div>

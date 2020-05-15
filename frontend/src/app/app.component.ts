@@ -20,11 +20,6 @@ export class AppComponent {
       public  authenticationService: AuthenticationService,
       private authGuard: AuthGuard
   ) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                for(let registration of registrations) {  
-              registration.unregister();
-          }
-    });    
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.isLoggedIn = this.authenticationService.isLoggedIn();
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
 import { Application } from '../_models/application';
-import { users, userApplications, applications } from './users-and-applications';
+import { users, userApplications, applications } from './data';
 
 @Injectable({
   providedIn: 'root',

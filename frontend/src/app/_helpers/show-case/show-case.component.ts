@@ -1,9 +1,9 @@
-import { Component, Input,OnChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, Input,OnChanges, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { DemoService } from 'src/app/_services/demo.service';
 import { InputHolder } from 'src/app/_models/input-holder';
 import { take, map, mapTo, mergeMap,pairwise, delay, switchMap, pluck, shareReplay } from 'rxjs/operators';
 import { interval, concat, timer, forkJoin, fromEvent, of, Subscription, combineLatest} from 'rxjs';
-import { HtmlConsole } from 'src/app/_decorators/custom.decorator';
+import { HtmlConsole, AutoUnsubscribe } from 'src/app/_decorators/custom.decorator';
 
 @Component({
   selector: 'app-show-case',
@@ -11,7 +11,8 @@ import { HtmlConsole } from 'src/app/_decorators/custom.decorator';
   styleUrls: ['./show-case.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShowCaseComponent implements OnChanges {
+@AutoUnsubscribe()
+export class ShowCaseComponent implements OnChanges,OnDestroy {
   @Input() inputHolder : InputHolder;
   today : Date = new Date ();
   message : string;
@@ -19,14 +20,14 @@ export class ShowCaseComponent implements OnChanges {
   show : boolean = true;
   flag : string;
   previousFlag : string = '';
-  subscription: Subscription;
+  subscriber: Subscription;
   promiseCount: number = 0;
   constructor(
               private demoService : DemoService,
               public changeDetectionRf : ChangeDetectorRef
               ) { }
   reset(){
-    if(this.subscription) this.subscription.unsubscribe(); //stop any existing subscrition
+    if(this.subscriber) this.subscriber.unsubscribe(); //stop any existing subscrition
     this.htmlConsole(''); //clear rxjs deom custom console
     this.show = true;
     this.outputText='';
@@ -61,7 +62,7 @@ export class ShowCaseComponent implements OnChanges {
       document.getElementById('show-code').innerText = 'Hide Code';
     }
     else {
-      if(this.subscription) this.subscription.unsubscribe(); //stop any existing subscrition
+      if(this.subscriber) this.subscriber.unsubscribe(); //stop any existing subscrition
       this.htmlConsole(''); //clear rxjs deom custom console
         
       this.show = true;
@@ -71,7 +72,7 @@ export class ShowCaseComponent implements OnChanges {
     }
   }
   rxjsCase(caseName : string){
-    if(this.subscription) this.subscription.unsubscribe();
+    if(this.subscriber) this.subscriber.unsubscribe();
     document.getElementById('fire-case-output').classList.add('add-border');
     this.htmlConsole('');
     this.htmlConsole('subscribing....');
@@ -80,7 +81,7 @@ export class ShowCaseComponent implements OnChanges {
     const timer2$ = timer(1000).pipe(mapTo('this is timer 2'));
     switch (caseName) {
       case ('concat'):
-        this.subscription = concat(timer1$, timer2$) 
+        this.subscriber = concat(timer1$, timer2$) 
         .pipe(map(data=>'Timer: ' + data))
         .subscribe(
           value => this.htmlConsole(value),
@@ -89,7 +90,7 @@ export class ShowCaseComponent implements OnChanges {
         );    
         break;
       case ('forkJoin'):
-        this.subscription = forkJoin(timer1$,timer2$).subscribe(
+        this.subscriber = forkJoin(timer1$,timer2$).subscribe(
             value => this.htmlConsole(value),
             err=>{},
             ()=>this.htmlConsole('...and it is done!')
@@ -99,7 +100,7 @@ export class ShowCaseComponent implements OnChanges {
         this.htmlConsole('Please click some where to fired');
         const click$ = fromEvent(document, 'click');
         
-        this.subscription = click$
+        this.subscriber = click$
           .pipe(
             mergeMap((e: MouseEvent) =>of({location : 'Cursor location x: ' + e.clientX + 'y: ' + e.clientY })            )
           )
@@ -107,7 +108,7 @@ export class ShowCaseComponent implements OnChanges {
           break;
       case ('pairwise'):
         this.htmlConsole('Please scroll with mouse to fired');
-        this.subscription = fromEvent(document, 'scroll')
+        this.subscriber = fromEvent(document, 'scroll')
                             .pipe(map(e => window.pageYOffset),pairwise())
                             .subscribe(pair => this.htmlConsole("Coordinate: (previouse,current) = " + pair.toString()));
         break;
@@ -115,14 +116,14 @@ export class ShowCaseComponent implements OnChanges {
         const clicks$ = fromEvent(document, 'click');
         const innerObservable$ = interval(1000);
         
-        this.subscription = clicks$.pipe(switchMap(event => innerObservable$))
+        this.subscriber = clicks$.pipe(switchMap(event => innerObservable$))
                                    .subscribe(val => this.htmlConsole(val));
         break;
       case ('combineLatest'):
         const intervalOne$ = interval(1000).pipe(map(val=>'intervalOne$: ' + val));
         const intervalTwo$ = interval(2000).pipe(map(val=>'intervalTwo$: ' + val));;
         
-        this.subscription = combineLatest(
+        this.subscriber = combineLatest(
                                 intervalOne$,
                                 intervalTwo$ 
                             ).subscribe(all => this.htmlConsole(all));
@@ -130,13 +131,16 @@ export class ShowCaseComponent implements OnChanges {
       case ('pluck'):
         const clicks = fromEvent(document, 'click');
         const tagNames = clicks.pipe(pluck('target', 'tagName'),shareReplay());
-        this.subscription = tagNames.subscribe(x => this.htmlConsole(x));
+        this.subscriber = tagNames.subscribe(x => this.htmlConsole(x));
         break;
       case ('debounce'):
 
         break;
                                   }
   } 
+  ngOnDestroy(){
+    if(this.subscriber) this.subscriber.unsubscribe();
+  }
   @HtmlConsole({id :'fire-case-output'})
   htmlConsole(message?) {
   }   
@@ -157,8 +161,9 @@ export class ShowCaseComponent implements OnChanges {
     .catch((reason) =>log.innerHTML += reason[0] +') Promise rejected resason: ' + reason[1]+'<br/>');
 
       log.innerHTML += thisPromiseCount +') Promise ' + (wontDo ? 'rejected' : ' made') + '(<small>Sync code terminated</small>)<br/>';
-  }    
+  }   
+   
   destroySubscript(){
-    if(this.subscription) this.subscription.unsubscribe();
+    if(this.subscriber) this.subscriber.unsubscribe();
   }
 }

@@ -8,7 +8,7 @@ import { JqueryComponent } from './_components/library/jquery/jquery.component';
 import { PortfolioComponent } from './_components/employment/portfolio/portfolio.component';
 import { PreShowComponent } from './_components/library/pre-show/pre-show.component';
 import { LoginComponent } from './_components/library/login/login.component';
-import { AngularComponent } from './_components/library/Angular/angular.component';
+import { AngularComponent } from './_components/library/angular/angular.component';
 import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';

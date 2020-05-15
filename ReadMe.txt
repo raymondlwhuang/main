@@ -27,4 +27,6 @@ npm install --save @angular/material @angular/cdk @angular/animations hammerjs
 //for lazy load image
 npm i @trademe/ng-defer-load
 npm install -g @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools @ngrx/router-store --save 
-
+//upgrad to version 9
+npm install --no-save @angular/cli@^8.3.15
+ng update @angular/cli @angular/core --next

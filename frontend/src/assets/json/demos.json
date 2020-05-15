@@ -243,7 +243,9 @@
     "snips": [
       "Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process"
     ],
-    "outputs": [],
+    "outputs": [
+      ""
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea79ee5c6f8f22e203b950b",
@@ -251,7 +253,7 @@
     "id": "fdb6d734-b76a-4562-baf9-94a065ec5ad9",
     "group": "Rxjs",
     "name": "throttle",
-    "helpPath": "rxjs/throttle.txt",
+    "helpPath": "",
     "__v": 0
   },
   {
@@ -912,7 +914,7 @@
   },
   {
     "snips": [
-      "let jsonStr = '{\"a\":1,\"b\":2};",
+      "let jsonStr = '{\"a\":1,\"b\":2}';",
       "let obj = JSON.parse(jsonStr);",
       "console.log(obj.a); //returns : 1"
     ],
@@ -1085,7 +1087,7 @@
       "const arr = [1,2];",
       "const [x,y] = arr;",
       "console.log('x: '+ x +' y: ' +y); //x:1 y:2",
-      "({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}); //destructuring from object",
+      "const {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}; //destructuring from object",
       "console.log(a); // 10",
       "console.log(b); // 20",
       "console.log(rest); // {c: 30, d: 40}"
@@ -1412,6 +1414,23 @@
     "id": "47c571d4-68dd-4467-af78-ea50616d7da4",
     "group": "JsByVersion",
     "name": "promise finally",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const colors = {BL:'blue',OR:'Orange',YE:'yellow',PI:'Pink'}; ",
+      "console.log(Object.keys(colors));"
+    ],
+    "outputs": [
+      "returns an array of object keys."
+    ],
+    "indicator": 2017,
+    "accepted": true,
+    "_id": "5ebea58865314c355c717f6b",
+    "id": "6e668b39-3ca2-474d-ba31-a0ce7bcd719d",
+    "group": "JsByVersion",
+    "name": "Object.keys",
     "helpPath": "",
     "__v": 0
   }

@@ -3,7 +3,7 @@ import { DemoService } from 'src/app/_services/demo.service';
 import { Demo } from 'src/app/_models/demo';
 import { Subject } from 'rxjs';
 import { User } from 'src/app/_models/user';
-import { UserListComponent } from 'src/app/_components/library/Angular/helpers/user-list/user-list.component';
+import { UserListComponent } from 'src/app/_components/library/angular/helpers/user-list/user-list.component';
 import { ShowCaseComponent } from '../show-case/show-case.component';
 import { InputHolder } from 'src/app/_models/input-holder';
 
@@ -15,8 +15,8 @@ import { InputHolder } from 'src/app/_models/input-holder';
 })
 export class DemoSelectorComponent implements OnInit {
   @Input() group : string;
-  @ViewChild(UserListComponent,{static:false}) userListComponent : UserListComponent;
-  @ViewChild(ShowCaseComponent,{static:false}) showCaseComponent : ShowCaseComponent;
+  @ViewChild(UserListComponent) userListComponent : UserListComponent;
+  @ViewChild(ShowCaseComponent) showCaseComponent : ShowCaseComponent;
   @ViewChildren(ShowCaseComponent) showCaseComponents : ShowCaseComponent[];
   inputHolder : InputHolder = {group: ''};
   demos : Demo[];

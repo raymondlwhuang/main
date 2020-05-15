@@ -17,12 +17,12 @@ export class ChangeDetectionComponent implements OnInit, OnDestroy {
   pointer = 0;
   imagesList : Array<ImagesList>= images.imagesList;
   intervalId: any;
-  subscribe : any;
+  subscriber : any;
   constructor(private changeDetectRf : ChangeDetectorRef) { }
 
   ngOnInit() {
     this.inputHolder = {...this.inputHolder,imagesList : this.imagesList[0].url,showCaseFlag:''};
-    this.subscribe = interval(3000).subscribe(() => {
+    this.subscriber = interval(3000).subscribe(() => {
       let thisHolder : InputHolder = this.inputHolder;
       let count = this.countUp();
       let url = this.imagesList[count].url;
@@ -36,8 +36,9 @@ export class ChangeDetectionComponent implements OnInit, OnDestroy {
     return this.pointer;
   }
   ngOnDestroy(): void {
+    this.subscriber.unsubscribe();
   }
   destroySubscript(){
-    this.subscribe.unsubscribe();
+    this.subscriber.unsubscribe();
   }
 }

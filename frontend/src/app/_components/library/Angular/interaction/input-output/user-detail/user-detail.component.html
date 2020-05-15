@@ -1,0 +1,13 @@
+
+<div *ngIf="user" appMediaQueryFlexbox class="demo-container">
+    <p appFlexItem>First Name: {{user.firstName}}, Last Name: {{user.lastName}}, Email address:{{user.email}}, Year activated: {{user.yearsActive}} </p>
+    <mat-icon class="unarchive" appFlexItem [flexBasis]="20" color="accent" (click)="showHide()">unarchive</mat-icon>
+    <div appFlexItem  id="detail">
+        <textarea class="hide" *ngIf="user" name="" rows="5">
+            Changes in parent fired by using
+            this.user = {...event};
+                or throught ViewChild
+            this.userDetailComponent.ngOnChanges();
+        </textarea>
+    </div>
+</div>

@@ -7,7 +7,7 @@ import { DemoSelectorComponent } from 'src/app/_helpers/demo-selector/demo-selec
   styleUrls: ['./javascript.component.css']
 })
 export class JavascriptComponent implements OnInit {
-  @ViewChild(DemoSelectorComponent,{static:false}) demoSelectorComponent : DemoSelectorComponent;
+  @ViewChild(DemoSelectorComponent) demoSelectorComponent : DemoSelectorComponent;
   url = window.location.origin+'/JavaScript/index.html';
   constructor() {
   }

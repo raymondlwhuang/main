@@ -10,4 +10,7 @@ https://angular.io/api/forms/SelectControlValueAccessor
 this.http.get("app/files/1.txt", { responseType: 'text' as 'json'})
 <div *ngFor="let pony of ponies; index as idx">
 <form (ngSubmit)="updateCourse(updateForm)" #updateForm="ngForm">
-
+@ViewChild(ApplicationsComponent,{static:false}) applicationsComponent: ApplicationsComponent;
+@ViewChild(ApplicationsComponent,{static:false}) applicationsComponent: ApplicationsComponent;
+@ViewChild('primaryColorSample', {read: ElementRef})sample: ElementRef;
+<color-sample [color]="primary" #primaryColorSample (click)="open()"> </color-sample>

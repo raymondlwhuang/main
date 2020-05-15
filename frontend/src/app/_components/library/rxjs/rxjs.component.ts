@@ -7,7 +7,7 @@ import { DemoSelectorComponent } from 'src/app/_helpers/demo-selector/demo-selec
   styleUrls: ['./rxjs.component.css']
 })
 export class RxjsComponent {
-  @ViewChild(DemoSelectorComponent,{static:false}) demoSelectorComponent : DemoSelectorComponent;
+  @ViewChild(DemoSelectorComponent) demoSelectorComponent : DemoSelectorComponent;
   tabClick(event){
     this.demoSelectorComponent.destroySubscript();
   }

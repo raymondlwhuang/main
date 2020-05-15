@@ -16,7 +16,7 @@ import { AutoUnsubscribe } from 'src/app/_decorators/custom.decorator';
 export class UserListComponent implements OnInit {
   users : Array<User>;
   selectedOption: User = {email: '',firstName: '',lastName: '',yearsActive: null};
-  @Output() onSelect: EventEmitter<User>  = new EventEmitter;
+  @Output() onSelect: EventEmitter<User>  = new EventEmitter();
   @Input() parentClick: Subject <boolean>;
   today: Date = new Date();
   message : string;

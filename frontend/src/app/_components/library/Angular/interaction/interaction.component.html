@@ -1,0 +1,15 @@
+<mat-tab-group>
+    <mat-tab label="Input/Output"> 
+        <div class="demo-container">
+            <app-user-select (user)="setSelectedUser($event)"></app-user-select>
+            <app-user-detail [user]="user"></app-user-detail>
+            <app-applications [user]="user"></app-applications>
+        </div>
+    </mat-tab>
+    <mat-tab label="Using Rxjs"> 
+        <div class="demo-container">
+            <app-books-select></app-books-select>
+            <app-book-detail></app-book-detail>
+        </div>
+    </mat-tab>
+</mat-tab-group>    

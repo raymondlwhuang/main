@@ -1,0 +1,13 @@
+.hide {
+    display:none;
+}
+select {
+    margin: 5px;
+}
+.unarchive {
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+.unarchive.turn {
+    transform: none;
+}

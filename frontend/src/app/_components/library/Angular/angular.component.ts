@@ -8,10 +8,10 @@ import { ChangeDetectionComponent } from './change-detection/change-detection.co
   styleUrls: ['./angular.component.css']
 })
 export class AngularComponent implements AfterViewInit {
-  @ViewChild(DemoSelectorComponent,{static:false}) demoSelectorComponent : DemoSelectorComponent;
-  @ViewChild(ChangeDetectionComponent,{static:false}) changeDetectionComponent : ChangeDetectionComponent;
+  @ViewChild(DemoSelectorComponent) demoSelectorComponent : DemoSelectorComponent;
+  @ViewChild(ChangeDetectionComponent) changeDetectionComponent : ChangeDetectionComponent;
   ngAfterViewInit(){
-    this.changeDetectionComponent.destroySubscript();
+    if(this.changeDetectionComponent) this.changeDetectionComponent.destroySubscript();
   }
   tabClick(event?){
     this.demoSelectorComponent.destroySubscript();

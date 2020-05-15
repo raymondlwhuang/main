@@ -1,0 +1,31 @@
+<div appMediaQueryFlexbox>
+    <div appFlexItem *ngIf="bookDetail" class="demo-container">
+        <p> Title: {{bookDetail.title}}, Author: {{bookDetail.author}}, Country: {{bookDetail.country}}, Language: {{bookDetail.language}}, Pages: {{bookDetail.pages}}</p>
+    </div>
+    <div appFlexItem id="show-hide">
+        <textarea class="add-border hide"  rows="4">
+            //subscribe on changes
+            this.bookService.book$.subscribe(data=>this.bookDetail=data);
+        </textarea>
+    </div>    
+    <button appFlexItem [flexBasis]="100" [alignSelf]="'center'" class="btn btn-success" (click)="showAll()">Show All</button>
+</div>
+
+<div class="demo-container" *ngIf="isShow==true">
+    <table *ngIf="booksDetail">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Country</th>
+            <th>Language</th>
+            <th>Page Number</th>    
+        </tr>
+        <tr *ngFor="let bookDetail of booksDetail">
+            <td>{{bookDetail.title}}</td>
+            <td>{{bookDetail.author}}</td>
+            <td>{{bookDetail.country}}</td>
+            <td>{{bookDetail.language}}</td>
+            <td>{{bookDetail.pages}}</td>
+        </tr>
+    </table>
+</div>    

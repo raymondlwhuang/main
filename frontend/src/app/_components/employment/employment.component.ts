@@ -30,5 +30,7 @@ export class EmploymentComponent implements OnInit, OnDestroy {
 
     });
   }
-  ngOnDestroy() : void {}
+  ngOnDestroy() : void {
+    if(this.subscriber) this.subscriber.unsubscribe();
+  }
 }

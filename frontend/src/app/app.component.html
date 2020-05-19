@@ -16,7 +16,7 @@
         <button mat-button routerLink="/assets" routerLinkActive="active">LIBRARY ASSETS</button>
 
         <button mat-button routerLink="/login" routerLinkActive="active">PRIVATE</button>
-        <button mat-button *ngIf="(isLoggedIn | async)" id="logout" (click)="logout()">LOGOUT</button>
+        <button mat-button *ngIf="isLoggedIn" id="logout" (click)="logout()">LOGOUT</button>
     
       </div>
       <a  mat-button href="https://github.com/raymondlwhuang/main" target="_blank">Source</a>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from './_models/user';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/authentication.service';
@@ -10,18 +10,22 @@ import { Observable, Subject } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'home-page';
   currentUser: User;
-  isLoggedIn : Observable<boolean>;
+  isLoggedIn : boolean;
   parentClick:Subject<void> = new Subject<void>();
+  isUserLooggedIn : boolean;
   constructor(
       private router: Router,
       public  authenticationService: AuthenticationService,
       private authGuard: AuthGuard
   ) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    //this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.isLoggedIn = this.authenticationService.isLoggedIn();
+  }
+  ngOnInit(){
+    this.authenticationService.isLoggedIn$.subscribe(data=>this.isLoggedIn=data);
   }
   logout() {
       this.authenticationService.logout();

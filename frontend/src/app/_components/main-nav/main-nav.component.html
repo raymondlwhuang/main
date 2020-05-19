@@ -18,8 +18,8 @@
         </mat-menu>
         <a mat-list-item routerLink="/assets" (click) = "opened = false" routerLinkActive="active">LIBRARY ASSETS</a>
 
-        <a mat-list-item *ngIf="!(isLoggedIn | async)" routerLink="/login" (click) = "opened = false"  routerLinkActive="active">PRIVATE</a>
-        <a mat-list-item *ngIf="(isLoggedIn | async)" id="logout" (click)="logout()">LOGOUT</a>
+        <a mat-list-item *ngIf="!isLoggedIn" routerLink="/login" (click) = "opened = false"  routerLinkActive="active">PRIVATE</a>
+        <a mat-list-item *ngIf="isLoggedIn" id="logout" (click)="logout()">LOGOUT</a>
     
       </div>
       <a  mat-button href="https://github.com/raymondlwhuang/main" target="_blank">Source</a>

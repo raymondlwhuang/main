@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MainNavComponent implements OnInit{
   opened : boolean;
-  isLoggedIn : Observable<boolean>;
+  isLoggedIn : boolean;
   @Input()  parentClick: Subject <void>;
   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -26,7 +26,8 @@ export class MainNavComponent implements OnInit{
               public  authenticationService: AuthenticationService) {}
   ngOnInit(){
     this.parentClick.subscribe(()=>this.opened = false);
-    this.isLoggedIn = this.authenticationService.isLoggedIn();
+    //this.isLoggedIn = this.authenticationService.isLoggedIn();
+    this.authenticationService.isLoggedIn$.subscribe(data=>this.isLoggedIn=data);
   }
   logout() {
     this.authenticationService.logout();

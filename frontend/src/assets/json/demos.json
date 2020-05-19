@@ -1433,5 +1433,85 @@
     "name": "Object.keys",
     "helpPath": "",
     "__v": 0
+  },
+  {
+    "snips": [
+      "var subject = new Rx.Subject();   ",
+      "subject.subscribe(v => console.log('observerA: ' + v) ); ",
+      "subject.next(1);  //observerA: 1"
+    ],
+    "outputs": [
+      "Sends only upcoming values; A Subject doesn't hold a value;"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec15f3265314c355c717f6c",
+    "id": "103d7d87-c783-43f6-a811-5f8226e0f5b2",
+    "group": "Subjects",
+    "name": "Subjects",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "var subject = new Rx.BehaviorSubject(0);  ",
+      " subject.subscribe(v => console.log('observerA: ' + v));  //observerA: 0",
+      " subject.next(1); //observerA: 1"
+    ],
+    "outputs": [
+      "Sends one previous value and upcoming values; A BehaviorSubject holds one value. ",
+      "When it is subscribed it emits the value immediately; BehaviorSubject can be created with initial value: new Rx.BehaviorSubject(1) You can get current value synchronously by subject.value; ",
+      "BehaviorSubject is the best for 90% of the cases to store current value comparing to other Subject types;"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec15f5c65314c355c717f6d",
+    "id": "c58ccacb-5a78-48b0-9ecb-9e6f1a2ea46a",
+    "group": "Subjects",
+    "name": "BehaviorSubject",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "var subject = new Rx.ReplaySubject(2);    ",
+      "subject.next(1); ",
+      "subject.next(2); ",
+      "subject.next(3); ",
+      "subject.next(4);   ",
+      "subject.subscribe(v => console.log('observerB: ' + v));   ",
+      "subject.next(5); //observerB: 3 //observerB: 4 //observerB: 5"
+    ],
+    "outputs": [
+      "Sends all previous values and upcoming values"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec15f8765314c355c717f6e",
+    "id": "e8240386-f9c0-4bb2-9ba5-1c16af2368e2",
+    "group": "Subjects",
+    "name": "ReplaySubject",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "var subject = new Rx.AsyncSubject();",
+      "subject.next(1);  ",
+      "subject.next(5);   ",
+      "subject.subscribe(v => console.log('observerB: ' + v));   ",
+      "subject.complete();    //observerB: 5"
+    ],
+    "outputs": [
+      "Sends one latest value when the stream will close"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec15fc465314c355c717f6f",
+    "id": "640dc461-6c99-495b-813c-4c29c4b73017",
+    "group": "Subjects",
+    "name": "AsyncSubject",
+    "helpPath": "",
+    "__v": 0
   }
 ]

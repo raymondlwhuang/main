@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
+                    this.authenticationService.isLoggedIn$.next(true);
                 },
                 error => {
                     this.error = error;

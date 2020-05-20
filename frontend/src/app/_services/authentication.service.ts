@@ -20,7 +20,8 @@ export class AuthenticationService {
     isLoggedIn() : boolean {
         let  currTime = Date.now();
         let diff : number = currTime - parseInt(localStorage.getItem('loginTime')) ;
-        if(diff < 7200000) { //logout in 2 hours
+        
+        if(!Number.isNaN(diff) && diff < 7200000) { //logout in 2 hours
             return true;
         } 
         this.logout();

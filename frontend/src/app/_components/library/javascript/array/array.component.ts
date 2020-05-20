@@ -95,7 +95,6 @@ export class ArrayComponent {
      this.dataSource = new NestedMatTableDataSource<Employee>(this.dataDispInTable);
      this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    console.log(this.dataDispInTable);
     let snips = '';
     let outputs = '';
     let codSnip = document.getElementById("code-snip");

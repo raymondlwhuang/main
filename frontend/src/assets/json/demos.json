@@ -695,7 +695,8 @@
     "group": "",
     "name": "",
     "helpPath": "",
-    "__v": 0
+    "__v": 0,
+    "id": "0"
   },
   {
     "snips": [
@@ -1511,6 +1512,204 @@
     "id": "640dc461-6c99-495b-813c-4c29c4b73017",
     "group": "Subjects",
     "name": "AsyncSubject",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-direction: column;"
+    ],
+    "outputs": [
+      "The flex-direction property defines in which direction the container wants to stack the flex items."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec48f8f138eb83d90b74b99",
+    "id": "d2bc43b3-1125-4d73-a36d-3f6fa8db9150",
+    "group": "Flexbox",
+    "name": "flex-direction",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-wrap: wrap;"
+    ],
+    "outputs": [
+      "The flex-wrap property specifies whether the flex items should wrap or not."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec48fcb138eb83d90b74b9a",
+    "id": "fa067ef6-3631-4e45-b231-f66dd0826a88",
+    "group": "Flexbox",
+    "name": "flex-wrap",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-flow: row wrap;"
+    ],
+    "outputs": [
+      "The flex-flow property is a shorthand property for setting both the flex-direction and flex-wrap properties."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec49002138eb83d90b74b9b",
+    "id": "912f6a1c-7490-46e9-9f2e-ed72a8546ca7",
+    "group": "Flexbox",
+    "name": "flex-flow",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "justify-content: center;"
+    ],
+    "outputs": [
+      "The justify-content property is used to align the flex items:"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec4903a138eb83d90b74b9c",
+    "id": "b1f7b390-9f0f-4b12-a775-779632794d2a",
+    "group": "Flexbox",
+    "name": "justify-content",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "align-items: center;"
+    ],
+    "outputs": [
+      "The align-items property is used to align the flex items vertically."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec49074138eb83d90b74b9d",
+    "id": "1cb3f211-0c36-4b8e-ac05-a03d3ca5bc52",
+    "group": "Flexbox",
+    "name": "align-items",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "align-content: space-between;"
+    ],
+    "outputs": [
+      "The align-content property is used to align the flex lines."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec490c3138eb83d90b74b9e",
+    "id": "bfc944ac-2138-4801-acfe-a0861aaf5999",
+    "group": "Flexbox",
+    "name": "align-content",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "order: 3"
+    ],
+    "outputs": [
+      "The order property specifies the order of the flex items."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec4919a138eb83d90b74b9f",
+    "id": "3574b543-8433-499f-819a-f01070788f4f",
+    "group": "FlexItem",
+    "name": "order",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-grow: 1"
+    ],
+    "outputs": [
+      "The flex-grow property specifies how much a flex item will grow relative to the rest of the flex items."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec491cf138eb83d90b74ba0",
+    "id": "743ea86b-f8af-4944-8d56-b3edcd24bc53",
+    "group": "FlexItem",
+    "name": "flex-grow",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-shrink: 0;"
+    ],
+    "outputs": [
+      "The flex-shrink property specifies how much a flex item will shrink relative to the rest of the flex items.",
+      "An element with a flex-shrink value of 0 will not shrink as our page gets smaller. This is only true if there is no flex-grow value on this element. ",
+      "If there is a flex-grow value, the element won’t shrink smaller than it’s content"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec49211138eb83d90b74ba1",
+    "id": "3dcf4d15-7c8c-4532-ab81-0ca333a7236c",
+    "group": "FlexItem",
+    "name": "flex-shrink",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex-basis: 200px;"
+    ],
+    "outputs": [
+      "The flex-basis property specifies the initial length of a flex item."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec4923b138eb83d90b74ba2",
+    "id": "d47b5927-37f6-4710-95ff-792716b2889f",
+    "group": "FlexItem",
+    "name": "flex-basis",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "flex: 0 0 200px"
+    ],
+    "outputs": [
+      "The flex property is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties.",
+      "flex: 1 0 200px; ",
+      "If you have one element that has a flex-basis of 200px, flex-grow of 1, and flex-shrink of 0, this element will be at minimum 200px wide, but it will be allowed to grow if there is extra space. In this case, you can think of the flex-basis as being a minimum width.",
+      "flex: 0 1 200px;",
+      "Let’s consider the opposite case. Let’s set a flex-basis of 200px again, but let’s only set a flex-shrink of 1, flex-grow will be 0. Here we will have an element that is 200px at it’s largest, but it’s allowed to be smaller. Here flex-basis is acting like a maximum width."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec4926e138eb83d90b74ba3",
+    "id": "ff79fb2e-0218-45ee-abd8-7380c7537eb8",
+    "group": "FlexItem",
+    "name": "flex",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "align-self: center"
+    ],
+    "outputs": [
+      "The align-self property specifies the alignment for the selected item inside the flexible container."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec49298138eb83d90b74ba4",
+    "id": "41869c7c-d5fd-4a7a-a90a-a6a9561483ac",
+    "group": "FlexItem",
+    "name": "align-self",
     "helpPath": "",
     "__v": 0
   }

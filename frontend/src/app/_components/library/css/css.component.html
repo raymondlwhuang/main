@@ -1,36 +1,66 @@
-<div>
-    <h3>Understand ‘+’, ‘>’ and ‘~’ symbols in CSS Selector</h3>
-    <button (click)="renderNewResult('space')" class="space">div p</button>
-    <button (click)="renderNewResult('greater_Sign')" class="greater_Sign">div > p</button>
-    <button (click)="renderNewResult('plus_Sign')" class="plus_Sign">div + p</button>
-    <button (click)="renderNewResult('aprox_Sign')" class="aprox_Sign">div ~ p</button>    
-    <button (click)="renderNewResult('first_p')" class="first_p">div p:first-child</button>    
-</div>
-<div class="main">
-    <textarea name="comments" rows="11">
-        <div>
-            <p>First Paragraph inside div tag</p>
-            <div>
-                <section>
-                    <p>Paragraph inside section</p>
-                </section>
-            </div>
-            <p>First Paragraph following right after div tag</p>
-            <p>Second Paragraph following after div tag<p>
-        <div>
-    </textarea>
-    <div class="show-case">
-        <div>
-            <p>First Paragraph inside div tag</p>
-            <div>
-                <section>
-                    <p>Paragraph inside section</p>
-                </section>
-            </div>
-            <p>First Paragraph following right after div tag</p>
-            <p>Second Paragraph following after div tag<p>
-        <div>
-    </div>
+<mat-tab-group>
+    <mat-tab label="Specificity Hierarchy"> 
+        <ul class="demo-container">
+            <li>Start at 0</li>
+            <li>add 1 for each element name or pseudo-element</li>
+            <li>add 10 for each attribute, class or pseudo-class</li>
+            <li>add 100 for each ID</li>
+            <li>add 1000 for style attribute</li>
+            <li>Equal specificity: the latest rule counts</li>
+        </ul>
     
+    </mat-tab>
+    <mat-tab label="CSS Selectors"> 
+        <div class="demo-container">
+            <div>
+                <h2>Understand ‘+’, ‘>’ and ‘~’ symbols in CSS Selector</h2>
+                <button mat-raised-button color="primary" (click)="renderNewResult('space')" class="space">div p</button>
+                <button mat-raised-button color="primary" (click)="renderNewResult('greater_Sign')" class="greater_Sign">div > p</button>
+                <button mat-raised-button color="primary" (click)="renderNewResult('plus_Sign')" class="plus_Sign">div + p</button>
+                <button mat-raised-button color="primary" (click)="renderNewResult('aprox_Sign')" class="aprox_Sign">div ~ p</button>    
+                <button mat-raised-button color="primary" (click)="renderNewResult('first_p')" class="first_p">div p:first-child</button> 
+            </div>
+            <div>{{description}}</div>   
+            <div class="main">
+<textarea name="comments" rows="11">
+<div>
+    <p>First Paragraph inside div tag</p>
+    <div>
+        <section>
+            <p>Paragraph inside section</p>
+        </section>
+    </div>
+    <p>First Paragraph following right after div tag</p>
+    <p>Second Paragraph following after div tag<p>
 </div>
+</textarea> 
+                <div class="show-case">
+                    <div>
+                        <p>First Paragraph inside div tag</p>
+                        <div>
+                            <section>
+                                <p>Paragraph inside section</p>
+                            </section>
+                        </div>
+                        <p>First Paragraph following right after div tag</p>
+                        <p>Second Paragraph following after div tag<p>
+                    </div>
+
+                </div> <!-- class="show-case" end-->          
+            </div><!-- class="main" end-->
+        </div><!-- class="demo-container" end-->
+    </mat-tab>
+    <mat-tab label="FlexBox"> 
+        <div appMediaQueryFlexbox class="demo-container">
+            <div appFlexItem class="add-border">
+                <h2>flex container properties</h2>
+                <app-demo-selector [group]="'Flexbox'"></app-demo-selector>
+            </div>
+            <div appFlexItem class="add-border">
+                <h2>flex item properties properties</h2>
+                <app-demo-selector [group]="'FlexItem'"></app-demo-selector>
+            </div>
+        </div>
+    </mat-tab>    
+</mat-tab-group>    
 

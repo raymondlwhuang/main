@@ -4,21 +4,21 @@
             <figure>
                 <div appMediaQueryFlexbox >
                     <div><label>Group: </label>
-                        <input type="text" formControlName="group" class="form-control" required [(ngModel)]="demoToBeUpdated.group">
+                        <input type="text" formControlName="group" class="form-control" required>
                         <label *ngIf="submitted && formInput.group.errors" [ngClass] = "'error'"> Group is required </label>
                     </div>
                     <div>
                         <label>Name: </label>
-                        <input type="text" formControlName="name"  class="form-control" required [(ngModel)]="demoToBeUpdated.name">
+                        <input type="text" formControlName="name"  class="form-control" required>
                         <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
                 </div>
                     <div>
                         <label>Path to help: </label>
-                        <input type="text" formControlName="helpPath"  class="form-control" [(ngModel)]="demoToBeUpdated.helpPath">
+                        <input type="text" formControlName="helpPath"  class="form-control">
                     </div>
                     <div>
                         <label>Indicator: </label>
-                        <input type="number" formControlName="indicator" class="form-control" [(ngModel)]="demoToBeUpdated.indicator">
+                        <input type="number" formControlName="indicator" class="form-control">
                     </div>
                 </div>
         

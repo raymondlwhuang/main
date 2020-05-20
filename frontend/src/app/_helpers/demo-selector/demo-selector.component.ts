@@ -29,6 +29,7 @@ export class DemoSelectorComponent implements OnInit {
   indicator : boolean = false;
   stop : any;
   user : User;
+  currSnip: string = '';
   viewChildrenButton: any =['Child 1','Child 2','Child 3'];
   constructor(
     private demoService : DemoService,
@@ -66,11 +67,11 @@ export class DemoSelectorComponent implements OnInit {
   renderNewResult(option?:any){
     this.parentClick.next(false);
     let snip = '';
-    let codeSnip = document.getElementById("code-snip");
+//    let codeSnip = document.getElementsByClassName("code-snip");
     this.flag = option.value;
     this.inputHolder = {showCaseFlag:option.value,group:this.group};
     if(option.value != '') {
-      codeSnip.className = "add-border";
+//      for(let i=0;i<codeSnip.length;i++) codeSnip[i].classList.add('add-border');
       this.demos.forEach((result) => {
         if(option.value == result.name){
           result.snips.forEach(element => snip += element + '</br>');
@@ -81,13 +82,14 @@ export class DemoSelectorComponent implements OnInit {
       });
     }
     else {
-      codeSnip.classList.remove('add-border');
+//      for(let i=0;i<codeSnip.length;i++) codeSnip[i].classList.remove('add-border');
       this.message = 'Please make your selection for show case';
     }
     this.buttonMsg = "Start Clock";
     this.indicator = false;
     clearInterval(this.stop);
-    codeSnip.innerHTML = snip;
+    //codeSnip.innerHTML = snip;
+    this.currSnip = snip;
   } 
   changeMessage(i : number){
     this.showCaseComponents.forEach((showCaseComponent,index) => {

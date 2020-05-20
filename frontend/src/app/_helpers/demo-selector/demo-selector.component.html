@@ -10,8 +10,7 @@
                 </mat-select>
             </mat-form-field>    
         </div>
-        <div  appFlexItem id="code-snip">
-        </div>
+        <div  appFlexItem class="add-border"  [innerHTML]="currSnip | keepHtml"></div>
     </div>
     <div [ngSwitch]="true">
         <div *ngSwitchCase="flag == 'Input' || flag =='Output' || flag =='ViewChild'">

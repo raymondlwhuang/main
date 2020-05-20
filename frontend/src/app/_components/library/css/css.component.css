@@ -5,3 +5,20 @@
 .main > * {
     margin: 10px;
 }
+textarea {
+    width: 45%;
+}
+button {
+    margin: 5px;
+}
+@media all and (max-width: 599px) {
+    textarea {
+        width:100%;
+    }
+    .main {
+        display: block;
+    }
+    .main > * {
+        margin: 0;
+    }    
+}

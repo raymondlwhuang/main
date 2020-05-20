@@ -76,6 +76,11 @@ group : string;
     this.demoToBeUpdated = {...payload};
     this.snips.clear();
     this.outputs.clear();
+    this.angForm.get('name').setValue(this.demoToBeUpdated.name);
+    this.angForm.get('group').setValue(this.demoToBeUpdated.group);
+    this.angForm.get('helpPath').setValue(this.demoToBeUpdated.helpPath);
+    this.angForm.get('indicator').setValue(this.demoToBeUpdated.indicator);
+
     if(this.demoToBeUpdated.snips.length == 0) {
       (<FormArray>this.snips).push(new FormControl(''));
     }
@@ -117,7 +122,6 @@ group : string;
         ...submittedForm.value
       }
     };
-    console.log(payload);
     this.store.dispatch(demoActionTypes.updateDemo({payload}));
 
     this.isUpdateActivated = false;
@@ -147,6 +151,10 @@ group : string;
       "helpPath" : "",
       "indicator": 0
     };
+    this.angForm.get('name').setValue('');
+    this.angForm.get('group').setValue('');
+    this.angForm.get('helpPath').setValue('');
+    this.angForm.get('indicator').setValue(0);
     this.snips.clear();
     this.outputs.clear();   
     (<FormArray>this.snips).push(new FormControl(''));   

@@ -34,6 +34,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .router-container{
     height: 100%;
 }
+ul li {
+    list-style-position: inside;
+}
 @media all and (max-width : 599px){
     textarea {
         width: 100%;;

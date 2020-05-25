@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'library/jQuery', component: JqueryComponent },
   { path: 'library/Angular', component: AngularComponent,resolve: {cruds:CrudResolver}},
   { path: 'library/Rxjs', component: RxjsComponent },
+  { path: 'library/css', component: CssComponent},
   { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
-  { path: 'css', component: CssComponent},
   { path: 'login', component: LoginComponent },
     // otherwise redirect to home
   { path: '**', redirectTo: '' }

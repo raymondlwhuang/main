@@ -18,7 +18,7 @@
                 <button mat-raised-button color="primary" (click)="renderNewResult('greater_Sign')" class="greater_Sign">div > p</button>
                 <button mat-raised-button color="primary" (click)="renderNewResult('plus_Sign')" class="plus_Sign">div + p</button>
                 <button mat-raised-button color="primary" (click)="renderNewResult('aprox_Sign')" class="aprox_Sign">div ~ p</button>    
-                <button mat-raised-button color="primary" (click)="renderNewResult('first_p')" class="first_p">div p:first-child</button> 
+                <button mat-raised-button color="primary" (click)="renderNewResult('first_p')" class="first_p">p:first-child</button> 
             </div>
             <div>{{description}}</div>   
             <div class="main">
@@ -62,5 +62,18 @@
             </div>
         </div>
     </mat-tab>    
+    <mat-tab label="Pseudo Elements"> 
+        <div appMediaQueryFlexbox class="demo-container">
+            <div appFlexItem class="add-border">
+                <h2>Pseudo Elements</h2>
+                <app-demo-selector [group]="'Pseudo-elements'"></app-demo-selector>
+            </div>
+            <div appFlexItem class="add-border">
+                <h2>Pseudo Classes</h2>
+                <app-demo-selector [group]="'Pseudo Classes'"></app-demo-selector>
+            </div>        
+        </div>
+</mat-tab>
+
 </mat-tab-group>    
 

@@ -2,3 +2,13 @@ button {
     align-self: flex-start;
     margin-right: 5px;
 }
+table {
+    width: 100%;
+}
+table * {
+  vertical-align: middle;
+  padding: 0 5px;  
+}
+table th {
+  background-color: lightgray;
+}

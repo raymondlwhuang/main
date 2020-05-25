@@ -13,6 +13,7 @@ import { RxjsComponent } from './_components/library/rxjs/rxjs.component';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { DemoResolver } from './_store/resolvers/demo.resolver';
+import { CssComponent } from './_components/library/css/css.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'library/Angular', component: AngularComponent,resolve: {cruds:CrudResolver}},
   { path: 'library/Rxjs', component: RxjsComponent },
   { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
+  { path: 'css', component: CssComponent},
   { path: 'login', component: LoginComponent },
     // otherwise redirect to home
   { path: '**', redirectTo: '' }

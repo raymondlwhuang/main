@@ -1517,7 +1517,8 @@
   },
   {
     "snips": [
-      "flex-direction: column;"
+      "flex-direction: column;",
+      "row(Default),row-reverse,column,column-reverse,initial,inherit"
     ],
     "outputs": [
       "The flex-direction property defines in which direction the container wants to stack the flex items."
@@ -1533,7 +1534,8 @@
   },
   {
     "snips": [
-      "flex-wrap: wrap;"
+      "flex-wrap: wrap;",
+      "nowrap(Default),wrap,wrap-reverse,initial,inherit"
     ],
     "outputs": [
       "The flex-wrap property specifies whether the flex items should wrap or not."
@@ -1565,7 +1567,8 @@
   },
   {
     "snips": [
-      "justify-content: center;"
+      "justify-content: center;",
+      "flex-start(Default),flex-end,center,space-between,space-around,initial,inherit"
     ],
     "outputs": [
       "The justify-content property is used to align the flex items:"
@@ -1581,7 +1584,8 @@
   },
   {
     "snips": [
-      "align-items: center;"
+      "align-items: center;",
+      "stretch(Default),center,flex-start,flex-end,baseline,initial,inherit"
     ],
     "outputs": [
       "The align-items property is used to align the flex items vertically."
@@ -1597,7 +1601,8 @@
   },
   {
     "snips": [
-      "align-content: space-between;"
+      "align-content: space-between;",
+      "stretch(Default),center,flex-start,flex-end,space-between,space-around,initial,inherit"
     ],
     "outputs": [
       "The align-content property is used to align the flex lines."
@@ -1613,7 +1618,8 @@
   },
   {
     "snips": [
-      "order: 3"
+      "order: 3",
+      "number(Default is 0), initial, inherit"
     ],
     "outputs": [
       "The order property specifies the order of the flex items."
@@ -1629,7 +1635,8 @@
   },
   {
     "snips": [
-      "flex-grow: 1"
+      "flex-grow: 1",
+      "number(Default value is 0), initial, inherit"
     ],
     "outputs": [
       "The flex-grow property specifies how much a flex item will grow relative to the rest of the flex items."
@@ -1645,7 +1652,8 @@
   },
   {
     "snips": [
-      "flex-shrink: 0;"
+      "flex-shrink: 0;",
+      "number(Default is 1), initial, inherit"
     ],
     "outputs": [
       "The flex-shrink property specifies how much a flex item will shrink relative to the rest of the flex items.",
@@ -1663,7 +1671,8 @@
   },
   {
     "snips": [
-      "flex-basis: 200px;"
+      "flex-basis: 200px;",
+      "auto(Default), initial, inherit, number"
     ],
     "outputs": [
       "The flex-basis property specifies the initial length of a flex item."
@@ -1699,7 +1708,8 @@
   },
   {
     "snips": [
-      "align-self: center"
+      "align-self: center",
+      "auto(Default),stretch,center,flex-start,flex-end,baseline,initial,inherit"
     ],
     "outputs": [
       "The align-self property specifies the alignment for the selected item inside the flexible container."
@@ -1710,6 +1720,598 @@
     "id": "41869c7c-d5fd-4a7a-a90a-a6a9561483ac",
     "group": "FlexItem",
     "name": "align-self",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "p::first-line {   color: #ff0000;   font-variant: small-caps; }"
+    ],
+    "outputs": [
+      "The ::first-line pseudo-element is used to add a special style to the first line of a text."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d533b9b4ad11101de3d4",
+    "id": "342fae5f-5a8a-4769-a2e2-9ba6f7a114f7",
+    "group": "Pseudo-elements",
+    "name": "first-line",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "p::first-letter {   color: #ff0000;   font-size: xx-large; }"
+    ],
+    "outputs": [
+      "The ::first-letter pseudo-element is used to add a special style to the first letter of a text."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d55cb9b4ad11101de3d5",
+    "id": "0c8234c1-657d-4e2f-97ee-f73437632fb2",
+    "group": "Pseudo-elements",
+    "name": "first-letter",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "h1::before {   content: url(smiley.gif); }"
+    ],
+    "outputs": [
+      "The ::before pseudo-element can be used to insert some content before the content of an element."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d5f7b9b4ad11101de3d6",
+    "id": "4f2fc1d7-31d7-4b4e-b630-fc49c53b1ee5",
+    "group": "Pseudo-elements",
+    "name": "before",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "h1::after {   content: url(smiley.gif); }"
+    ],
+    "outputs": [
+      "The ::after pseudo-element can be used to insert some content after the content of an element."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d613b9b4ad11101de3d7",
+    "id": "263c150e-d8a1-4df1-ab18-63e6d836e21b",
+    "group": "Pseudo-elements",
+    "name": "after",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "::selection {   color: red;   background: yellow; }"
+    ],
+    "outputs": [
+      "The ::selection pseudo-element matches the portion of an element that is selected by a user."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d653b9b4ad11101de3d8",
+    "id": "587b2054-b632-47ef-812e-bffeed11ea73",
+    "group": "Pseudo-elements",
+    "name": "selection",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "a:active"
+    ],
+    "outputs": [
+      "a:active\tSelects the active link"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d6dfb9b4ad11101de3d9",
+    "id": "37ef0823-09dd-411e-be8a-549b43a130d6",
+    "group": "Pseudo Classes",
+    "name": "active",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:checked\tSelects every checked &lt;input&gt; element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d75cb9b4ad11101de3da",
+    "id": "e8a13a8d-96ac-4130-8d72-08e9b2d82386",
+    "group": "Pseudo Classes",
+    "name": "checked",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:disabled\tSelects every disabled &lt;input&gt; element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d772b9b4ad11101de3db",
+    "id": "c1ecf34a-f8a6-43fe-ba33-990e0f206a4f",
+    "group": "Pseudo Classes",
+    "name": "disabled",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:empty\tSelects every &lt;p&gt; element that has no children"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d78eb9b4ad11101de3dc",
+    "id": "4565bede-bde9-4553-b423-b705bb79f238",
+    "group": "Pseudo Classes",
+    "name": "empty",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:enabled\tSelects every enabled &lt;input&gt; element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d7a7b9b4ad11101de3dd",
+    "id": "1c721fc9-1c7f-46f1-ab06-24cd132fb4c9",
+    "group": "Pseudo Classes",
+    "name": "enabled",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:first-child\tSelects every &lt;p&gt; elements that is the first child of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d7d3b9b4ad11101de3de",
+    "id": "dacbdb14-0eb5-4076-a34d-7d7431f1983e",
+    "group": "Pseudo Classes",
+    "name": "first-child",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:first-of-type\tSelects every&lt;p&gt; element that is the first &lt;p&gt; element of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d7ecb9b4ad11101de3df",
+    "id": "8b9ab817-499d-4739-9a40-a8ce02fa118c",
+    "group": "Pseudo Classes",
+    "name": "first-of-type",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:focus\tSelects the &lt;input&gt; element that has focus"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d804b9b4ad11101de3e0",
+    "id": "be8ad75f-17a7-4792-a9de-6a445d8c0182",
+    "group": "Pseudo Classes",
+    "name": "focus",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "a:hover\tSelects links on mouse over"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d81ab9b4ad11101de3e1",
+    "id": "ea5d3cda-a514-4285-b22a-0ecec48cdc42",
+    "group": "Pseudo Classes",
+    "name": "hover",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:in-range\tSelects &lt;input&gt; elements with a value within a specified range"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d838b9b4ad11101de3e2",
+    "id": "73a65ce9-26c1-43ad-a006-e52bf1cb182e",
+    "group": "Pseudo Classes",
+    "name": "in-range",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:invalid\tSelects all &lt;input&gt; elements with an invalid value"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d851b9b4ad11101de3e3",
+    "id": "d8182dcd-81a4-4d8d-ac8e-25ddfa37ca12",
+    "group": "Pseudo Classes",
+    "name": "invalid",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:lang(it)\tSelects every &lt;p&gt; element with a lang attribute value starting with \"it\""
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d881b9b4ad11101de3e4",
+    "id": "1d96dce2-a0ee-4790-a551-664dc8ad05d1",
+    "group": "Pseudo Classes",
+    "name": "lang()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:last-child\tSelects every &lt;p&gt; elements that is the last child of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d89bb9b4ad11101de3e5",
+    "id": "959535bc-1ffc-442d-b7dc-d2fc9bd3a6f7",
+    "group": "Pseudo Classes",
+    "name": "last-child",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:last-of-type\tSelects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d8b8b9b4ad11101de3e6",
+    "id": "5a54d782-deef-41db-9b4c-4eac6bf807c5",
+    "group": "Pseudo Classes",
+    "name": "last-of-type",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "a:link\tSelects all unvisited links"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d8d0b9b4ad11101de3e7",
+    "id": "851a6b46-3593-4a3e-bed4-b9cff6659423",
+    "group": "Pseudo Classes",
+    "name": "link",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      ":not(p)\tSelects every element that is not a &lt;p&gt; element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d8f0b9b4ad11101de3e8",
+    "id": "67ac8e40-d342-4456-a161-0367f89cbc57",
+    "group": "Pseudo Classes",
+    "name": "not()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:nth-child(2)\tSelects every &lt;p&gt; element that is the second child of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d912b9b4ad11101de3e9",
+    "id": "2e8054df-7f78-4d6b-9206-6f0453170389",
+    "group": "Pseudo Classes",
+    "name": "nth-child()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:nth-last-child(2)\tSelects every &lt;p&gt; element that is the second child of its parent, counting from the last child"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d92db9b4ad11101de3ea",
+    "id": "cef66f45-2f50-44bf-82b2-bbe47f773b6c",
+    "group": "Pseudo Classes",
+    "name": "nth-last-child()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:nth-last-of-type(2)\tSelects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d946b9b4ad11101de3eb",
+    "id": "344bfdcf-0255-4fc4-9897-25e1028c5812",
+    "group": "Pseudo Classes",
+    "name": "nth-last-of-type()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:nth-of-type(2)\tSelects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d961b9b4ad11101de3ec",
+    "id": "19908b62-61dd-447b-a471-dfd1f5eaea90",
+    "group": "Pseudo Classes",
+    "name": "nth-of-type()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:only-of-type\tSelects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d97db9b4ad11101de3ed",
+    "id": "a40aed88-c5f1-4b29-ac13-4eb072f470b3",
+    "group": "Pseudo Classes",
+    "name": "only-of-type",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "p:only-child\tSelects every &lt;p&gt; element that is the only child of its parent"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d99ab9b4ad11101de3ee",
+    "id": "a3225814-8b66-4cd6-a910-7acb1ce96b04",
+    "group": "Pseudo Classes",
+    "name": "only-child",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:optional\tSelects &lt;input&gt; elements with no \"required\" attribute"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d9b6b9b4ad11101de3ef",
+    "id": "6e835e6e-0e2f-416e-b9b8-e1e832456e8e",
+    "group": "Pseudo Classes",
+    "name": "optional",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:out-of-range\tSelects &lt;input&gt; elements with a value outside a specified range"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d9ceb9b4ad11101de3f0",
+    "id": "55fe1f0a-2226-43bc-8fbd-47c61ffed744",
+    "group": "Pseudo Classes",
+    "name": "out-of-range",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:read-only\tSelects &lt;input&gt; elements with a \"readonly\" attribute specified"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6d9e7b9b4ad11101de3f1",
+    "id": "de82911b-ab29-4d0a-aa51-0138aa6f0b00",
+    "group": "Pseudo Classes",
+    "name": "read-only",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:read-write\tSelects &lt;input&gt; elements with no \"readonly\" attribute"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6da05b9b4ad11101de3f2",
+    "id": "3174105a-740e-488c-a10b-210a289e26d4",
+    "group": "Pseudo Classes",
+    "name": "read-write",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:required\tSelects &lt;input&gt; elements with a \"required\" attribute specified"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6da1cb9b4ad11101de3f3",
+    "id": "91d45c62-d059-4da9-adc5-5a246b8f5083",
+    "group": "Pseudo Classes",
+    "name": "required",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ":root {   background: #ff0000; }"
+    ],
+    "outputs": [
+      "Selects the document's root element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6da4db9b4ad11101de3f4",
+    "id": "a640d292-b197-4c56-853b-bc23d754e0b2",
+    "group": "Pseudo Classes",
+    "name": "root",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "#news:target\tSelects the current active #news element (clicked on a URL containing that anchor name)"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6daafb9b4ad11101de3f5",
+    "id": "5cd38a61-cf1f-4939-9cdb-66095893a82d",
+    "group": "Pseudo Classes",
+    "name": "target",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "input:valid\tSelects all &lt;input&gt; elements with a valid value"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6dacbb9b4ad11101de3f6",
+    "id": "500d54ce-73fc-4e16-813f-84faa42d76da",
+    "group": "Pseudo Classes",
+    "name": "valid",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "a:visited\tSelects all visited links"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec6dadfb9b4ad11101de3f7",
+    "id": "cc628c23-29b7-47b5-8bdb-91dc4d7ac6e5",
+    "group": "Pseudo Classes",
+    "name": "visited",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "Array.isArray(obj)"
+    ],
+    "outputs": [
+      "The isArray() method determines whether an object is an array."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ec7d567b9b4ad11101de3f8",
+    "id": "befacb12-bf00-478e-a735-165deb7a6cad",
+    "group": "array",
+    "name": "Array.isArray()",
     "helpPath": "",
     "__v": 0
   }

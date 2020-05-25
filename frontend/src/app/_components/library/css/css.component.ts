@@ -36,7 +36,7 @@ export class CssComponent implements OnInit {
         this.description="Selects every <p> element that are preceded by a <div> element";
         break;
       case 'first_p':
-        selected = document.querySelectorAll("div p:first-child");
+        selected = document.querySelectorAll("p:first-child");
         this.description="Selects every <p> element that is the first child of its parent";
         break;
     }

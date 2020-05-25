@@ -37,3 +37,59 @@
     </div>
 
 </div>
+
+<table *ngIf="group=='array'" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name.first">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name.first}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name.last">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name.last}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> isActive </th>
+      <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> company </th>
+      <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="eyeColor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> eyeColor </th>
+      <td mat-cell *matCellDef="let element"> {{element.eyeColor}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator *ngIf="group=='array'" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

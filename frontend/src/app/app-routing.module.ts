@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'home', component: EmploymentComponent},
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'others', component: EducationComponent },
-  { path: 'Private', component: PreShowComponent, canActivate: [AuthGuard] },
+  { path: 'Private', component: PreShowComponent,resolve: {demos:DemoResolver}, canActivate: [AuthGuard] },
   { path: 'library/javaScript',component:  JavascriptComponent },
   { path: 'library/jQuery', component: JqueryComponent },
   { path: 'library/Angular', component: AngularComponent,resolve: {cruds:CrudResolver}},

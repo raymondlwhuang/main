@@ -4,7 +4,9 @@ import { books, booksDetail } from '../_infrastructure/data';
 import { Book } from '../_models/book';
 import { BookDetail } from '../_models/book-detail';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookService {
   book$ = new Subject<Book>();
   

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StateManagementComponent } from './state-management.component';
+import { SqlComponent } from './sql.component';
 
-describe('StateManagementComponent', () => {
-  let component: StateManagementComponent;
-  let fixture: ComponentFixture<StateManagementComponent>;
+describe('SqlComponent', () => {
+  let component: SqlComponent;
+  let fixture: ComponentFixture<SqlComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StateManagementComponent ]
+      declarations: [ SqlComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StateManagementComponent);
+    fixture = TestBed.createComponent(SqlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,6 +9,7 @@ import { Server } from '../_infrastructure/server';
 })
 export class UserService {
   user : Subject<User> = new Subject<User>();
+  user$ = new Subject<User>();
   constructor(private server: Server){}
 
   getUsers(): Observable<User[]> {

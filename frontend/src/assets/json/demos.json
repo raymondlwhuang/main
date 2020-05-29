@@ -2314,5 +2314,733 @@
     "name": "Array.isArray()",
     "helpPath": "",
     "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column1, column2, ... ",
+      "FROM table_name;"
+    ],
+    "outputs": [
+      "The SELECT statement is used to select data from a database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed142eed698ad265847664c",
+    "id": "ab21e214-9b2e-4d3c-be40-5e3e3d190876",
+    "group": "SQL",
+    "name": "SELECT",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT DISTINCT column1, column2, ... ",
+      "FROM table_name;"
+    ],
+    "outputs": [
+      "The SELECT DISTINCT statement is used to return only distinct (different) values."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14334d698ad265847664d",
+    "id": "d224eb54-ca11-429d-bc44-f8af0ea6f0d8",
+    "group": "SQL",
+    "name": "SELECT DISTINCT",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column1, column2, ... ",
+      "FROM table_name ",
+      "ORDER BY column1, column2, ... ASC|DESC;"
+    ],
+    "outputs": [
+      "The ORDER BY keyword is used to sort the result-set in ascending or descending order."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed143f2d698ad265847664e",
+    "id": "c87452fe-b3d3-4568-bce5-f3f6f1b9ca04",
+    "group": "SQL",
+    "name": "ORDER BY",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);"
+    ],
+    "outputs": [
+      "The INSERT INTO statement is used to insert new records in a table."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14423d698ad265847664f",
+    "id": "0a4def72-899d-45c8-b74e-b310a780cd84",
+    "group": "SQL",
+    "name": "INSERT INTO",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_names FROM table_name WHERE column_name IS NULL;"
+    ],
+    "outputs": [
+      "A field with a NULL value is a field with no value."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed1446ed698ad2658476650",
+    "id": "d4374c44-baa8-45b1-af65-1ed3d019b70a",
+    "group": "SQL",
+    "name": "IS NULL",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;"
+    ],
+    "outputs": [
+      "The UPDATE statement is used to modify the existing records in a table."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14498d698ad2658476651",
+    "id": "2aee1121-2bc7-4c2c-9f83-0275e71f67ee",
+    "group": "SQL",
+    "name": "UPDATE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "DELETE FROM table_name WHERE condition;"
+    ],
+    "outputs": [
+      "The DELETE statement is used to delete existing records in a table."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed144bcd698ad2658476652",
+    "id": "34396661-d223-49a8-b1ee-a59bf3815d64",
+    "group": "SQL",
+    "name": "DELETE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT TOP number|percent column_name(s) FROM table_name WHERE condition;"
+    ],
+    "outputs": [
+      "The SELECT TOP clause is used to specify the number of records to return. (LIMIT number;  in MySQL) (ROWNUM <= number in Oracle)"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14582d698ad2658476653",
+    "id": "7c19d80b-6661-4bd2-956a-60d67785379e",
+    "group": "SQL",
+    "name": "SELECT TOP",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT MIN(column_name) FROM table_name WHERE condition; ",
+      "SELECT MAX(column_name) FROM table_name WHERE condition;"
+    ],
+    "outputs": [
+      "returns the smallest/largest value of the selected column."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed145f9d698ad2658476654",
+    "id": "2453276c-f9bc-4003-b0a8-2682d3c729bf",
+    "group": "SQL",
+    "name": "MIN(),MAX()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT COUNT(column_name) FROM table_name WHERE condition;",
+      "SELECT AVG(column_name) FROM table_name WHERE condition;",
+      "SELECT SUM(column_name) FROM table_name WHERE condition;"
+    ],
+    "outputs": [
+      "The COUNT() function returns the number of rows that matches a specified criterion.",
+      "The AVG() function returns the average value of a numeric column.",
+      "The SUM() function returns the total sum of a numeric column."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14680d698ad2658476655",
+    "id": "dd18408e-18a2-4712-abef-08fcc29e868b",
+    "group": "SQL",
+    "name": "COUNT(), AVG(),SUM()",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column1, column2, ... FROM table_name WHERE columnN LIKE pattern;"
+    ],
+    "outputs": [
+      "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.",
+      "There are two wildcards often used in conjunction with the LIKE operator:",
+      "% - The percent sign represents zero, one, or multiple characters",
+      "_ - The underscore represents a single character",
+      "'a%' - Finds any values that start with \"a\"; '%a'- Finds any values that end with \"a\"; '%or%' - Finds any values that have \"or\" in any position;",
+      "'_r%'-Finds any values that have \"r\" in the second position;'a_%'-Finds any values that start with \"a\" and are at least 2 characters in length;'a%o'-Finds any values that start with \"a\" and ends with \"o\""
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14815d698ad2658476656",
+    "id": "4c9f79bc-3040-4fbc-8969-9be5d8483fdc",
+    "group": "SQL",
+    "name": "LIKE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT * FROM Customers WHERE City LIKE '[bsp]%';"
+    ],
+    "outputs": [
+      "A wildcard character is used to substitute one or more characters in a string.",
+      "[]  Represents any single character within the brackets; h[oa]t finds hot and hat, but not hit",
+      "^  Represents any character not in the brackets; h[^oa]t finds hit, but not hot and hat",
+      "- Represents a range of characters;\tc[a-b]t finds cat and cbt"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14a15d698ad2658476657",
+    "id": "02b7c9ba-1e0c-4c27-8a06-f0ba27dcc5a9",
+    "group": "SQL",
+    "name": "Wildcard",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE column_name IN (value1, value2, ...);",
+      "SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');"
+    ],
+    "outputs": [
+      "The IN operator allows you to specify multiple values in a WHERE clause.",
+      "The IN operator is a shorthand for multiple OR conditions."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14b77d698ad2658476658",
+    "id": "a05e8d67-a373-4968-b3ba-89d8147acbe0",
+    "group": "SQL",
+    "name": "IN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;"
+    ],
+    "outputs": [
+      "The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.",
+      "The BETWEEN operator is inclusive: begin and end values are included. "
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14bb4d698ad2658476659",
+    "id": "a767b185-6e9c-4d08-83c2-ce611cf1fdce",
+    "group": "SQL",
+    "name": "BETWEEN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name AS alias_name FROM table_name;",
+      "SELECT column_name(s) FROM table_name AS alias_name;"
+    ],
+    "outputs": [
+      "SQL aliases are used to give a table, or a column in a table, a temporary name.",
+      "Aliases are often used to make column names more readable. An alias only exists for the duration of the query."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14c73d698ad265847665a",
+    "id": "9817a0ad-757d-43a3-93cc-c42075e81be4",
+    "group": "SQL",
+    "name": "AS",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;"
+    ],
+    "outputs": [
+      "The INNER JOIN keyword selects records that have matching values in both tables."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14cddd698ad265847665b",
+    "id": "f55b459f-ea9d-424e-87c9-8be42fbfaba7",
+    "group": "SQL",
+    "name": "INNER JOIN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;"
+    ],
+    "outputs": [
+      "The LEFT JOIN keyword returns all records from the left table (table1), and the matched records from the right table (table2). The result is NULL from the right side, if there is no match."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14d0fd698ad265847665c",
+    "id": "0d6d0e4c-8a86-4ff6-8889-a56b59180646",
+    "group": "SQL",
+    "name": "LEFT JOIN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;"
+    ],
+    "outputs": [
+      "The RIGHT JOIN keyword returns all records from the right table (table2), and the matched records from the left table (table1). The result is NULL from the left side, when there is no match."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14d46d698ad265847665d",
+    "id": "d0a0b19c-350b-4428-9739-0bd7e6e193cd",
+    "group": "SQL",
+    "name": "RIGHT JOIN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;"
+    ],
+    "outputs": [
+      "The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.",
+      "FULL OUTER JOIN can potentially return very large result-sets! FULL OUTER JOIN and FULL JOIN are the same."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14df8d698ad265847665e",
+    "id": "e45f0b5c-1d92-45cb-8d64-37c4e7163be4",
+    "group": "SQL",
+    "name": "FULL JOIN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 T1, table1 T2 WHERE condition;",
+      "SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City FROM Customers A, Customers B ",
+      "WHERE A.CustomerID <> B.CustomerID AND A.City = B.City ORDER BY A.City;"
+    ],
+    "outputs": [
+      "A self JOIN is a regular join, but the table is joined with itself."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14e63d698ad265847665f",
+    "id": "ddffff9e-bd31-4bbb-a91b-7be160434611",
+    "group": "SQL",
+    "name": "Self JOIN",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table1 UNION SELECT column_name(s) FROM table2;"
+    ],
+    "outputs": [
+      "The UNION operator is used to combine the result-set of two or more SELECT statements.",
+      "The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14ec7d698ad2658476660",
+    "id": "8caf6c8b-1c93-4733-b9a4-5c4eeda5976c",
+    "group": "SQL",
+    "name": "UNION",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) ORDER BY column_name(s);",
+      "SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country ORDER BY COUNT(CustomerID) DESC;"
+    ],
+    "outputs": [
+      "The GROUP BY statement groups rows that have the same values into summary rows, like \"find the number of customers in each country\".",
+      "The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14f6ad698ad2658476661",
+    "id": "ab68a513-ef21-4e49-aac5-95a485685f45",
+    "group": "SQL",
+    "name": "GROUP BY",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) HAVING condition ORDER BY column_name(s);",
+      "SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 5;"
+    ],
+    "outputs": [
+      "The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed14fc1d698ad2658476662",
+    "id": "4bd6f463-0e76-4e99-bd0e-a6260d277b30",
+    "group": "SQL",
+    "name": "HAVING",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);",
+      "SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);"
+    ],
+    "outputs": [
+      "The EXISTS operator is used to test for the existence of any record in a subquery.  The EXISTS operator returns true if the subquery returns one or more records."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed1502ad698ad2658476663",
+    "id": "f40d22ce-3526-4fc3-bd82-cc135e43c2d0",
+    "group": "SQL",
+    "name": "EXISTS",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT column_name(s) FROM table_name WHERE column_name operator ANY (SELECT column_name FROM table_name WHERE condition);",
+      "SELECT column_name(s) FROM table_name WHERE column_name operator ALL (SELECT column_name FROM table_name WHERE condition);",
+      "SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);",
+      "SELECT ProductName FROM Products WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);"
+    ],
+    "outputs": [
+      "The ANY and ALL operators are used with a WHERE or HAVING clause.  The ANY operator returns true if any of the subquery values meet the condition.  The ALL operator returns true if all of the subquery values meet the condition."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16085d698ad2658476664",
+    "id": "7ff81de2-88db-477c-9f7f-5fe06073f9f0",
+    "group": "SQL",
+    "name": "ANY and ALL",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT * INTO newtable [IN externaldb] FROM oldtable WHERE condition;",
+      "SELECT column1, column2, column3, ... INTO newtable [IN externaldb] FROM oldtable WHERE condition;",
+      "SELECT * INTO CustomersBackup2017 FROM Customers;",
+      "SELECT * INTO CustomersBackup2017 IN 'Backup.mdb' FROM Customers;",
+      "SELECT Customers.CustomerName, Orders.OrderID INTO CustomersOrderBackup2017 FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;"
+    ],
+    "outputs": [
+      "The SELECT INTO statement copies data from one table into a new table.",
+      "SELECT INTO can also be used to create a new, empty table using the schema of another. Just add a WHERE clause that causes the query to return no data",
+      "SELECT * INTO newtable FROM oldtable WHERE 1 = 0;"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed1619cd698ad2658476665",
+    "id": "6bf73017-894c-45fd-b90a-de049c8b229a",
+    "group": "SQL",
+    "name": "SELECT INTO",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "INSERT INTO table2 SELECT * FROM table1 WHERE condition;",
+      "INSERT INTO table2 (column1, column2, column3, ...) SELECT column1, column2, column3, ... FROM table1 WHERE condition;"
+    ],
+    "outputs": [
+      "The INSERT INTO SELECT statement copies data from one table and inserts it into another table.  ",
+      "INSERT INTO SELECT requires that data types in source and target tables match ",
+      "The existing records in the target table are unaffected"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16220d698ad2658476666",
+    "id": "440a749e-2508-4b0d-8c37-48dfb428ef56",
+    "group": "SQL",
+    "name": "INSERT INTO SELECT",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CASE     WHEN condition1 THEN result1     WHEN condition2 THEN result2     WHEN conditionN THEN resultN     ELSE result END;",
+      "SELECT OrderID, Quantity, CASE     WHEN Quantity > 30 THEN 'The quantity is greater than 30'     WHEN Quantity = 30 THEN 'The quantity is 30'     ",
+      "ELSE 'The quantity is under 30' END AS QuantityText FROM OrderDetails;"
+    ],
+    "outputs": [
+      "The CASE statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement).",
+      "So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.",
+      "If there is no ELSE part and no conditions are true, it returns NULL."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed162a0d698ad2658476667",
+    "id": "07045b3e-509d-487e-961c-fba8909a5948",
+    "group": "SQL",
+    "name": "CASE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "MySQL: IFNULL(), COALESCE(), || SQL Server: ISNULL(),  || Oracle:  NVL() Functions",
+      "SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0)) FROM Products; //MySQL"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed163e2d698ad2658476668",
+    "id": "7db5a413-de0e-4dbc-9a3a-ab6d99b055b0",
+    "group": "SQL",
+    "name": "NULL Functions",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE PROCEDURE procedure_name AS sql_statement GO;",
+      "EXEC procedure_name; //Execute a Stored Procedure",
+      "CREATE PROCEDURE SelectAllCustomers AS SELECT * FROM Customers GO;",
+      "EXEC SelectAllCustomers;"
+    ],
+    "outputs": [
+      "A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.",
+      "So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.",
+      "You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed164a4d698ad2658476669",
+    "id": "6a863029-6763-4ce4-bf8b-994f1382383d",
+    "group": "SQL",
+    "name": "Stored Procedures",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "--Select all:",
+      "/*Select all the columns ",
+      "of all the records in the Customers table:*/"
+    ],
+    "outputs": [
+      "Single line comments start with --. Any text between -- and the end of the line will be ignored (will not be executed).",
+      "Multi-line comments start with /* and end with */."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed165a2d698ad265847666a",
+    "id": "38749392-217f-4352-8518-1757aa6d4664",
+    "group": "SQL",
+    "name": "Comments",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE DATABASE databasename;"
+    ],
+    "outputs": [
+      "The CREATE DATABASE statement is used to create a new SQL database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed165dbd698ad265847666b",
+    "id": "8557335c-338d-42f9-942d-faae70100fc6",
+    "group": "SQL",
+    "name": "CREATE DATABASE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "DROP DATABASE databasename;"
+    ],
+    "outputs": [
+      "The DROP DATABASE statement is used to drop an existing SQL database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed165fdd698ad265847666c",
+    "id": "7639e758-e50d-4f3c-b620-17df6b0cf1ec",
+    "group": "SQL",
+    "name": "DROP DATABASE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "BACKUP DATABASE databasename TO DISK = 'filepath';",
+      "BACKUP DATABASE databasename TO DISK = 'filepath' WITH DIFFERENTIAL; ",
+      "//A differential back up only backs up the parts of the database that have changed since the last full database backup.",
+      "BACKUP DATABASE testDB TO DISK = 'D:\\backups\\testDB.bak';"
+    ],
+    "outputs": [
+      "The BACKUP DATABASE statement is used in SQL Server to create a full back up of an existing SQL database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16663d698ad265847666d",
+    "id": "3a470863-8c39-4162-8d46-2773b5945af2",
+    "group": "SQL",
+    "name": "BACKUP DATABASE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE TABLE table_name (     column1 datatype,     column2 datatype,     column3 datatype,    .... );",
+      "CREATE TABLE Persons (     PersonID int,     LastName varchar(255),     FirstName varchar(255),     Address varchar(255),     City varchar(255) );"
+    ],
+    "outputs": [
+      "The CREATE TABLE statement is used to create a new table in a database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed1669fd698ad265847666e",
+    "id": "db5f4042-25c6-457f-bb30-10c983dbac02",
+    "group": "SQL",
+    "name": "CREATE TABLE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "DROP TABLE table_name;"
+    ],
+    "outputs": [
+      "The DROP TABLE statement is used to drop an existing table in a database."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed166c7d698ad265847666f",
+    "id": "f226b7c3-250f-478d-aef6-b4cd3d52e1b5",
+    "group": "SQL",
+    "name": "DROP TABLE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "ALTER TABLE table_name ADD column_name datatype;",
+      "ALTER TABLE Customers ADD Email varchar(255);",
+      "ALTER TABLE table_name DROP COLUMN column_name;"
+    ],
+    "outputs": [
+      "The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.  ",
+      "The ALTER TABLE statement is also used to add and drop various constraints on an existing table."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed1670ed698ad2658476670",
+    "id": "9c975111-b686-40f0-9044-d4b96e859853",
+    "group": "SQL",
+    "name": "ALTER TABLE",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE TABLE table_name (     column1 datatype constraint,     column2 datatype constraint,     column3 datatype constraint,     .... );"
+    ],
+    "outputs": [
+      "SQL constraints are used to specify rules for data in a table.",
+      "Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.",
+      "The following constraints are commonly used in SQL:",
+      "NOT NULL,UNIQUE,PRIMARY KEY,FOREIGN KEY,CHECK ,DEFAULT,INDEX ",
+      "CREATE TABLE Persons (     ID int NOT NULL,     LastName varchar(255) NOT NULL,     FirstName varchar(255),     Age int,     PRIMARY KEY (ID) );"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16816d698ad2658476671",
+    "id": "e455488d-efba-499f-89ad-3371948a9b10",
+    "group": "SQL",
+    "name": "Constraints",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE TABLE Persons (     Personid int NOT NULL AUTO_INCREMENT,     LastName varchar(255) NOT NULL,     FirstName varchar(255),     Age int,     PRIMARY KEY (Personid) );"
+    ],
+    "outputs": [
+      "Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.",
+      "Often this is the primary key field that we would like to be created automatically every time a new record is inserted."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16882d698ad2658476672",
+    "id": "c7ebd374-f2ce-48d4-80ed-3e18190e1eea",
+    "group": "SQL",
+    "name": "AUTO INCREMENT",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "SELECT * FROM Orders WHERE OrderDate='2008-11-11'"
+    ],
+    "outputs": [
+      "Date Data Types:",
+      "MySQL:  DATE - format YYYY-MM-DD DATETIME - format: YYYY-MM-DD HH:MI:SS TIMESTAMP - format: YYYY-MM-DD HH:MI:SS YEAR - format YYYY or YY",
+      "SQL Server: DATE - format YYYY-MM-DD DATETIME - format: YYYY-MM-DD HH:MI:SS SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS TIMESTAMP - format: a unique number"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16923d698ad2658476673",
+    "id": "fa198d1c-2e5f-48e8-a5a5-d15b3a1aa231",
+    "group": "SQL",
+    "name": "Dates",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "CREATE VIEW view_name AS SELECT column1, column2, ... FROM table_name WHERE condition;",
+      "CREATE VIEW [Products Above Average Price] AS SELECT ProductName, Price FROM Products WHERE Price > (SELECT AVG(Price) FROM Products);",
+      "CREATE OR REPLACE VIEW view_name AS SELECT column1, column2, ... FROM table_name WHERE condition;"
+    ],
+    "outputs": [
+      "A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.",
+      "You can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from one single table."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ed16a05d698ad2658476674",
+    "id": "d8c7bf96-f2d8-40af-9292-516761d99dbb",
+    "group": "SQL",
+    "name": "CREATE VIEW",
+    "helpPath": "",
+    "__v": 0
   }
 ]

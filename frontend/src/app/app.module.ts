@@ -45,7 +45,7 @@ import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './_store/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './_store/effects/user.effect';
-import { StateManagementModule } from './_components/library/angular/state-management/state-management.module';
+import { CrudModule } from './_components/library/angular/crud/crud.component.module';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { AssetsEntryComponent } from './_components/library-assets/assets-entry/assets-entry.component';
 import { DemoReducer } from './_store/reducers/demo.reducer';
@@ -55,13 +55,20 @@ import { CrudReducer } from './_store/reducers/crud.reducer';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { CrudEffects } from './_store/effects/crud.effect';
 import { ArrayComponent } from './_components/library/javascript/array/array.component';
-import { BookService } from './_services/books-service';
 import { UserSelectComponent } from './_components/library/angular/interaction/input-output/user-select/user-select.component';
 import { UserDetailComponent } from './_components/library/angular/interaction/input-output/user-detail/user-detail.component';
 import { ApplicationsComponent } from './_components/library/angular/interaction/input-output/applications/applications.component';
 import { BooksSelectComponent } from './_components/library/angular/interaction/using-rxjs/books-select/books-select.component';
 import { BookDetailComponent } from './_components/library/angular/interaction/using-rxjs/book-detail/book-detail.component';
 import { InteractionComponent } from './_components/library/angular/interaction/interaction.component';
+import { HtmlComponent } from './_components/library/html/html.component';
+import { ReviewExcerciseComponent } from './_components/review-excercise/review-excercise.component';
+import { ReviewComponent } from './_components/review-excercise/review/review.component';
+import { ExcerciseComponent } from './_components/review-excercise/excercise/excercise.component';
+import { CombineComponent } from './_components/review-excercise/combine/combine.component';
+import { ReviewExcerciseDirective } from './_directives/review-excercise.directive';
+import { FlexboxDirective } from './_directives/flexbox.directive';
+import { SqlComponent } from './_components/library/sql/sql.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +91,8 @@ import { InteractionComponent } from './_components/library/angular/interaction/
     ChangeDetectionComponent,
     ShowCaseComponent,
     MediaQueryFlexboxDirective,
+    FlexboxDirective,
+    ReviewExcerciseDirective,
     FlexItemDirective,
     FormArrayComponent,
     SnackBarComponent,
@@ -99,7 +108,13 @@ import { InteractionComponent } from './_components/library/angular/interaction/
     ApplicationsComponent,
     BooksSelectComponent,
     BookDetailComponent,
-    InteractionComponent
+    InteractionComponent,
+    HtmlComponent,
+    ReviewExcerciseComponent,
+    ReviewComponent,
+    ExcerciseComponent,
+    CombineComponent,
+    SqlComponent
   ],
   imports: [
     BrowserModule,
@@ -114,8 +129,7 @@ import { InteractionComponent } from './_components/library/angular/interaction/
     MatListModule,
     DecoratorsModule,
     MatSnackBarModule,
-    StateManagementModule,
-    StateManagementModule,
+    CrudModule,
     StoreModule.forRoot({users : UserReducer,cruds: CrudReducer,demos: DemoReducer}),
     EffectsModule.forRoot([UserEffects,CrudEffects,DemoEffects])
   ],
@@ -126,7 +140,6 @@ import { InteractionComponent } from './_components/library/angular/interaction/
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500 }},
     CrudResolver,
     DemoResolver,
-    BookService,
     // provider used to create fake backend
     fakeBackendProvider    
   ],

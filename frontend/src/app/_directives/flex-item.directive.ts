@@ -5,12 +5,10 @@ import { Directive, ElementRef, Renderer2, Input, OnInit, HostListener } from '@
 })
 export class FlexItemDirective implements OnInit{
   @Input() changeOnSzie: number = 599;
-  @Input() flexBasis : number = 0;
-  @Input() flexGrow : number = 1;
-  @Input() marginRight : number = 10;
-  @Input() marginBottom : number = 10;
-  @Input() alignSelf: string = 'flex-start';
-  @Input() flex: string = '0 1 auto';
+  @Input() margin : string = "0 10px 0 0";
+  @Input() marginMobile : string = "0 0 10px 0";
+  @Input() alignSelf: string = 'auto';
+  @Input() flex: string = 'auto';
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     let mediaQuery = window.matchMedia("(max-width: "+ this.changeOnSzie + "px)")
@@ -23,21 +21,12 @@ export class FlexItemDirective implements OnInit{
   }  
   applyStyle(mediaQuery) {
     if (mediaQuery.matches) { // If media query matches
-      this.renderer.setStyle(this.elmRef.nativeElement,'margin-right', 0);
-      this.renderer.setStyle(this.elmRef.nativeElement,'margin-bottom', this.marginBottom +'px');
+      this.renderer.setStyle(this.elmRef.nativeElement,'margin', this.marginMobile);
   }
   else {
         this.renderer.setStyle(this.elmRef.nativeElement,'flex',this.flex);
-      if(this.flexBasis!=0) {
-        this.renderer.setStyle(this.elmRef.nativeElement,'flex-basis', this.flexBasis +'px');
-        this.renderer.setStyle(this.elmRef.nativeElement,'flex-grow', 0);
-        this.renderer.setStyle(this.elmRef.nativeElement,'margin-right', this.marginRight +'px');
-        this.renderer.setStyle(this.elmRef.nativeElement,'margin-bottom', 0);
+        this.renderer.setStyle(this.elmRef.nativeElement,'margin', this.margin);
         this.renderer.setStyle(this.elmRef.nativeElement,'align-self', this.alignSelf);
-      }
-      else {
-        this.renderer.setStyle(this.elmRef.nativeElement,'flex-grow',this.flexGrow);
-      }
     }
   }  
 }

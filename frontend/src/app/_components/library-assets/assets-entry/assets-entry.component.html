@@ -2,7 +2,7 @@
     <div>
         <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit(submittedForm)" #submittedForm="ngForm">
             <figure>
-                <div appMediaQueryFlexbox >
+                <div appFlexbox >
                     <div><label>Group: </label>
                         <input type="text" formControlName="group" class="form-control" required>
                         <label *ngIf="submitted && formInput.group.errors" [ngClass] = "'error'"> Group is required </label>
@@ -28,7 +28,7 @@
                     <figure>
                         <figcaption>Snips</figcaption>
                         <div formArrayName="snips">
-                            <div *ngFor="let snip of snips.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                            <div *ngFor="let snip of snips.controls; index as idx" class="form-group" appFlexbox>
                                 <div class="array-input">
                                      <input tpe="text" [formControlName]="idx" class="form-control">
                                 </div>
@@ -44,7 +44,7 @@
                     <figure>
                         <figcaption>Outputs</figcaption>
                         <div formArrayName="outputs">
-                            <div *ngFor="let output of outputs.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+                            <div *ngFor="let output of outputs.controls; index as idx" class="form-group" appFlexbox>
                                 <div class="array-input">
                                     <input tpe="text" [formControlName]="idx" class="form-control">
                                 </div>

@@ -14,11 +14,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
-  selector: 'app-state-management',
-  templateUrl: './state-management.component.html',
-  styleUrls: ['./state-management.component.css']
+  selector: 'app-crud',
+  templateUrl: './crud.component.html',
+  styleUrls: ['./crud.component.css']
 })
-export class StateManagementComponent implements OnInit {
+export class CrudComponent implements OnInit {
   cruds$ : Observable<Crud[]>;
   crudToBeUpdated : Crud;
   isUpdateActivated = false;
@@ -80,4 +80,9 @@ export class StateManagementComponent implements OnInit {
     this.crudToBeUpdated = null;
     document.getElementById('data-table').removeAttribute('style');
   }
+  showHide(){
+    document.querySelectorAll("#show-hide div").forEach(ele=>ele.classList.toggle("hide"));
+    document.querySelector('.unarchive').classList.toggle('turn');
+}
+
 }

@@ -1,0 +1,22 @@
+mat-icon {
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+button {
+    margin-right: 5px;
+}
+.hide {
+    display:none;
+}
+.unarchive {
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+.unarchive.turn {
+    transform: none;
+}

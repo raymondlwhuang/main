@@ -1,7 +1,7 @@
 
-<div appMediaQueryFlexbox [flexDirection]="'column'" [justifyContent]="'center'">
+<div appFlexbox [flexFlow]="'column wrap'" [justifyContent]="'center'">
     <div *ngFor="let employment of employments">
-        <div  appMediaQueryFlexbox class="employment-inner-box">
+        <div  appFlexbox class="employment-inner-box">
             <div class="employment-left">
                 <img src='{{ employment.imgUrl }}'>
             </div>

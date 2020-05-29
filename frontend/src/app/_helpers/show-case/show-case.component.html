@@ -5,9 +5,9 @@
     <div *ngIf="inputHolder.group=='JsByVersion'">{{inputHolder.indicator}}</div>
     </h3>
     <!-- <div>{{today | date : "h:m:s"}}</div> -->
-    <div appMediaQueryFlexbox>
-        <button appFlexItem [flexBasis]="100" *ngIf="outputText!=''"  id="show-code" mat-raised-button color="primary" (click)="showCode()">Show Code</button>
-        <button appFlexItem [flexBasis]="100" *ngIf="outputText!='' && !show && inputHolder.group=='Rxjs'"  id="fire-case" mat-raised-button color="primary" (click)="rxjsCase(inputHolder.name)">Subscribe</button>
+    <div appFlexbox>
+        <button appFlexItem [flex]="'0 1 100px'" *ngIf="outputText!=''"  id="show-code" mat-raised-button color="primary" (click)="showCode()">Show Code</button>
+        <button appFlexItem [flex]="'0 1 100px'" *ngIf="outputText!='' && !show && inputHolder.group=='Rxjs'"  id="fire-case" mat-raised-button color="primary" (click)="rxjsCase(inputHolder.name)">Subscribe</button>
         <div appFlexItem [flex]="'1'" id="fire-case-output"></div>    
     </div>
     <div *ngIf="flag=='promise' &&inputHolder.group=='function'" id="show-log" class="hide-log">

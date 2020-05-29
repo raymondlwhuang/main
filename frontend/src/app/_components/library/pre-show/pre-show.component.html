@@ -2,6 +2,15 @@
     <mat-tab label="LIBRARY ASSETS"> 
         <app-library-assets></app-library-assets>
     </mat-tab>
+    <mat-tab label="HTML"> 
+        <app-html></app-html>
+    </mat-tab>
+    <mat-tab label="SQL"> 
+        <app-sql></app-sql>
+    </mat-tab>
+    <mat-tab label="Review and Excercise"> 
+        <app-review-excercise></app-review-excercise>
+    </mat-tab>
     <mat-tab label="Old state management"> 
         <div class="demo-container form-group">
             <div id="show-hide">
@@ -60,8 +69,8 @@
             </textarea>
             </div>
                 <form (ngSubmit)="createUser()">
-                  <div appMediaQueryFlexbox>
-                    <div appMediaQueryFlexbox >
+                  <div appFlexbox>
+                    <div appFlexbox >
                         <div>
                           <input [(ngModel)]="email" placeholder="Enter your Email" class="form-control" name="email" />
                         </div>

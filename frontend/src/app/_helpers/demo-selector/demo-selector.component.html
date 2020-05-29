@@ -1,6 +1,6 @@
 <div class="demo-container">
-    <div appMediaQueryFlexbox>
-        <div appFlexItem appHoverItem [flexBasis]="200">
+    <div appFlexbox>
+        <div appFlexItem appHoverItem [flex]="'0 1 200px'">
             <mat-form-field>
                 <mat-label>Your selection</mat-label>
                 <mat-select  (selectionChange)="renderNewResult($event)">
@@ -14,8 +14,8 @@
     </div>
     <div [ngSwitch]="true">
         <div *ngSwitchCase="flag == 'Input' || flag =='Output' || flag =='ViewChild'">
-            <div appMediaQueryFlexbox>
-                <button mat-raised-button color="primary" appFlexItem [flexBasis]="100" (click)="startClock(!indicator,userListComponent)">{{buttonMsg}}</button>
+            <div appFlexbox>
+                <button mat-raised-button color="primary" appFlexItem [flex]="'0 1 100px'" (click)="startClock(!indicator,userListComponent)">{{buttonMsg}}</button>
                 <app-user-list appFlexItem [parentClick]="parentClick" (onSelect)="onSelect($event)"></app-user-list>
             </div>
             <app-user  [user]="user"></app-user>

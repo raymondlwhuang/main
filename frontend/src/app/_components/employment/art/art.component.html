@@ -9,8 +9,8 @@
     Sorry, your browser does not support inline SVG.
   </svg>
 </p>
-<div appMediaQueryFlexbox [justifyContent]="'center'" [changeOnSzie]="662">
-    <div appFlexItem [flexBasis]="300" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
+<div appFlexbox [justifyContent]="'center'" [changeOnSzie]="662">
+    <div appFlexItem [flex]="'0 1 300px'" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
         <ng-container *ngIf="image.show">
           <img src={{image.url}}>
         </ng-container>

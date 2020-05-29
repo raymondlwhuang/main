@@ -1,8 +1,8 @@
-<div appMediaQueryFlexbox class="demo-container">
-<select appFlexItem  [flexBasis]="200" (change)="onSelectChange()" [(ngModel)]="selectedOption">
+<div appFlexbox class="demo-container">
+<select appFlexItem  [flex]="'0 1 200px'" (change)="onSelectChange()" [(ngModel)]="selectedOption">
     <option *ngFor="let book of books" [ngValue]="book">Title: {{book.title}}, Author: {{book.author}}</option>
 </select>
-<mat-icon appFlexItem class="unarchive" appFlexItem [flexBasis]="20" [alignSelf]="'center'" color="accent" (click)="showHide()">unarchive</mat-icon>
+<mat-icon appFlexItem class="unarchive" appFlexItem [flex]="'0 1 20px'" [alignSelf]="'center'" color="accent" (click)="showHide()">unarchive</mat-icon>
 <div appFlexItem id="show-hide">
     <textarea class="add-border hide"  rows="2">
         book = new Subject<Book>(); //create an observable in BookService

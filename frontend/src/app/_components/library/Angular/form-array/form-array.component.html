@@ -3,7 +3,7 @@
         <h3>FormGroup,FormArray,FormArray of FormGroup</h3>
         <figure>
             <figcaption>Basic Information</figcaption>
-            <div appMediaQueryFlexbox >
+            <div appFlexbox >
                 <div>
                 <input type="text" formControlName="name"  placeholder="Name" class="form-control" required>
                 <label *ngIf="submitted && formInput.name.errors" [ngClass] = "'error'"> Name is required </label>
@@ -18,7 +18,7 @@
         </figure>
         <figure>
             <figcaption>Location</figcaption>
-        <div formGroupName = "location" appMediaQueryFlexbox>
+        <div formGroupName = "location" appFlexbox>
           <div>
             <input type="text" formControlName="address" placeholder="Address" class="form-control" required>
             <label *ngIf="submitted && formInput.location.value.address ==''" [ngClass] = "'error'"> Address is required </label>
@@ -44,8 +44,8 @@
         <button type="button" (click)="addHighlightField()" class="btn btn-success" class="btn btn-success">Add More highlights</button>
         <figure>
             <figcaption>Highlights</figcaption>
-            <div formArrayName="highlights" appMediaQueryFlexbox>
-            <div *ngFor="let highlight of highlights.controls; index as idx" class="form-group" appMediaQueryFlexbox>
+            <div formArrayName="highlights" appFlexbox>
+            <div *ngFor="let highlight of highlights.controls; index as idx" class="form-group" appFlexbox>
                 <div>
                     <input tpe="text" [formControlName]="idx" placeholder="Highlight" class="form-control">
                 </div>
@@ -59,9 +59,9 @@
         <figure>
             <figcaption>Works</figcaption>
 
-            <div formArrayName="works" class="works" appMediaQueryFlexbox>
+            <div formArrayName="works" class="works" appFlexbox>
             <div *ngFor="let work of works.controls; index as idx" class="form-group">
-                <div [formGroupName]="idx" appMediaQueryFlexbox>
+                <div [formGroupName]="idx" appFlexbox>
                 <input type="text" formControlName="company" placeholder="Company" class="form-control" required>
                 <label *ngIf="submitted && work.value.company==''" [ngClass] = "'error'"> company is required </label>
                 <input type="text" formControlName="position" placeholder="Position" class="form-control" required>

@@ -15,7 +15,6 @@ import { LibraryAssetsComponent } from './_components/library-assets/library-ass
 import { DemoResolver } from './_store/resolvers/demo.resolver';
 import { CssComponent } from './_components/library/css/css.component';
 
-
 const routes: Routes = [
   { path: '', component: EmploymentComponent},
   { path: 'home', component: EmploymentComponent},

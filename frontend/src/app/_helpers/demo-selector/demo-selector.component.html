@@ -12,6 +12,8 @@
         </div>
         <div  appFlexItem class="add-border"  [innerHTML]="currSnip | keepHtml"></div>
     </div>
+    <div id="demo-output"></div>
+
     <div [ngSwitch]="true">
         <div *ngSwitchCase="flag == 'Input' || flag =='Output' || flag =='ViewChild'">
             <div appFlexbox>

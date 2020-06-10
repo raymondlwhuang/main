@@ -59,7 +59,7 @@ export class DemoSelectorComponent implements OnInit {
   ngOnInit() {
     this.demoService.getAllDemos().subscribe(items => {
       this.demos = items.filter(item=>((item.group==this.group ||item.group=='') && item.accepted));
-      this.names=this.demos.map(demo=>demo.name.toUpperCase()).sort();
+      this.names=this.demos.map(demo=>demo.name).sort();
       if(this.demos.length ==1) this.names[0] = "Comming Soon!"
     }); 
     this._employeeService.getEmployees().pipe(take(10)).subscribe((data) => {
@@ -105,7 +105,7 @@ export class DemoSelectorComponent implements OnInit {
     if(option.value != '') {
 //      for(let i=0;i<codeSnip.length;i++) codeSnip[i].classList.add('add-border');
       this.demos.forEach((result) => {
-        if(option.value == result.name.toUpperCase()){
+        if(option.value == result.name){
           result.snips.forEach(element => snip += element + '</br>');
           this.output = '';
           result.outputs.forEach(element => this.output += element + '</br>');
@@ -115,36 +115,36 @@ export class DemoSelectorComponent implements OnInit {
       /*????????? for array handling */
       let msg = '';
       switch(option.value) {
-        case '  FOREACH':
+        case 'forEach':
           this.dataDispInTable =[];
           this.employees.forEach(employee=> {if(employee.eyeColor=='green') this.dataDispInTable.push(employee)});   
           break;
-        case 'FILTER':
+        case 'filter':
           this.dataDispInTable = this.employees.filter(employee => employee.eyeColor=='blue');
            break;
-        case 'SORT':
+        case 'sort':
           this.dataDispInTable = this.employees.slice();
           this.dataDispInTable.sort((employee,employee1) =>employee.age > employee1.age ? 1 : -1);
           break;
-        case 'FIND':
+        case 'find':
           this.dataDispInTable =[];
           this.dataDispInTable.push(this.employees.find(employee => employee.age < 22));
           break;
-        case 'POP':
+        case 'pop':
           this.dataDispInTable = this.employees.slice();
           this.dataDispInTable.pop();
           break;
-        case 'REDUCE':
+        case 'reduce':
           this.dataDispInTable =[];
           let ageList = this.employees.slice().map(employee=>employee.age);
           msg = "<br><br>Grand Total of age is: " + ageList.reduce((total : number,age : number)=>total + age);
           timer(2000).subscribe(() => this.htmlConsole(msg));
           break;
-        case 'SHIFT':
+        case 'shift':
           this.dataDispInTable = this.employees.slice();
           this.dataDispInTable.shift();
           break;
-        case 'SLICE':
+        case 'slice':
           this.dataDispInTable = this.employees.slice();
           this.dataDispInTable = this.dataDispInTable.slice(1, 3);
           break;
@@ -152,7 +152,6 @@ export class DemoSelectorComponent implements OnInit {
           this.dataDispInTable = this.employees;
       } 
       this.selectedOption = option.value;
-      console.log(this.dataDispInTable);
       this.dataSource = new NestedMatTableDataSource<Employee>(this.dataDispInTable);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -179,7 +178,7 @@ export class DemoSelectorComponent implements OnInit {
   destroySubscript(){
     this.showCaseComponent.destroySubscript();
   }
-  @HtmlConsole({id :'output'})
+  @HtmlConsole({id :'demo-output'})
   htmlConsole(message?) {
   }   
 

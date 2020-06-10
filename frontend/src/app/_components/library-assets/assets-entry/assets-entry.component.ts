@@ -62,7 +62,7 @@ group : string;
     this.demos$ = this.store.pipe(select(getAllDemos));
     this.demos$.subscribe(data=>{
       this.demos = data;
-      this.groups = [...new Set(data.map(item=>item.group.toUpperCase()))].sort();
+      this.groups = [...new Set(data.map(item=>item.group))].sort();
       this.dataSource =  new NestedMatTableDataSource<Demo>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -224,11 +224,11 @@ group : string;
   renderNewResult(option?:any){
     let filterDemos = [...this.demos];
     if(option && option.value) {
-      filterDemos = this.demos.filter(item => item.group.toUpperCase() == option.value);
+      filterDemos = this.demos.filter(item => item.group == option.value);
       this.group = option.value;
     }
     else {
-      filterDemos = this.demos.filter(item => item.group.toUpperCase() == this.group);
+      filterDemos = this.demos.filter(item => item.group == this.group);
     }
     this.dataSource = new NestedMatTableDataSource<Demo>(filterDemos);
     this.dataSource.paginator = this.paginator;

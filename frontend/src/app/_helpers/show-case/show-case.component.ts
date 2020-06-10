@@ -51,7 +51,7 @@ export class ShowCaseComponent implements OnChanges,OnDestroy {
       this.previousFlag = this.flag;
     }
     if(this.flag)
-      this.message = this.flag.charAt(0).toUpperCase() + this.flag.slice(1);
+      this.message = this.flag;
     if(this.inputHolder.parentClick) this.message="Button Clicked";
   }
   

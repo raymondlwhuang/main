@@ -1009,7 +1009,7 @@
     "_id": "5eaf2cd8d8ded93c207f500c",
     "id": "f3193651-154d-4368-b2b9-be1f9e4364d6",
     "group": "JsByVersion",
-    "name": "let & const",
+    "name": "LET & CONST",
     "helpPath": "",
     "__v": 0
   },
@@ -1043,7 +1043,7 @@
     "_id": "5eaf2f0bd8ded93c207f500e",
     "id": "62b8d392-96fe-4aec-85da-c2844d136ea8",
     "group": "JsByVersion",
-    "name": "default parameters",
+    "name": "DEFAULT PARAMETERS",
     "helpPath": "",
     "__v": 0
   },
@@ -1060,7 +1060,7 @@
     "_id": "5eaf309dd8ded93c207f500f",
     "id": "91437634-ce92-4105-b63e-1c3f68583524",
     "group": "JsByVersion",
-    "name": "rest operator",
+    "name": "REST OPERATOR",
     "helpPath": "",
     "__v": 0
   },
@@ -1079,7 +1079,7 @@
     "_id": "5eaf31a2d8ded93c207f5010",
     "id": "63c91310-6b3e-4763-a75c-6789fe7c3803",
     "group": "JsByVersion",
-    "name": "spread operator",
+    "name": "SPREAD OPERATOR",
     "helpPath": "",
     "__v": 0
   },
@@ -1101,7 +1101,7 @@
     "_id": "5eaf340bd8ded93c207f5011",
     "id": "3f73fb1f-ce0a-4aa7-b687-0468a6621ce5",
     "group": "JsByVersion",
-    "name": "destructuring",
+    "name": "DESTRUCTURING",
     "helpPath": "",
     "__v": 0
   },
@@ -1118,25 +1118,24 @@
     "_id": "5eaf449dd8ded93c207f5012",
     "id": "30a6cf3f-f092-45f9-8ef2-e80ca11f8bdf",
     "group": "JsByVersion",
-    "name": "template literals/strings",
+    "name": "TEMPLATE LITERALS/STRINGS",
     "helpPath": "",
     "__v": 0
   },
   {
     "snips": [
       "const val = (x,y) => x * y;",
-      "console.log(val(2,3));  // 6",
-      "function f() {   let showArg = () => alert(arguments[0]);   showArg(); }  f(1); // 1"
+      "console.log(val(2,3));  // 6"
     ],
     "outputs": [
-      "If Arrow functions do not have \"arguments\" and we access the arguments object from an arrow function, it takes them from the outer “normal” function."
+      ""
     ],
     "indicator": 2015,
     "accepted": true,
     "_id": "5eaf4548d8ded93c207f5013",
     "id": "2b64b101-8b5e-40fb-8a12-f0c226075e2e",
     "group": "JsByVersion",
-    "name": "arrow functions",
+    "name": "ARROW FUNCTIONS",
     "helpPath": "",
     "__v": 0
   },
@@ -1152,7 +1151,7 @@
     "_id": "5eaf481cd8ded93c207f5014",
     "id": "70955f29-7401-435f-aded-6e618fc7a02e",
     "group": "JsByVersion",
-    "name": "promises",
+    "name": "PROMISES",
     "helpPath": "",
     "__v": 0
   },
@@ -1173,7 +1172,7 @@
     "_id": "5eb1d9b5d8ded93c207f5015",
     "id": "d79cd57f-107a-481a-8b34-3831ab9dbc7d",
     "group": "JsByVersion",
-    "name": "classes",
+    "name": "CLASSES",
     "helpPath": "",
     "__v": 0
   },
@@ -1189,7 +1188,7 @@
     "_id": "5eb1dc44d8ded93c207f5016",
     "id": "35781d0b-8b50-4017-848c-0e26875d5ae6",
     "group": "JsByVersion",
-    "name": "exponentiation operator (**)",
+    "name": "EXPONENTIATION OPERATOR (**)",
     "helpPath": "",
     "__v": 0
   },
@@ -1569,7 +1568,7 @@
   {
     "snips": [
       "justify-content: center;",
-      "flex-start(Default),flex-end,center,space-between,space-around,space-evenly,initial,inherit"
+      "flex-start(Default),flex-end,center,space-between,space-around,initial,inherit"
     ],
     "outputs": [
       "The justify-content property is used to align the flex items:"
@@ -1603,7 +1602,7 @@
   {
     "snips": [
       "align-content: space-between;",
-      "stretch(Default),center,flex-start,flex-end,space-between,space-around,space-evenly,initial,inherit"
+      "stretch(Default),center,flex-start,flex-end,space-between,space-around,initial,inherit"
     ],
     "outputs": [
       "The align-content property is used to align the flex lines."
@@ -2812,15 +2811,11 @@
   },
   {
     "snips": [
-      "SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0)) FROM Products; //MySQL",
-      "SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0)) FROM Products; //MySQL",
-      "SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0)) FROM Products; //SQL",
-      "SELECT ProductName, UnitPrice * (UnitsInStock + IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder)) FROM Products; //MS Access",
-      "SELECT ProductName, UnitPrice * (UnitsInStock + NVL(UnitsOnOrder, 0)) FROM Products; //Oracle"
+      ""
     ],
     "outputs": [
       "MySQL: IFNULL(), COALESCE(), || SQL Server: ISNULL(),  || Oracle:  NVL() Functions",
-      ""
+      "SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0)) FROM Products; //MySQL"
     ],
     "indicator": 0,
     "accepted": true,
@@ -3017,8 +3012,8 @@
     ],
     "outputs": [
       "Date Data Types:",
-      "MySQL:  DATE - format YYYY-MM-DD, DATETIME - format: YYYY-MM-DD HH:MI:SS, TIMESTAMP - format: YYYY-MM-DD HH:MI:SS, YEAR - format YYYY or YY",
-      "SQL Server: DATE - format YYYY-MM-DD, DATETIME - format: YYYY-MM-DD HH:MI:SS, SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS, TIMESTAMP - format: a unique number"
+      "MySQL:  DATE - format YYYY-MM-DD DATETIME - format: YYYY-MM-DD HH:MI:SS TIMESTAMP - format: YYYY-MM-DD HH:MI:SS YEAR - format YYYY or YY",
+      "SQL Server: DATE - format YYYY-MM-DD DATETIME - format: YYYY-MM-DD HH:MI:SS SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS TIMESTAMP - format: a unique number"
     ],
     "indicator": 0,
     "accepted": true,
@@ -3045,583 +3040,6 @@
     "id": "d8c7bf96-f2d8-40af-9292-516761d99dbb",
     "group": "SQL",
     "name": "CREATE VIEW",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const employee = {         name: 'Rajendra'       };       const obsEmployee: Observable<any>  = of(employee);       obsEmployee.subscribe((data) => { console.log(data); });"
-    ],
-    "outputs": [
-      "is used for converting the string/objects to Observables."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66b526bc2940350ba040b",
-    "id": "bb2add68-c45f-4cf3-8057-a650dd22a66c",
-    "group": "Rxjs",
-    "name": "of",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const array = [10, 20, 30]; const result = from(array);  result.subscribe(x => console.log(x));"
-    ],
-    "outputs": [
-      "Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66bd26bc2940350ba040c",
-    "id": "825abbe7-54dd-4ef6-b607-c8602a60a1f2",
-    "group": "Rxjs",
-    "name": "from",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      " const data = of('Rajendra Taradale');     data     .pipe(map(x => x.toUpperCase()))     .subscribe((d) => { console.log(d); });"
-    ],
-    "outputs": [
-      "used to manipulate the data from observable return values in observable fashion"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66dff6bc2940350ba040d",
-    "id": "ca406ad6-4951-49b8-9789-a917fd523bf8",
-    "group": "Rxjs",
-    "name": "map",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "getPosts(): Observable<any[]> {      return this.http.get<any[]>          ('https://jsonplaceholder.typicode.com/users').pipe(share());    } "
-    ],
-    "outputs": [
-      "no matter how many times you subscribe, will return a single source URL."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66ec06bc2940350ba040e",
-    "id": "fd5c0c10-0b1d-4a79-94ca-195f41c6ffe8",
-    "group": "Rxjs",
-    "name": "share",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "this.personalForm.get('firstName').valueChanges.pipe(debounceTime(500)).subscribe(         value => {           console.log(value);         }       );"
-    ],
-    "outputs": [
-      "emit out the value from the source Observable only after a specified time has passed. "
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66f246bc2940350ba040f",
-    "id": "e69cfec1-2c44-4766-aa9d-bd751d1cb395",
-    "group": "Rxjs",
-    "name": "debounceTime",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "this.personalForm.get('firstName').valueChanges.pipe(distinctUntilChanged()).subscribe(        value => {          console.log(value);        }      ); "
-    ],
-    "outputs": [
-      "Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed66f7f6bc2940350ba0410",
-    "id": "d4fdb7e2-6aab-4816-8a43-a44efe6f8d48",
-    "group": "Rxjs",
-    "name": "distinctUntilChanged",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "this.Request.unsubscribe();"
-    ],
-    "outputs": [
-      "In Angular, we use this in NgOnDistroy() lifecycle hook to make sure all the subscriptions are closed and no more data is there to receive or perform any operation."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed670ad6bc2940350ba0411",
-    "id": "a650c9cb-8c95-4a9f-bd7c-e83e9a67ff4c",
-    "group": "Rxjs",
-    "name": "unsubscribe",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const clicks = fromEvent(document, 'click'); const result = clicks.pipe(first(ev => ev.target.tagName === 'DIV')); result.subscribe(x => console.log(x));"
-    ],
-    "outputs": [
-      "Emits only the first value (or the first value that meets some condition) emitted by the source Observable."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed671846bc2940350ba0412",
-    "id": "ba281766-ed00-4f0f-ac41-72830a6ca998",
-    "group": "Rxjs",
-    "name": "first",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const eventSource= fromEvent(document, 'click');       ",
-      "eventSource.pipe(takeWhile(()=> this.count < 3)).subscribe(()=>{              console.log('clicked ', this.count);              this.count++;       });"
-    ],
-    "outputs": [
-      "Emits values emitted by the source Observable so long as each value satisfies the given predicate, and then completes as soon as this predicate is not satisfied."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed6721c6bc2940350ba0413",
-    "id": "13199395-01b9-4d6d-a5ef-cdce21736dc1",
-    "group": "Rxjs",
-    "name": "takeWhile",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const eventSource= of(1, 2, 3, 4, 5);",
-      "eventSource.pipe(takeLast(2)).subscribe((d)=>{              console.log('Get last Value ',d);                     });"
-    ],
-    "outputs": [
-      "Emits only the last count values emitted by the source Observable."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed672606bc2940350ba0414",
-    "id": "1133f67a-bbb7-4554-bd62-5844dfdf6e9a",
-    "group": "Rxjs",
-    "name": "takeLast",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const eventSource = fromEvent(document, 'click');",
-      "eventSource.pipe(takeUntil(this.startClick)).subscribe(() => {              console.log('clicked ');       }); ",
-      "stopClick() {       this.startClick.next();       this.startClick.complete();     }"
-    ],
-    "outputs": [
-      "Emits the values emitted by the source Observable until a notifier Observable emits a value."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed672ad6bc2940350ba0415",
-    "id": "2b14bbb8-7c44-453d-927c-1e29ba33f927",
-    "group": "Rxjs",
-    "name": "takeUntil",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "const intervalCount = interval(1000); const takeFive = intervalCount.pipe(take(5)); takeFive.subscribe(x => console.log(x));"
-    ],
-    "outputs": [
-      "Emits only the first count values emitted by the source Observable."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed672f46bc2940350ba0416",
-    "id": "1eab6832-0efc-4f00-b8d1-a25c1d5c8a39",
-    "group": "Rxjs",
-    "name": "take",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "var ele = document.querySelector(selector);"
-    ],
-    "outputs": [
-      "returns the first element that matches one or more CSS selectors. If no match is found, it returns null."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7bde76bc2940350ba0417",
-    "id": "6a6e397d-2199-4de6-a20d-553adbd3ae73",
-    "group": "Dom",
-    "name": "querySelector",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "eles = document.querySelectorAll(selector);"
-    ],
-    "outputs": [
-      "returns all elements that match the specified CSS selector."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7be146bc2940350ba0418",
-    "id": "7e970cef-b158-49dc-bdd0-048c93ca15b6",
-    "group": "Dom",
-    "name": "querySelectorAll",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "element.addEventListener(event, function, useCapture);",
-      "useCapture is optional"
-    ],
-    "outputs": [
-      "The addEventListener() method attaches an event handler to the specified element.",
-      "The addEventListener() method attaches an event handler to an element without overwriting existing event handlers.",
-      "You can add many event handlers to one element.",
-      "You can add many event handlers of the same type to one element, i.e two \"click\" events.",
-      "You can add event listeners to any DOM object not only HTML elements. i.e the window object.",
-      "The addEventListener() method makes it easier to control how the event reacts to bubbling.",
-      "When using the addEventListener() method, the JavaScript is separated from the HTML markup, for better readability and allows you to add event listeners even when you do not control the HTML markup.",
-      "You can easily remove an event listener by using the removeEventListener() method."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7bf836bc2940350ba0419",
-    "id": "20162a7c-7c4a-4490-a517-d7275891160d",
-    "group": "Dom",
-    "name": "addEventListener",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "document.getElementById(\"myDIV\").addEventListener(\"mousemove\", myFunction); //Attach an event handler to <div>",
-      "document.getElementById(\"myDIV\").removeEventListener(\"mousemove\", myFunction); //Remove the event handler from <div>"
-    ],
-    "outputs": [
-      "The removeEventListener() method removes an event handler that has been attached with the addEventListener() method.",
-      "Note: To remove event handlers, the function specified with the addEventListener() method must be an external function, like in the example above (myFunction).",
-      "Anonymous functions, like \"element.removeEventListener(\"event\", function(){ myScript });\" will not work."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c04c6bc2940350ba041a",
-    "id": "932c1686-2d36-47ee-ae43-77206a8b9369",
-    "group": "Dom",
-    "name": "removeEventListener",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "document.createElement(tagName);"
-    ],
-    "outputs": [
-      "The createElement() method creates an Element Node with the specified name.",
-      "Tip: After the element is created, use the element.appendChild() or element.insertBefore() method to insert it to the document."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c0bb6bc2940350ba041b",
-    "id": "687ba64b-715e-4358-9c6f-595129ca8723",
-    "group": "Dom",
-    "name": "createElement",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.appendChild(childEle)"
-    ],
-    "outputs": [
-      "The appendChild() method appends a node as the last child of a node.",
-      "Tip: If you want to create a new paragraph, with text, remember to create the text as a Text node which you append to the paragraph, then append the paragraph to the document.",
-      "Tip: Use the insertBefore() method to insert a new child node before a specified, existing, child node."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c1396bc2940350ba041c",
-    "id": "3fc58aec-4be8-445f-b9ae-25f575bc4864",
-    "group": "Dom",
-    "name": "appendChild",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.removeChild(childEle)"
-    ],
-    "outputs": [
-      "The removeChild() method removes a specified child node of the specified element. Returns the removed node as a Node object, or null if the node does not exist.",
-      "Note: The removed child node is no longer part of the DOM. However, with the reference returned by this method, it is possible to insert the removed child to an element at a later time"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c1bf6bc2940350ba041d",
-    "id": "cd83c48e-bd32-4668-8a2f-25b1c44e5115",
-    "group": "Dom",
-    "name": "removeChild",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.replaceChild(newChildEle, oldChileEle)"
-    ],
-    "outputs": [
-      "The replaceChild() method replaces a child node with a new node.  The new node could be an existing node in the document, or you can create a new node.",
-      ""
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c2046bc2940350ba041e",
-    "id": "7dbec5df-6e8d-463e-9344-7115faa23290",
-    "group": "Dom",
-    "name": "replaceChild",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "var dupeEle = ele.cloneNode([deep])",
-      "deep - optional"
-    ],
-    "outputs": [
-      "The cloneNode() method creates a copy of a node, and returns the clone.  The cloneNode() method clones all attributes and their values."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c26a6bc2940350ba041f",
-    "id": "954f74df-4a43-4289-918d-d52870709020",
-    "group": "Dom",
-    "name": "cloneNode",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.insertBefore(newEle, refEle);"
-    ],
-    "outputs": [
-      "The insertBefore() method inserts a node as a child, right before an existing child, which you specify."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c2ac6bc2940350ba0420",
-    "id": "6fea8c2c-9f81-4d76-82c5-5782693108ab",
-    "group": "Dom",
-    "name": "insertBefore",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.setAttribute(name, value);"
-    ],
-    "outputs": [
-      "The setAttribute() method adds the specified attribute to an element, and gives it the specified value."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c3686bc2940350ba0421",
-    "id": "4c2f62c9-fed9-4bae-967c-381d1aeeddf1",
-    "group": "Dom",
-    "name": "setAttribute",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.getAttribute(name);"
-    ],
-    "outputs": [
-      "The getAttribute() method returns the value of the attribute with the specified name, of an element.",
-      "Tip: Use the getAttributeNode() method if you want to return the attribute as an Attr object."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c3bc6bc2940350ba0422",
-    "id": "2676b413-b971-4dbd-81cc-2c1e8cb063c1",
-    "group": "Dom",
-    "name": "getAttribute",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "ele.removeAttribute(name);"
-    ],
-    "outputs": [
-      "The removeAttribute() method removes the specified attribute from an element.",
-      "The difference between this method and the removeAttributeNode() method is that the removeAttributeNode() method removes the specified Attr object, while this method removes the attribute with the specified name. The result will be the same. Also this method has no return value, while the removeAttributeNode() method returns the removed attribute, as an Attr object."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c4156bc2940350ba0423",
-    "id": "315c6050-a9c7-430f-9712-0bade2b71a55",
-    "group": "Dom",
-    "name": "removeAttribute",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "document.getElementById(\"demo\");"
-    ],
-    "outputs": [
-      "The getElementById() method returns the element that has the ID attribute with the specified value."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c5156bc2940350ba0424",
-    "id": "ce966afe-4e38-4083-9db2-41930a58a59c",
-    "group": "Dom",
-    "name": "getElementById",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "document.getElementsByTagName(\"LI\");"
-    ],
-    "outputs": [
-      "The getElementsByTagName() method returns a collection of all elements in the document with the specified tag name, as an HTMLCollection object."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5ed7c57f6bc2940350ba0425",
-    "id": "8b00ecc8-7124-4515-9241-1926a280f00e",
-    "group": "Dom",
-    "name": "getElementsByTagName",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "var str = \"Visit W3Schools!\"; var n = str.search(\"W3Schools\");"
-    ],
-    "outputs": [
-      "The search() method searches a string for a specified value and returns the position of the match"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd3f1a2882420f4570967",
-    "id": "ac5afd33-3887-4e86-8251-83773ce3d489",
-    "group": "RegExp",
-    "name": "search",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "var str = \"Visit Microsoft!\"; var res = str.replace(\"Microsoft\", \"W3Schools\");"
-    ],
-    "outputs": [
-      "The replace() method replaces a specified value with another value in a string:"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd418a2882420f4570968",
-    "id": "cc00814f-2b9a-4fec-95b9-cf4e8ffea046",
-    "group": "RegExp",
-    "name": "replace",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "Modifiers can be used to perform case-insensitive more global searches"
-    ],
-    "outputs": [
-      "i\tPerform case-insensitive matching",
-      "g\tPerform a global match (find all matches rather than stopping after the first match)",
-      "m\tPerform multiline matching"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd4cea2882420f4570969",
-    "id": "4ad41862-4c21-4e2c-9c4e-32b3c19efbdb",
-    "group": "RegExp",
-    "name": "Modifiers",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "[abc]\tFind any of the characters between the brackets",
-      "[0-9]\tFind any of the digits between the brackets\t",
-      " (x|y)\tFind any of the alternatives separated with |"
-    ],
-    "outputs": [
-      "Brackets are used to find a range of characters:"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd57da2882420f457096a",
-    "id": "5fdf2488-1dc4-4a15-a428-21012532392b",
-    "group": "RegExp",
-    "name": "Patterns - Brackets",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "\\d\tFind a digit",
-      "\\s\tFind a whitespace character",
-      "\\b\tFind a match at the beginning of a word like this: \\bWORD, or at the end of a word like this: WORD\\b",
-      "\\uxxxx\tFind the Unicode character specified by the hexadecimal number xxxx"
-    ],
-    "outputs": [
-      "Metacharacters are characters with a special meaning"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd723a2882420f457096b",
-    "id": "b014f3f7-3509-46b4-8eb5-b387c887de1b",
-    "group": "RegExp",
-    "name": "Patterns - Metacharacters",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "n+\tMatches any string that contains at least one n",
-      "n*\tMatches any string that contains zero or more occurrences of n",
-      "n?\tMatches any string that contains zero or one occurrences of n"
-    ],
-    "outputs": [
-      "Quantifiers define quantities"
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd782a2882420f457096c",
-    "id": "bc22760d-7645-4ff3-9513-a38c4c3199bb",
-    "group": "RegExp",
-    "name": "Patterns - Quantifiers",
-    "helpPath": "",
-    "__v": 0
-  },
-  {
-    "snips": [
-      "var patt = /e/; patt.test(\"The best things in life are free!\");",
-      "/e/.test(\"The best things in life are free!\");"
-    ],
-    "outputs": [
-      "It searches a string for a pattern, and returns true or false, depending on the result."
-    ],
-    "indicator": 0,
-    "accepted": true,
-    "_id": "5edfd7e7a2882420f457096d",
-    "id": "dc328a38-f894-4527-a96b-9bf07d0dc507",
-    "group": "RegExp",
-    "name": "test",
     "helpPath": "",
     "__v": 0
   }

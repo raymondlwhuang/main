@@ -7,6 +7,7 @@ const List = require('./database/models/list');
 const Task = require('./database/models/task');
 const Crud = require('./database/models/crud');
 const Demo = require('./database/models/demo');
+const Library = require('./database/models/library');
 
 /*
 
@@ -179,5 +180,54 @@ app.delete('/api/demos',(req,res)=>{ //delete all demos
     .then(demo => res.send(demo))
     .catch((error)=>console.log(error));
 
-})
+});
+//Library
+app.get('/api/libraries',(req,res)=>{
+    Library.find({})
+        .then(libraries => res.send(libraries))
+        .catch((error)=>console.log(error));
+}); 
+app.get('/api/libraries/:librariesId',(req,res)=>{
+    Library.find({id: req.params.librariesId})
+        .then(library => res.send(library))
+        .catch((error)=>console.log(error));
+}); 
+
+app.post('/api/libraries',(req,res)=>{
+    Library.create({
+        'id': req.body.id,
+        'group': req.body.group,
+        'name': req.body.name,
+        'snips': req.body.snips,
+        'helpPath':req.body.helpPath,
+        'outputs' : req.body.outputs,
+        'indicator': req.body.indicator
+    })
+    .then((library)=>res.send(library))
+    .catch((error)=>console.log(error));
+});
+
+app.patch('/api/libraries/:librariesId',(req,res)=>{
+    Library.findOneAndUpdate({id: req.params.librariesId},{$set:req.body})
+        .then(library => res.send(library))
+        .catch((error)=>console.log(error));
+});
+app.patch('/api/libraries',(req,res)=>{ //set accept to true to make it functionable
+    Library.updateMany({accepted : true})
+        .then(library => res.send(library))
+        .catch((error)=>console.log(error));
+});
+
+app.delete('/api/libraries/:librariesId',(req,res)=>{
+    Library.findOneAndDelete({id: req.params.librariesId})
+        .then(library => res.send(library))
+        .catch((error)=>console.log(error));
+});
+app.delete('/api/libraries',(req,res)=>{ //delete all libraries
+    Library.deleteMany({})
+    .then(library => res.send(library))
+    .catch((error)=>console.log(error));
+
+});
+
 app.listen(3000, ()=> console.log('Server is Connected on port 3000'));

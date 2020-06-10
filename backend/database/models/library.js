@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-const DemoSchema = new mongoose.Schema({
+const LibrarySchema = new mongoose.Schema({
     id: {
-        type: String,
-        trim: true,
-        minlength: 3
+        type: Number
     },    
     group: {
         type: String,
@@ -28,12 +26,12 @@ const DemoSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    accepted : {  //needed to set accepted to true before we could use
+    accepted : { //needed to set accepted to true before we could use
         type: Boolean,
         default: false
     }
 });
 
-const Demo = mongoose.model('Demo',DemoSchema);
+const Library = mongoose.model('Library',LibrarySchema);
 
-module.exports = Demo;
+module.exports = Library;

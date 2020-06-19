@@ -385,7 +385,9 @@
       "document.getElementById('output').innerHTML = output;"
     ],
     "outputs": [
-      "This is the two numbers you just entered 2, 3"
+      "A JavaScript Callback Function is a function that is passed as a parameter to another JavaScript function, and the callback function is run inside of the function it was passed into",
+      "JavaScript Callback Functions can be used synchronously or asynchronously",
+      "This is the two numbers you just entered 2, 3  //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -409,7 +411,8 @@
       "printFullName.call(name,'markham');"
     ],
     "outputs": [
-      "Roger Huang is living in markham"
+      "Roger Huang is living in markham",
+      "this refers to the \"owner\" of the function"
     ],
     "indicator": 0,
     "accepted": true,
@@ -430,10 +433,11 @@
       "&nbsp;&nbsp;&nbsp;firstname: 'Roger',",
       "&nbsp;&nbsp;&nbsp;lastname: 'Huang',",
       "}",
-      "printFullName.apply(name,['Markham','Ontario']);"
+      "printFullName.apply(name,[\"Markham\",\"Ontario\"]);"
     ],
     "outputs": [
-      "Roger Huang is living in Markham, Ontario"
+      "invoke a function as a method of an object",
+      "Roger Huang is living in Markham, Ontario  //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -458,7 +462,9 @@
       "printMyName('Toronto','Ontario');"
     ],
     "outputs": [
-      "Cindy Woo is living in Toronto, Ontario"
+      "The bind() method creates a new function that, when called, has its this keyword set to the provided value, ",
+      "with a given sequence of arguments preceding any provided when the new function is called.",
+      "Cindy Woo is living in Toronto, Ontario //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -521,7 +527,10 @@
       "&nbsp;&nbsp;&nbsp;log.innerHTML += promiseCount +') Promise ' + (wontDo ? 'rejected' : '&nbsp;made') + '(<small>Sync code terminated</small>)",
       "}"
     ],
-    "outputs": [],
+    "outputs": [
+      "A Promise object represents a value that may not be available yet, but will be resolved at some point in the future. ",
+      "It allows you to write asynchronous code in a more synchronous fashion. "
+    ],
     "indicator": 0,
     "accepted": true,
     "_id": "5ea7a79cc6f8f22e203b9518",
@@ -542,7 +551,8 @@
       "}"
     ],
     "outputs": [
-      "2"
+      "The findIndex() method returns the index of the first element in an array that pass a test (provided as a function)",
+      "2 //Output of example of Code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -562,7 +572,8 @@
       "}"
     ],
     "outputs": [
-      "true"
+      "true",
+      "The includes() method determines whether a string contains the characters of a specified string."
     ],
     "indicator": 0,
     "accepted": true,
@@ -583,8 +594,10 @@
       "document.getElementById('output').innerHTML = maskedNumber);"
     ],
     "outputs": [
-      "05",
-      "************5581"
+      "The padStart() method pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. ",
+      "The padding is applied from the start of the current string",
+      "05  //Output of example code snip",
+      "************5581  //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -600,11 +613,13 @@
       "const str1 = 'Breaded Mushrooms';",
       "document.getElementById('output').innerHTML = str1.padEnd(25, '.');",
       "const str2 = '200';",
-      "document.getElementById('output').innerHTML = str2.padEnd(5);"
+      "document.getElementById('output').innerHTML = str2.padEnd(5,'*');"
     ],
     "outputs": [
-      "Breaded Mushrooms........",
-      "200  "
+      "The padEnd() method pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. ",
+      "The padding is applied from the end of the current string",
+      "Breaded Mushrooms........ //Output of example code snip",
+      "200**  //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -631,7 +646,8 @@
       "f1();"
     ],
     "outputs": [
-      "10"
+      "The await operator is used to wait for a Promise. It can only be used inside an async function",
+      "10 //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -653,8 +669,9 @@
       "}"
     ],
     "outputs": [
-      "a: somestring",
-      "b: 42"
+      "The entries() method returns an Array Iterator object with key/value pairs.",
+      "a: somestring  //Output of example code snip",
+      "b: 42 //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -662,7 +679,7 @@
     "output": [],
     "id": "1b87e2e8-45dc-481d-b659-cd063645f0d7",
     "group": "function",
-    "name": "entries",
+    "name": "Object.entries",
     "__v": 0
   },
   {
@@ -675,7 +692,8 @@
       "document.getElementById('output').innerHTML = Object.values(object1);"
     ],
     "outputs": [
-      "Array ['somestring', 42, false]"
+      "The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop.",
+      "Array ['somestring', 42, false]  //Output of example code snip"
     ],
     "indicator": 0,
     "accepted": true,
@@ -683,7 +701,7 @@
     "output": [],
     "id": "6e08f0e0-cd52-4fc6-830e-20f13c406255",
     "group": "function",
-    "name": "values",
+    "name": "Object.values",
     "__v": 0
   },
   {
@@ -1450,7 +1468,7 @@
     "_id": "5ec15f3265314c355c717f6c",
     "id": "103d7d87-c783-43f6-a811-5f8226e0f5b2",
     "group": "Subjects",
-    "name": "Subjects",
+    "name": "Subject",
     "helpPath": "",
     "__v": 0
   },
@@ -1589,7 +1607,8 @@
       "stretch(Default),center,flex-start,flex-end,baseline,initial,inherit"
     ],
     "outputs": [
-      "The align-items property is used to align the flex items vertically."
+      "The align-items property is used to align the flex items vertically.",
+      "align-items will determine how all the flex items display whereas align-self is for overriding this on individual items."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1693,10 +1712,9 @@
     ],
     "outputs": [
       "The flex property is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties.",
-      "flex: 1 0 200px; ",
-      "If you have one element that has a flex-basis of 200px, flex-grow of 1, and flex-shrink of 0, this element will be at minimum 200px wide, but it will be allowed to grow if there is extra space. In this case, you can think of the flex-basis as being a minimum width.",
-      "flex: 0 1 200px;",
-      "Let’s consider the opposite case. Let’s set a flex-basis of 200px again, but let’s only set a flex-shrink of 1, flex-grow will be 0. Here we will have an element that is 200px at it’s largest, but it’s allowed to be smaller. Here flex-basis is acting like a maximum width."
+      "flex: 1 0 200px;  /* element will be minimum 200px and allowed to grow but not able to shrink */",
+      "flex: 1;  /*Let all the flexible items be the same length, regardless of its content: */",
+      "flex: 0 1 200px;  /* element will be maximum 200px and allowed to shrink but not able to grow */"
     ],
     "indicator": 0,
     "accepted": true,
@@ -1713,7 +1731,8 @@
       "auto(Default),stretch,center,flex-start,flex-end,baseline,initial,inherit"
     ],
     "outputs": [
-      "The align-self property specifies the alignment for the selected item inside the flexible container."
+      "The align-self property specifies the alignment for the selected item inside the flexible container.",
+      "align-items will determine how all the flex items display whereas align-self is for overriding this on individual items."
     ],
     "indicator": 0,
     "accepted": true,
@@ -3622,6 +3641,195 @@
     "id": "dc328a38-f894-4527-a96b-9bf07d0dc507",
     "group": "RegExp",
     "name": "test",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$( \".inner\" ).after( \"<p>Test</p>\" );"
+    ],
+    "outputs": [
+      "Insert content, specified by the parameter, after/before each element in the set of matched elements."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f5d8a2882420f457096e",
+    "id": "08df8271-fdd2-4f83-a6fe-c926c8edb8fb",
+    "group": "jQuery",
+    "name": "after/ before",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$( \".target\" ).change(function() {   alert( \"Handler for .change() called.\" ); });"
+    ],
+    "outputs": [
+      "Bind an event handler to the \"change\" JavaScript event, or trigger that event on an element.  // javascript addEventListener('change'"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f5f1a2882420f457096f",
+    "id": "a7e370d4-cdf8-4990-8d4a-b618242df4df",
+    "group": "jQuery",
+    "name": "change",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$('#wrap').data('myKey', 'myValue'); $('#wrap').data('myKey');",
+      "$('#container').removeData('myKey');"
+    ],
+    "outputs": [
+      "Store/Remove arbitrary data associated with the matched elements."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f61da2882420f4570970",
+    "id": "f1c59d03-0039-426f-bfef-cb54e160d363",
+    "group": "jQuery",
+    "name": "data/removeData",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "div.queue( \"fx\" );"
+    ],
+    "outputs": [
+      "Show or manipulate the queue of functions to be executed on the matched elements."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f640a2882420f4570971",
+    "id": "4249a260-6083-48ba-b8c4-2adcfcc92a13",
+    "group": "jQuery",
+    "name": "queue/dequeue",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$( \"#foo\" ).slideUp( 300 ).delay( 800 ).fadeIn( 400 );"
+    ],
+    "outputs": [
+      "Set a timer to delay execution of subsequent items in the queue."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f65da2882420f4570972",
+    "id": "eda34b88-2502-472e-a729-5a0e6f7c51eb",
+    "group": "jQuery",
+    "name": "delay",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "ps.eq(1).addClass('emphasis');"
+    ],
+    "outputs": [
+      "Reduce the set of matched elements to the one at the specified index."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f680a2882420f4570973",
+    "id": "87374edf-afdf-47fe-aac8-023886b8c29d",
+    "group": "jQuery",
+    "name": "eq",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$( \"li\" ).get( 0 )"
+    ],
+    "outputs": [
+      "Retrieve the DOM elements matched by the jQuery object."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f69aa2882420f4570974",
+    "id": "b083a067-7219-405e-a2d8-456ff672d4d4",
+    "group": "jQuery",
+    "name": "get",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$.grep( [ 0, 1, 2 ], function( n, i ) {   return n > 0; });"
+    ],
+    "outputs": [
+      "Finds the elements of an array which satisfy a filter function. The original array is not affected."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f6b8a2882420f4570975",
+    "id": "6828ffb0-75bd-45a0-ac61-5f8bc5ed350a",
+    "group": "jQuery",
+    "name": "$.grep",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$(':animated'); // returns all elements currently animating",
+      "$(':contains(me)'); // returns all elements with the text 'me'",
+      "$(':empty'); // returns all elements with no child nodes or text",
+      "$(':parent'); // returns all elements with child nodes or text",
+      "$('li:even'); // returns all even-index elements (in this case, &lt;li&gt;s); $('li:odd');",
+      "$(':header'); // returns all h1 - h6s.",
+      "$('li:gt(4)'); // returns all elements with an (zero-based) index greater than the given number",
+      "$('li:lt(4)'); // returns all element with an index less than the given number",
+      "$(':only-child'); "
+    ],
+    "outputs": [
+      "Sizzle, the CSS Selector engine inside jQuery, offers quite a few pseudo-selectors to make the job of selecting the elements you want easy"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f721a2882420f4570976",
+    "id": "9ebef9bb-7d80-4535-8931-6d4951494c00",
+    "group": "jQuery",
+    "name": "Pseudo-Selectors",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$.isArray([1, 2, 3]); // returns true",
+      "$.isEmptyObject({}); // returns true",
+      "$.isFunction(function () { /****/ }); // returns true",
+      "$.isPlainObject({})); // returns true",
+      "$.isPlainObject(new Object()); // returns true"
+    ],
+    "outputs": [
+      ""
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f77da2882420f4570977",
+    "id": "c4e0607c-f6c5-42a9-b9c2-8812be4e1631",
+    "group": "jQuery",
+    "name": "isArray/isEmptyObject/isFunction/isPlainObject",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "$.isArray(ps);"
+    ],
+    "outputs": [
+      "Convert an array-like object into a true JavaScript array."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ee0f7a1a2882420f4570978",
+    "id": "3714b112-7fba-4c0d-9ba9-ac2d0585a135",
+    "group": "jQuery",
+    "name": "$.makeArray",
     "helpPath": "",
     "__v": 0
   }

@@ -1841,10 +1841,10 @@
   },
   {
     "snips": [
-      ""
+      "input:checked {   height: 50px;   width: 50px; }"
     ],
     "outputs": [
-      "input:checked\tSelects every checked &lt;input&gt; element"
+      "The :checked selector matches every checked <input> element (only for radio buttons and checkboxes) and <option> element."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1857,10 +1857,10 @@
   },
   {
     "snips": [
-      ""
+      "input:disabled {   background: #dddddd; }"
     ],
     "outputs": [
-      "input:disabled\tSelects every disabled &lt;input&gt; element"
+      "The :disabled selector matches every disabled element (mostly used on form elements)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1873,10 +1873,10 @@
   },
   {
     "snips": [
-      ""
+      "p:empty {   background: #ff0000; }"
     ],
     "outputs": [
-      "p:empty\tSelects every &lt;p&gt; element that has no children"
+      "The :empty selector matches every element that has no children (including text nodes)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1889,10 +1889,10 @@
   },
   {
     "snips": [
-      ""
+      "input:enabled {   background: #ffff00; }"
     ],
     "outputs": [
-      "input:enabled\tSelects every enabled &lt;input&gt; element"
+      "The :enabled selector matches every enabled element (mostly used on form elements)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1905,10 +1905,10 @@
   },
   {
     "snips": [
-      ""
+      "p:first-child {   background-color: yellow; }"
     ],
     "outputs": [
-      "p:first-child\tSelects every &lt;p&gt; elements that is the first child of its parent"
+      "The :first-child selector is used to select the specified selector, only if it is the first child of its parent."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1921,10 +1921,10 @@
   },
   {
     "snips": [
-      ""
+      "p:first-of-type {   background: red; }"
     ],
     "outputs": [
-      "p:first-of-type\tSelects every&lt;p&gt; element that is the first &lt;p&gt; element of its parent"
+      "The :first-of-type selector matches every element that is the first child, of a particular type, of its parent."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1937,10 +1937,11 @@
   },
   {
     "snips": [
-      ""
+      "input:focus {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:focus\tSelects the &lt;input&gt; element that has focus"
+      "The :focus selector is used to select the element that has focus.",
+      "The :focus selector is allowed on elements that accept keyboard events or other user inputs."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1953,10 +1954,11 @@
   },
   {
     "snips": [
-      ""
+      "a:hover {   background-color: yellow; }"
     ],
     "outputs": [
-      "a:hover\tSelects links on mouse over"
+      "The :hover selector is used to select elements when you mouse over them.",
+      "The :hover selector can be used on all elements, not only on links."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1969,10 +1971,12 @@
   },
   {
     "snips": [
-      ""
+      "input:in-range {   border: 2px solid yellow; }"
     ],
     "outputs": [
-      "input:in-range\tSelects &lt;input&gt; elements with a value within a specified range"
+      "The :in-range selector selects all elements with a value that is within a specified range.",
+      "The :in-range selector only works for input elements with min and/or max attributes!",
+      "Use the :out-of-range selector to select all elements with a value that is outside a specified range."
     ],
     "indicator": 0,
     "accepted": true,
@@ -1985,10 +1989,10 @@
   },
   {
     "snips": [
-      ""
+      "input:invalid {   border: 2px solid red; }"
     ],
     "outputs": [
-      "input:invalid\tSelects all &lt;input&gt; elements with an invalid value"
+      "The :invalid selector selects form elements with a value that does not validate according to the element's settings."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2001,10 +2005,11 @@
   },
   {
     "snips": [
-      ""
+      "p:lang(it) {   background: yellow; }"
     ],
     "outputs": [
-      "p:lang(it)\tSelects every &lt;p&gt; element with a lang attribute value starting with \"it\""
+      "The :lang() selector is used to select elements with a lang attribute with the specified value.",
+      "The lang attribute value is most often a two-letter language code, like lang=\"fr\" (for French), or two language codes combined, like lang=\"fr-ca\" (for Canadian French)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2017,10 +2022,11 @@
   },
   {
     "snips": [
-      ""
+      "  p:last-child {   background: #ff0000; }"
     ],
     "outputs": [
-      "p:last-child\tSelects every &lt;p&gt; elements that is the last child of its parent"
+      "The :last-child selector matches every element that is the last child of its parent.",
+      "p:last-child is equal to p:nth-last-child(1)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2033,10 +2039,11 @@
   },
   {
     "snips": [
-      ""
+      "p:last-of-type {   background: #ff0000; }"
     ],
     "outputs": [
-      "p:last-of-type\tSelects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent"
+      "The :last-of-type selector matches every element that is the last child, of a particular type, of its parent.",
+      "This is the same as :nth-last-of-type(1)."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2049,10 +2056,11 @@
   },
   {
     "snips": [
-      ""
+      "a:link {   background-color: yellow; }"
     ],
     "outputs": [
-      "a:link\tSelects all unvisited links"
+      "The :link selector is used to select unvisited links.",
+      "The :link selector does not style links you have already visited."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2065,10 +2073,10 @@
   },
   {
     "snips": [
-      ""
+      ":not(p) {   background: #ff0000; }"
     ],
     "outputs": [
-      ":not(p)\tSelects every element that is not a &lt;p&gt; element"
+      "The :not(selector) selector matches every element that is NOT the specified element/selector."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2081,10 +2089,11 @@
   },
   {
     "snips": [
-      ""
+      "p:nth-child(2) {   background: red; }"
     ],
     "outputs": [
-      "p:nth-child(2)\tSelects every &lt;p&gt; element that is the second child of its parent"
+      "The :nth-child(n) selector matches every element that is the nth child, regardless of type, of its parent.",
+      "n can be a number, a keyword, or a formula."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2097,10 +2106,10 @@
   },
   {
     "snips": [
-      ""
+      "p:nth-last-child(2) {   background: red; }"
     ],
     "outputs": [
-      "p:nth-last-child(2)\tSelects every &lt;p&gt; element that is the second child of its parent, counting from the last child"
+      "The :nth-last-child(n) selector matches every element that is the nth child, regardless of type, of its parent, counting from the last child."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2113,10 +2122,10 @@
   },
   {
     "snips": [
-      ""
+      "p:nth-last-of-type(2) {   background: red; }"
     ],
     "outputs": [
-      "p:nth-last-of-type(2)\tSelects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child"
+      "The :nth-last-of-type(n) selector matches every element that is the nth child, of a particular type, of its parent, counting from the last child."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2129,10 +2138,10 @@
   },
   {
     "snips": [
-      ""
+      "p:nth-of-type(2) {   background: red; }"
     ],
     "outputs": [
-      "p:nth-of-type(2)\tSelects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent"
+      "The :nth-of-type(n) selector matches every element that is the nth child, of a particular type, of its parent."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2145,10 +2154,10 @@
   },
   {
     "snips": [
-      ""
+      "p:only-of-type {   background: #ff0000; }"
     ],
     "outputs": [
-      "p:only-of-type\tSelects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent"
+      "The :only-of-type selector matches every element that is the only child of its type, of its parent."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2161,10 +2170,10 @@
   },
   {
     "snips": [
-      ""
+      "p:only-child {   background: #ff0000; }"
     ],
     "outputs": [
-      "p:only-child\tSelects every &lt;p&gt; element that is the only child of its parent"
+      "The :only-child selector matches every element that is the only child of its parent."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2177,10 +2186,11 @@
   },
   {
     "snips": [
-      ""
+      "input:optional {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:optional\tSelects &lt;input&gt; elements with no \"required\" attribute"
+      "The :optional selector selects form elements which are optional.  Form elements with no required attribute are defined as optional.",
+      "The :optional selector only applies to the form elements: input, select and textarea."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2193,10 +2203,11 @@
   },
   {
     "snips": [
-      ""
+      "input:out-of-range {   border: 2px solid red; }"
     ],
     "outputs": [
-      "input:out-of-range\tSelects &lt;input&gt; elements with a value outside a specified range"
+      "The :out-of-range selector selects all elements with a value that is outside a specified range.",
+      "The :out-of-range selector only works for input elements with min and/or max attributes!"
     ],
     "indicator": 0,
     "accepted": true,
@@ -2209,10 +2220,10 @@
   },
   {
     "snips": [
-      ""
+      "input:read-only {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:read-only\tSelects &lt;input&gt; elements with a \"readonly\" attribute specified"
+      "The :read-only selector selects elements which are \"readonly\"."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2225,10 +2236,11 @@
   },
   {
     "snips": [
-      ""
+      "input:read-write {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:read-write\tSelects &lt;input&gt; elements with no \"readonly\" attribute"
+      "The :read-write selector selects form elements which are \"readable\" and \"writeable\".",
+      "Form elements with no \"readonly\" attribute, and no \"disabled\" attribute are defined as \"read-\" and \"write-able\"."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2241,10 +2253,11 @@
   },
   {
     "snips": [
-      ""
+      "input:required {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:required\tSelects &lt;input&gt; elements with a \"required\" attribute specified"
+      "The :required selector selects form elements which are required.  Form elements with a required attribute are defined as required.",
+      "The :required selector only applies to the form elements: input, select and textarea."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2260,7 +2273,7 @@
       ":root {   background: #ff0000; }"
     ],
     "outputs": [
-      "Selects the document's root element"
+      "Selects the document's root element //In HTML, the root element is always the html element."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2273,9 +2286,10 @@
   },
   {
     "snips": [
-      ""
+      ":target {   border: 2px solid #D4D4D4;   background-color: #e5eecc; }"
     ],
     "outputs": [
+      "The :target selector can be used to style the current active target element.",
       "#news:target\tSelects the current active #news element (clicked on a URL containing that anchor name)"
     ],
     "indicator": 0,
@@ -2289,10 +2303,11 @@
   },
   {
     "snips": [
-      ""
+      "input:valid {   background-color: yellow; }"
     ],
     "outputs": [
-      "input:valid\tSelects all &lt;input&gt; elements with a valid value"
+      "The :valid selector selects form elements with a value that validates according to the element's settings.",
+      "The :valid selector only works for form elements with limitations, such as input elements with min and max attributes, email fields with a legal email, or number fields with a numeric value, etc."
     ],
     "indicator": 0,
     "accepted": true,
@@ -2305,10 +2320,10 @@
   },
   {
     "snips": [
-      ""
+      "a:visited {   color: pink; }"
     ],
     "outputs": [
-      "a:visited\tSelects all visited links"
+      "The :visited selector is used to select visited links."
     ],
     "indicator": 0,
     "accepted": true,
@@ -3830,6 +3845,25 @@
     "id": "3714b112-7fba-4c0d-9ba9-ac2d0585a135",
     "group": "jQuery",
     "name": "$.makeArray",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "  let elem = document.getElementById(\"test\");   let cssObj = getComputedStyle(elem, null);"
+    ],
+    "outputs": [
+      "The getComputedStyle() method gets all the actual (computed) CSS property and values of the specified element.",
+      "The computed style is the style actually used in displaying the element, after \"stylings\" from multiple sources have been applied.",
+      "Style sources can include: internal style sheets, external style sheets, inherited styles and browser default styles.",
+      "The getComputedStyle() method returns a CSSStyleDeclaration object."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5eed29562aa08b36fc21f969",
+    "id": "dcfc73b5-445f-4c2c-9240-5af5a0a201cc",
+    "group": "Dom",
+    "name": "getComputedStyle",
     "helpPath": "",
     "__v": 0
   }

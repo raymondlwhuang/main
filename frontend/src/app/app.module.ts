@@ -54,7 +54,6 @@ import { DemoResolver } from './_store/resolvers/demo.resolver';
 import { CrudReducer } from './_store/reducers/crud.reducer';
 import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { CrudEffects } from './_store/effects/crud.effect';
-import { ArrayComponent } from './_components/library/javascript/array/array.component';
 import { UserSelectComponent } from './_components/library/angular/interaction/input-output/user-select/user-select.component';
 import { UserDetailComponent } from './_components/library/angular/interaction/input-output/user-detail/user-detail.component';
 import { ApplicationsComponent } from './_components/library/angular/interaction/input-output/applications/applications.component';
@@ -69,6 +68,7 @@ import { CombineComponent } from './_components/review-excercise/combine/combine
 import { ReviewExcerciseDirective } from './_directives/review-excercise.directive';
 import { FlexboxDirective } from './_directives/flexbox.directive';
 import { SqlComponent } from './_components/library/sql/sql.component';
+import { JavascriptNoteComponent } from './_components/library/javascript/javascript-note/javascript-note.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,6 @@ import { SqlComponent } from './_components/library/sql/sql.component';
     ArtComponent,
     PortfolioComponent,
     JavascriptComponent,
-    ArrayComponent,
     LoginComponent,
     CssComponent,
     JqueryComponent,
@@ -114,7 +113,8 @@ import { SqlComponent } from './_components/library/sql/sql.component';
     ReviewComponent,
     ExcerciseComponent,
     CombineComponent,
-    SqlComponent
+    SqlComponent,
+    JavascriptNoteComponent
   ],
   imports: [
     BrowserModule,

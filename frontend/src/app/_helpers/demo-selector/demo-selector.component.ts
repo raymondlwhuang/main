@@ -98,6 +98,7 @@ export class DemoSelectorComponent implements OnInit {
 
   renderNewResult(option?:any){
     this.parentClick.next(false);
+    this.htmlConsole('');
     let snip = '';
 //    let codeSnip = document.getElementsByClassName("code-snip");
     this.flag = option.value;

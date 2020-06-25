@@ -3866,5 +3866,22 @@
     "name": "getComputedStyle",
     "helpPath": "",
     "__v": 0
+  },
+  {
+    "snips": [
+      "const object1 = {   a: 'somestring',   b: 42,   c: false };",
+      "console.log(Object.keys(object1)); // expected output: Array [\"a\", \"b\", \"c\"]"
+    ],
+    "outputs": [
+      "returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef1095d2aa08b36fc21f96a",
+    "id": "056badaf-5f2c-44fa-be8b-898e82c06a42",
+    "group": "function",
+    "name": "Object.keys",
+    "helpPath": "",
+    "__v": 0
   }
 ]

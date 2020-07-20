@@ -14,6 +14,10 @@ import { CrudResolver } from './_store/resolvers/crud.resolver';
 import { LibraryAssetsComponent } from './_components/library-assets/library-assets.component';
 import { DemoResolver } from './_store/resolvers/demo.resolver';
 import { CssComponent } from './_components/library/css/css.component';
+import { SqlComponent } from './_components/library/sql/sql.component';
+import { JavaComponent } from './_components/library/java/java.component';
+import { PhpComponent } from './_components/library/php/php.component';
+import { ReactJsComponent } from './_components/library/react-js/react-js.component';
 
 const routes: Routes = [
   { path: '', component: EmploymentComponent},
@@ -25,7 +29,11 @@ const routes: Routes = [
   { path: 'library/jQuery', component: JqueryComponent },
   { path: 'library/Angular', component: AngularComponent,resolve: {cruds:CrudResolver}},
   { path: 'library/Rxjs', component: RxjsComponent },
+  { path: 'library/Reactjs', component: ReactJsComponent },
   { path: 'library/css', component: CssComponent},
+  { path: 'library/sql', component: SqlComponent},
+  { path: 'library/php', component: JavaComponent},
+  { path: 'library/java', component: PhpComponent},
   { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
   { path: 'login', component: LoginComponent },
     // otherwise redirect to home

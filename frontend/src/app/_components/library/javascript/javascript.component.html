@@ -47,10 +47,29 @@ e={a:1,b:2};
 mergedObj = {...d,...e}; //merging Object
 
 </textarea>
+<textarea rows="10">
+let obj = {
+    name: 'Max',
+    age: 27,
+    greet: ()=>console.log('Hello there!')
+};
+//let {name, greet: hello} = obj; //hello()
+let {name, greet} = obj;
+greet();
+console.log(name);
+</textarea>
+<textarea rows="10">
+let a = ['a','b','c','d'];
+let [x,y]=a;
+console.log(y); //Output b
+</textarea>
 </div>
-    </mat-tab>
+  </mat-tab>
     <mat-tab label="Others">
         <app-demo-selector [group]="'JsByVersion'"></app-demo-selector>
+  </mat-tab>
+  <mat-tab label="Javascript Tips"> 
+    <app-javascript-note></app-javascript-note>
   </mat-tab>
 
 </mat-tab-group>

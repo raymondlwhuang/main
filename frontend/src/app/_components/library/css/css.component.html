@@ -53,15 +53,19 @@
         </div><!-- class="demo-container" end-->
     </mat-tab>
     <mat-tab label="FlexBox"> 
-        <div appFlexbox class="demo-container">
-            <div appFlexItem class="add-border">
-                <h2>flex container properties</h2>
-                <app-demo-selector [group]="'Flexbox'"></app-demo-selector>
+        <div class="demo-container">
+            <div appFlexbox>
+                <div appFlexItem class="add-border">
+                    <h2>flex container properties</h2>
+                    <app-demo-selector [group]="'Flexbox'"></app-demo-selector>
+                </div>
+                <div appFlexItem class="add-border">
+                    <h2>flex item properties properties</h2>
+                    <app-demo-selector [group]="'FlexItem'"></app-demo-selector>
+                </div>
+    
             </div>
-            <div appFlexItem class="add-border">
-                <h2>flex item properties properties</h2>
-                <app-demo-selector [group]="'FlexItem'"></app-demo-selector>
-            </div>
+            <a href="http://flexboxfroggy.com/" target="_blank">Do your excercise here</a>
         </div>
     </mat-tab>    
     <mat-tab label="Pseudo Elements"> 

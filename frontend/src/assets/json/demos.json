@@ -3883,5 +3883,133 @@
     "name": "Object.keys",
     "helpPath": "",
     "__v": 0
+  },
+  {
+    "snips": [
+      "<input type=\"text\" name=\"txt\" value=\"Hello\" onchange=\"myFunction(this.value)\">"
+    ],
+    "outputs": [
+      "An HTML element has been changed"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4bfa7b2d6b916ec1d23bd",
+    "id": "c9b34fac-1f75-40f2-9ba7-017f9d81d6fc",
+    "group": "HTML Events",
+    "name": "onchange",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The user clicks an HTML element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4bfc3b2d6b916ec1d23be",
+    "id": "f498f834-1c86-40f5-a62c-a360f4e5fb78",
+    "group": "HTML Events",
+    "name": "onclick",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The user moves the mouse over an HTML element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4bfd9b2d6b916ec1d23bf",
+    "id": "d86ca036-e0be-4871-a579-dfdbcaf7b707",
+    "group": "HTML Events",
+    "name": "onmouseover",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The user moves the mouse away from an HTML element"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4bff1b2d6b916ec1d23c0",
+    "id": "24328f22-e0df-405a-bd80-8437942d88ea",
+    "group": "HTML Events",
+    "name": "onmouseout",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The user pushes a keyboard key"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4c007b2d6b916ec1d23c1",
+    "id": "55f3cbc4-7cf9-4c16-8bba-a2b170288b5b",
+    "group": "HTML Events",
+    "name": "onkeydown",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      ""
+    ],
+    "outputs": [
+      "The browser has finished loading the page"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4c01eb2d6b916ec1d23c2",
+    "id": "aa4ba092-753e-4343-93d3-0e3f68e3b61d",
+    "group": "HTML Events",
+    "name": "onload",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "event.preventDefault()"
+    ],
+    "outputs": [
+      "The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4c1c9b2d6b916ec1d23c3",
+    "id": "fa8d781b-4c00-43b3-be32-b2951fa62e72",
+    "group": "HTML Events",
+    "name": "preventDefault",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "event.stopPropagation()"
+    ],
+    "outputs": [
+      "The stopPropagation() method prevents propagation of the same event from being called."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5ef4c21ab2d6b916ec1d23c4",
+    "id": "e81817fb-9fc3-4ccd-8b75-1ab057f131ef",
+    "group": "HTML Events",
+    "name": "stopPropagation",
+    "helpPath": "",
+    "__v": 0
   }
 ]

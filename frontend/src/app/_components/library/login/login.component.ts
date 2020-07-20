@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
                 data => {
                     this.router.navigate([this.returnUrl]);
                     this.authenticationService.isLoggedIn$.next(true);
+                    this.loading = false;
                 },
                 error => {
                     this.error = error;

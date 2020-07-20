@@ -1,17 +1,25 @@
-<h1>Javascript Tips</h1>
+<h1 class="center">Javascript Tips</h1>
 <ul class="demo-container">
     <li>The rest parameters must be at the end</li>
     <li>arguments is an Array-like object accessible inside functions that contains the values of the arguments passed to that function.</li>
   </ul>
-  <h2>Selectors</h2>
-  <ul class="demo-container">
-    <li>document.getElementById("demo"); //Get the element with the specified ID:</li>
-    <li>document.getElementsByClassName("example"); //Get all elements with the specified class name</li>
-    <li>document.getElementsByName("fname"); //Get all elements with the specified name</li>
-    <li>document.getElementsByTagName("LI"); //Get all elements in the document with the specified tag name</li>
-    <li>document.querySelector(".example"); //Get the first element in the document with class="example"</li>
-    <li>document.querySelectorAll(".example"); //Get all elements in the document with class="example"</li>
-    <li>window.getComputedStyle(document.getElementById("test"), ":first-letter").getPropertyValue("font-size");</li>
-  </ul>
-  <h2>Regular Expression</h2>
-  <app-demo-selector [group]="'RegExp'"></app-demo-selector>
+  <div class="demo-container">
+    <h2>Selectors</h2>
+    <ul class="demo-container">
+      <li>document.getElementById("demo"); //Get the element with the specified ID:</li>
+      <li>document.getElementsByClassName("example"); //Get all elements with the specified class name</li>
+      <li>document.getElementsByName("fname"); //Get all elements with the specified name</li>
+      <li>document.getElementsByTagName("LI"); //Get all elements in the document with the specified tag name</li>
+      <li>document.querySelector(".example"); //Get the first element in the document with class="example"</li>
+      <li>document.querySelectorAll(".example"); //Get all elements in the document with class="example"</li>
+      <li>window.getComputedStyle(document.getElementById("test"), ":first-letter").getPropertyValue("font-size");</li>
+    </ul>
+  </div>
+  <div class="demo-container">
+    <h2>Regular Expression</h2>
+    <app-demo-selector [group]="'RegExp'"></app-demo-selector>
+  </div>
+  <div class="demo-container">
+    <h2>Events</h2>
+    <app-demo-selector [group]="'HTML Events'"></app-demo-selector>
+  </div>

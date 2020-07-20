@@ -30,3 +30,5 @@ npm install -g @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools @ngrx
 //upgrad to version 9
 npm install --no-save @angular/cli@^8.3.15
 ng update @angular/cli @angular/core --next
+
+ng g c _components/setup-steps --flat=true --skipTests=true

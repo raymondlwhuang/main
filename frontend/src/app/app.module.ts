@@ -69,6 +69,10 @@ import { ReviewExcerciseDirective } from './_directives/review-excercise.directi
 import { FlexboxDirective } from './_directives/flexbox.directive';
 import { SqlComponent } from './_components/library/sql/sql.component';
 import { JavascriptNoteComponent } from './_components/library/javascript/javascript-note/javascript-note.component';
+import { SetupStepsComponent } from './_components/setup-steps.component';
+import { PhpComponent } from './_components/library/php/php.component';
+import { JavaComponent } from './_components/library/java/java.component';
+import { ReactJsComponent } from './_components/library/react-js/react-js.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +118,11 @@ import { JavascriptNoteComponent } from './_components/library/javascript/javasc
     ExcerciseComponent,
     CombineComponent,
     SqlComponent,
-    JavascriptNoteComponent
+    JavascriptNoteComponent,
+    SetupStepsComponent,
+    PhpComponent,
+    JavaComponent,
+    ReactJsComponent
   ],
   imports: [
     BrowserModule,

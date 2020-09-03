@@ -4011,5 +4011,209 @@
     "name": "stopPropagation",
     "helpPath": "",
     "__v": 0
+  },
+  {
+    "snips": [
+      "  constructor(props) {     super(props);     this.state = {favoritecolor: \"red\"};   }"
+    ],
+    "outputs": [
+      "The constructor() method is called before anything else, when the component is initiated, and it is the natural place to set up the initial state and other initial values.",
+      "The constructor() method is called with the props, as arguments, and you should always start by calling the super(props) before anything else, this will initiate the parent's constructor method and allows the component to inherit methods from its parent (React.Component)."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32a77fc7c5c32030073081",
+    "id": "6247cd36-f4cb-42d0-a329-720cfe6f95dd",
+    "group": "reactLifeCycle",
+    "name": "constructor",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "static getDerivedStateFromProps(props, state) {     return {favoritecolor: props.favcol };   }"
+    ],
+    "outputs": [
+      "The getDerivedStateFromProps() method is called right before rendering the element(s) in the DOM.",
+      "This is the natural place to set the state object based on the initial props.",
+      "It takes state as an argument, and returns an object with changes to the state.",
+      "Also at updates the getDerivedStateFromProps method is called. This is the first method that is called when a component gets updated."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32a832c7c5c32030073082",
+    "id": "58f815fb-4c08-4ed9-95d4-d964251d6cc8",
+    "group": "reactLifeCycle",
+    "name": "getDerivedStateFromProps",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "render() {     return (       <h1>This is the content of the Header component</h1>     );   }"
+    ],
+    "outputs": [
+      "The render() method is required, and is the method that actual outputs HTML to the DOM.",
+      "called when a component gets updated, it has to re-render the HTML to the DOM, with the new changes."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32a86ac7c5c32030073083",
+    "id": "7a8f50e4-76fd-4651-bbd1-41f08fe4dcb8",
+    "group": "reactLifeCycle",
+    "name": "render",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "componentDidMount() {     setTimeout(() => {       this.setState({favoritecolor: \"yellow\"})     }, 1000)   }"
+    ],
+    "outputs": [
+      "The componentDidMount() method is called after the component is rendered.",
+      "This is where you run statements that requires that the component is already placed in the DOM."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32a8a3c7c5c32030073084",
+    "id": "81dfc882-442a-4fe2-a1ae-7a129f14eb8c",
+    "group": "reactLifeCycle",
+    "name": "componentDidMount",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "shouldComponentUpdate() {     return false;   }"
+    ],
+    "outputs": [
+      "In the shouldComponentUpdate() method you can return a Boolean value that specifies whether React should continue with the rendering or not.",
+      "The default value is true."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32a980c7c5c32030073085",
+    "id": "0bbcb2b7-9535-4e61-a4cf-c4f62aa5b698",
+    "group": "reactLifeCycle",
+    "name": "shouldComponentUpdate",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "getSnapshotBeforeUpdate(prevProps, prevState) {     document.getElementById(\"div1\").innerHTML =     \"Before the update, the favorite was \" + prevState.favoritecolor;   }"
+    ],
+    "outputs": [
+      "In the getSnapshotBeforeUpdate() method you have access to the props and state before the update, meaning that even after the update, you can check what the values were before the update.",
+      "If the getSnapshotBeforeUpdate() method is present, you should also include the componentDidUpdate() method, otherwise you will get an error."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32aa01c7c5c32030073086",
+    "id": "4710db52-a715-4a7c-a05f-7d39c5dbeb44",
+    "group": "reactLifeCycle",
+    "name": "getSnapshotBeforeUpdate",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "componentDidUpdate() {     document.getElementById(\"mydiv\").innerHTML =     \"The updated favorite is \" + this.state.favoritecolor;   }"
+    ],
+    "outputs": [
+      "The componentDidUpdate method is called after the component is updated in the DOM."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32aa64c7c5c32030073087",
+    "id": "f6da6431-b229-4b58-81b1-df643b8d02ed",
+    "group": "reactLifeCycle",
+    "name": "componentDidUpdate",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "componentWillUnmount() {     alert(\"The component named Header is about to be unmounted.\");   }"
+    ],
+    "outputs": [
+      "The componentWillUnmount method is called when the component is about to be removed from the DOM."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32aa90c7c5c32030073088",
+    "id": "daf32d2a-47cf-4a20-9a14-ebc6fbf33f1e",
+    "group": "reactLifeCycle",
+    "name": "componentWillUnmount",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const [age, setAge] = useState(42);",
+      "const [name,setName] = useState({firstName:\"Raymond\",lastName:\"Huang\"});",
+      "const [name,setName] = useState({firstName:\"Raymond\",lastName:\"Huang\"});",
+      "<button onClick={()=>setName({...name,firstName:\"Simon\"})}>{name.firstName} {name.lastName}</button>"
+    ],
+    "outputs": [
+      "useState returns a pair: the current state value and a function that lets you update it.",
+      "You can call this function from an event handler or somewhere else. It’s similar to this.setState in a class, except it doesn’t merge the old and new state together."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32aed4c7c5c32030073089",
+    "id": "8ecfbd82-3d53-4760-9ac0-2bba5287c16c",
+    "group": "reactHooks",
+    "name": "useState",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "  useEffect(() => {     document.title = `Clicked ${count} times`;   }, [count]);"
+    ],
+    "outputs": [
+      "adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32b632c7c5c3203007308a",
+    "id": "5a6ffb3a-576e-46f5-b41a-2565d998b775",
+    "group": "reactHooks",
+    "name": "useEffect",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const locale = useContext(LocaleContext);"
+    ],
+    "outputs": [
+      " lets you subscribe to React context without introducing nesting"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32b692c7c5c3203007308b",
+    "id": "9f003b27-c8d3-43c8-9849-36b7f2c815d8",
+    "group": "reactHooks",
+    "name": "useContext",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const [todos, dispatch] = useReducer(todosReducer);"
+    ],
+    "outputs": [
+      "lets you manage local state of complex components with a reducer"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32b6e3c7c5c3203007308c",
+    "id": "1f7e05f0-e32c-44b9-b970-c6fb29123b87",
+    "group": "reactHooks",
+    "name": "useReducer",
+    "helpPath": "",
+    "__v": 0
   }
 ]

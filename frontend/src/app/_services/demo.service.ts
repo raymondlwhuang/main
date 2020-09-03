@@ -10,6 +10,7 @@ import { UtilsService } from './utils.service';
   providedIn: 'root'
 })
 export class DemoService {
+   //use this as a initial state due to not yet working on PHP back end and mongoDB is not connected
   private _url : string = environment.helpUrl + '/json/demos.json';
   private _helpUrl : string = environment.helpUrl + '/help/';
 

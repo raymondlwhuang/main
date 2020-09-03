@@ -1,8 +1,8 @@
 <mat-tab-group>
     <mat-tab label="REVIEW"> 
-        <app-excercise></app-excercise>
-        <app-review></app-review>
-        <app-combine></app-combine>
+        <app-excercise (user)="setSelectedUser($event)"></app-excercise>
+        <app-review [user]="user"></app-review>
+        <app-combine [user]="user"></app-combine>
     </mat-tab>
     <mat-tab label="EXCERCISE"> 
         <app-excercise></app-excercise>

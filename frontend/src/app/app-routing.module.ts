@@ -32,8 +32,8 @@ const routes: Routes = [
   { path: 'library/Reactjs', component: ReactJsComponent },
   { path: 'library/css', component: CssComponent},
   { path: 'library/sql', component: SqlComponent},
-  { path: 'library/php', component: JavaComponent},
-  { path: 'library/java', component: PhpComponent},
+  { path: 'library/php', component: PhpComponent},
+  { path: 'library/java', component: JavaComponent},
   { path: 'assets', component: LibraryAssetsComponent,resolve: {demos:DemoResolver} },
   { path: 'login', component: LoginComponent },
     // otherwise redirect to home

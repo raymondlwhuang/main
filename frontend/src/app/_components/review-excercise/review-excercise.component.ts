@@ -12,7 +12,9 @@ export class ReviewExcerciseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  setSelectedUser(event){
+  setSelectedUser(event) {
+    console.log(event);
     this.user = {...event};
   }
+
 }

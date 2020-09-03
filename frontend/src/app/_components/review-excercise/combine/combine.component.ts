@@ -8,19 +8,23 @@ import { Application } from 'src/app/_models/application';
   templateUrl: './combine.component.html',
   styleUrls: ['./combine.component.css']
 })
-export class CombineComponent implements OnInit {
+export class CombineComponent implements OnInit,OnChanges {
+  @Input() user : User;
   applications : Application[];
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {
-    this.userService.user$.subscribe(data=>{
-      this.userService.getApplicationIdsForUser(data.email).subscribe(ids=>{
+  }
+  ngOnChanges(){
+    if(this.user) {
+      this.userService.getApplicationIdsForUser(this.user.email).subscribe(ids=>{
         this.applications = [];
         ids.forEach(item=>{
           this.userService.getApplication(item).subscribe(app=>this.applications.push(app));
         })
       });
-    })
-  }
+  
+    }
 
+  }
 }

@@ -9,7 +9,7 @@ import { Crud } from '../_models/crud';
   providedIn: 'root'
 })
 export class CrudService {
-  cruds: Crud[] = [
+  cruds: Crud[] = [ //use this as a initial state due to not yet working on PHP back end and mongoDB is not connected
     {id: '1', name: 'Lorem ipsum dolor sit amet',description:'Donec fringilla mattis metus, ut dictum quam venenatis ut. Aliquam non purus dictum, tempus tortor'},
     {id:'2',name:'Nam sagittis vitae ex in eleifend. Nullam vitae enim',description:'In faucibus sagittis condimentum. Etiam pulvinar ligula in lacinia ullamcorper'},
     {id:'3',name:'ante scelerisque finibus. Phasellus ac',description:'nulla sit amet, sagittis nibh. Integer interdum blandit magna'}

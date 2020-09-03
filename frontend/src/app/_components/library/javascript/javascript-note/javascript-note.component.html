@@ -15,6 +15,36 @@
       <li>window.getComputedStyle(document.getElementById("test"), ":first-letter").getPropertyValue("font-size");</li>
     </ul>
   </div>
+  <div appFlexbox class="demo-container">        
+    <textarea rows="10">
+      let number = 10;
+
+      function increase(number) {
+        number++;
+      }
+      increase(number);
+      console.log(number); //output will be 10
+      let obj = {value:10};
+
+      function increase1(obj) {
+        obj.value++;
+      }
+      increase1(obj);
+      console.log(obj);     //output will be {value : 11}  
+    </textarea>
+    <textarea rows="10">
+      str1 = "Hello";
+      typeof str1 is string;
+      str2 = new String("Hello");
+      typeof str2 is object
+    </textarea>
+    <textarea rows="10">
+      primitive type variable:
+        number, string, null, boolean, Symbol, undefined
+      Reference Type variable:
+        object, array, function
+    </textarea>
+  </div>    
   <div class="demo-container">
     <h2>Regular Expression</h2>
     <app-demo-selector [group]="'RegExp'"></app-demo-selector>

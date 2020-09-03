@@ -9,6 +9,7 @@ export class EmploymentService {
 
   constructor() { }
   getEmploymentDetail() : Employment[]{
+     //use this as a initial state due to not yet working on PHP back end and mongoDB is not connected
     return [
       {
         company: 'Asigra Ltd.',

@@ -9,16 +9,15 @@ import { UserService } from 'src/app/_services/user.service';
   styleUrls: ['./excercise.component.css']
 })
 export class ExcerciseComponent implements OnInit {
-  //@Output() user : EventEmitter<User> = new EventEmitter();
-  selectedOption : User;
+  @Output() user = new EventEmitter<User>();
   users : User[];
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
+  selectedOpt : User;
+  constructor(private userService : UserService){}
+  ngOnInit(){
     this.userService.getUsers().subscribe(data=>this.users=data);
   }
   onSelectChange(){
-    //this.user.emit(this.selectedOption);
-    this.userService.user$.next(this.selectedOption);
+    console.log("this is testing");
+    this.user.emit(this.selectedOpt);
   }
 }

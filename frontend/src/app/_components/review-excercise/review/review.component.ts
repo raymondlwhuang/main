@@ -8,10 +8,9 @@ import { UserService } from 'src/app/_services/user.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  userDetail : User;
-  constructor(private userService : UserService) { }
-
+  @Input() user : User;
+ 
   ngOnInit(): void {
-    this.userService.user$.subscribe(data=>this.userDetail=data);
   }
+
 }

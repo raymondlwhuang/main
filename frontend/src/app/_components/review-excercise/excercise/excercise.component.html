@@ -1,6 +1,5 @@
-<div *ngIf="users">
-    <select name="" id="" [(ngModel)]="selectedOption" (change)="onSelectChange()">
+<div *ngIf="users" >
+    <select [(ngModel)]="selectedOpt" (change)="onSelectChange()">
         <option *ngFor="let user of users" [ngValue]="user">{{user.firstName}}</option>
     </select>
-
 </div>

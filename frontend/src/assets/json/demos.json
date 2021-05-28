@@ -436,7 +436,7 @@
       "printFullName.apply(name,[\"Markham\",\"Ontario\"]);"
     ],
     "outputs": [
-      "invoke a function as a method of an object",
+      "calls a function with a given this value, and arguments provided as an array (or an array-like object)",
       "Roger Huang is living in Markham, Ontario  //Output of example code snip"
     ],
     "indicator": 0,
@@ -4213,6 +4213,227 @@
     "id": "1f7e05f0-e32c-44b9-b970-c6fb29123b87",
     "group": "reactHooks",
     "name": "useReducer",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const regex1 = RegExp('foo*', 'g');",
+      "const str1 = 'table football, foosball';",
+      "let array1;",
+      "while ((array1 = regex1.exec(str1)) !== null) {",
+      "console.log(`Found ${array1[0]}. Next starts at ${regex1.lastIndex}.`);",
+      "}"
+    ],
+    "outputs": [
+      "executes a search for a match in a specified string. Returns a result array, or null."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32f408c7c5c3203007308d",
+    "id": "01df41e7-b350-4509-a0c4-dff4bbf8295f",
+    "group": "RegExp",
+    "name": "exec",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';",
+      "const regex = /[A-Z]/g;",
+      "const found = paragraph.match(regex);",
+      "console.log(found);"
+    ],
+    "outputs": [
+      "retrieves the result of matching a string against a regular expression."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32f48bc7c5c3203007308e",
+    "id": "cc5bba16-bc3a-43d3-8928-fb4ffa855d7b",
+    "group": "RegExp",
+    "name": "match",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const regexp = /t(e)(st(\\d?))/g;",
+      "const str = 'test1test2';",
+      "const array = [...str.matchAll(regexp)];",
+      "console.log(array[0]); //expected output: Array [\"test1\", \"e\", \"st1\", \"1\"]",
+      "console.log(array[1]); // expected output: Array [\"test2\", \"e\", \"st2\", \"2\"]"
+    ],
+    "outputs": [
+      "returns an iterator of all results matching a string against a regular expression, including capturing groups."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32f570c7c5c3203007308f",
+    "id": "fd9bc57d-f2f1-4350-877b-8e7b5385b78c",
+    "group": "RegExp",
+    "name": "matchAll",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "const str = 'The quick brown fox jumps over the lazy dog.';",
+      "const words = str.split(' ');",
+      "console.log(words[3]); // expected output: \"fox\""
+    ],
+    "outputs": [
+      "divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f32f5e1c7c5c32030073090",
+    "id": "aac26464-586e-466f-ac72-9e41a29e1d76",
+    "group": "RegExp",
+    "name": "split",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "document.getElementById(\"myDIV\").classList.add(\"mystyle\");"
+    ],
+    "outputs": [
+      "The classList property returns the class name(s) of an element, as a DOMTokenList object.",
+      "This property is useful to add, remove and toggle CSS classes on an element.",
+      "The classList property is read-only, however, you can modify it by using the add() and remove() methods."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f4d56de5f108b05ecc4ca3d",
+    "id": "04976c7b-ed1d-4cff-befa-850d5d54dfd1",
+    "group": "Dom",
+    "name": "classList",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "document.getElementById(\"myDIV\").className = \"mystyle\";"
+    ],
+    "outputs": [
+      "The className property sets or returns the class name of an element (the value of an element's class attribute)."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f4d57565f108b05ecc4ca3e",
+    "id": "0d83a9ac-2aef-4e6f-8ea8-28248006e20e",
+    "group": "Dom",
+    "name": "className",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"];",
+      "fruits.unshift(\"Lemon\", \"Pineapple\");",
+      "console.log(fruits); //[\"Lemon\", \"Pineapple\", \"Banana\", \"Orange\", \"Apple\", \"Mango\"]"
+    ],
+    "outputs": [
+      "adds new items to the beginning of an array, and returns the new length."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50ee805f108b05ecc4ca3f",
+    "id": "437970da-1848-4b01-944f-322b557a4475",
+    "group": "array",
+    "name": "unshift",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let hege = [\"Cecilie\", \"Lone\"]; ",
+      "let stale = [\"Emil\", \"Tobias\", \"Linus\"]; ",
+      "let children = hege.concat(stale);"
+    ],
+    "outputs": [
+      "used to join two or more arrays",
+      "This method does not change the existing arrays, but returns a new array, containing the values of the joined arrays."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50f0925f108b05ecc4ca40",
+    "id": "07cfd967-9e98-4500-852a-54f307c2edf6",
+    "group": "array",
+    "name": "concat",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"]; ",
+      "fruits.copyWithin(2, 0); //Banana,Orange,Banana,Orange"
+    ],
+    "outputs": [
+      "Copies array elements to another position in the array, overwriting the existing values.",
+      "This method will never add more items to the array."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50f4f05f108b05ecc4ca41",
+    "id": "da5d40ba-f6b3-4810-8cda-0b023579d9d7",
+    "group": "array",
+    "name": "copyWithin",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let ages = [32, 33, 16, 40];  ",
+      "function checkAdult(age) {   return age >= 18; }",
+      "console.log(ages.every(checkAdult)) ; //return false"
+    ],
+    "outputs": [
+      "executes the function once for each element present in the array",
+      "If it finds an array element where the function returns a false value, every() returns false otherwise returns true"
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50f8835f108b05ecc4ca42",
+    "id": "fe112421-6922-452f-8342-20d7b1c0f2b8",
+    "group": "array",
+    "name": "every",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"]; ",
+      "fruits.fill(\"Kiwi\"); // Kiwi,Kiwi,Kiwi,Kiwi"
+    ],
+    "outputs": [
+      "fills the specified elements in an array with a static value."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50f96c5f108b05ecc4ca43",
+    "id": "1f5ef158-7344-413d-ab6e-7f6b65dc0932",
+    "group": "array",
+    "name": "fill",
+    "helpPath": "",
+    "__v": 0
+  },
+  {
+    "snips": [
+      "let fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"]; ",
+      "let energy = fruits.join(\" \"); //Banana Orange Apple Mango"
+    ],
+    "outputs": [
+      "returns the array as a string",
+      "The elements will be separated by a specified separator. The default separator is comma (,)."
+    ],
+    "indicator": 0,
+    "accepted": true,
+    "_id": "5f50fa755f108b05ecc4ca44",
+    "id": "df41bf0c-9802-4ad8-826b-fa0a2b375421",
+    "group": "array",
+    "name": "join",
     "helpPath": "",
     "__v": 0
   }
